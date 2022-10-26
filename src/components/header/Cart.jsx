@@ -11,7 +11,7 @@ const Cart = ({ count, deleteFunc }) => {
             <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {cartIcon} <span id="productsInCart">{count}</span>
             </button>
-            <ul className="dropdown-menu ps-2">
+            <ul id="purchaseList" className="dropdown-menu ps-2">
                 <li className='dropdown-item'>Sample</li>
                 <li><button className='btn btn-danger' onClick={deleteFunc}>Empty</button></li>
             </ul>

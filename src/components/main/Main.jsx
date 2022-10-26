@@ -13,15 +13,15 @@ const Main = ({ countFunc }) => {
     
     return (
         <main style={style}>
-            {bandsData.map(b => (
+            {bandsData.map(b => 
                 <BandCard
-                    key={b.bandId}
-                    bandId={b.bandId}
-                    bandName={b.bandName}
-                    bandImg={b.bandImg}
+                    key={b.id}
+                    id={b.id}
+                    name={b.name}
+                    img={b.img}
+                    price={b.price}
                     countFunc={countFunc}
-                />
-                )
+                />   
             )}
         </main>
     )

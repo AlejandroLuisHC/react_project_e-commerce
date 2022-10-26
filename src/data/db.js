@@ -3,14 +3,16 @@ import grimnerPic from '../assets/img/bands_img/grimner.jpg';
 
 export const bandsData = [
     {
-        bandId: 1,
-        bandName: "Judas Priest",
-        bandImg: judasPic,
+        id: 1,
+        name: "Judas Priest",
+        img: judasPic,
+        price: 30,
     },
     {
-        bandId: 2,
-        bandName: "Grimner",
-        bandImg: grimnerPic,
+        id: 2,
+        name: "Grimner",
+        img: grimnerPic,
+        price: 20,
     },
 ]
 

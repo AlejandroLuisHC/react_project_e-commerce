@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const BandCard = ({ countFunc, bandId, bandName, bandImg }) => {
+const BandCard = ({ countFunc, id, name, img, price}) => {
     const bandCard = {
         width: "100%",
         height: "200px",
@@ -22,12 +22,13 @@ const BandCard = ({ countFunc, bandId, bandName, bandImg }) => {
         color: "white",
         textShadow: "0 0 15px black"
     }
+    const addProduct = () => countFunc(name, price);
     
     return (
-        <div id={bandId} onClick={countFunc} className="card" style={bandCard}>
-            <img src={bandImg} style={bandPic} className="card-img-top" alt={bandName} />
+        <div id={id} onClick={addProduct} className="card" style={bandCard}>
+            <img src={img} style={bandPic} className="card-img-top" alt={name} />
             <div className="position-absolute top-50 d-flex align-items-center justify-content-center card-body">
-                <h3 className="card-title" style={label}>{bandName}</h3>
+                <h3 className="card-title" style={label}>{name}</h3>
             </div>
         </div>
     )
