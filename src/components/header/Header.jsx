@@ -9,7 +9,6 @@ const Header = ({ count, deleteFunc }) => {
     }
 
     return (
-        <>
         <header style={style}>
             <NavBar 
                 count={count} 
@@ -18,7 +17,6 @@ const Header = ({ count, deleteFunc }) => {
             />
             <Hero />
         </header>
-        </>
     )
 }
 
