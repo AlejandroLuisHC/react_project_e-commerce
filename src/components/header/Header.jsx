@@ -14,6 +14,7 @@ const Header = ({ count, deleteFunc }) => {
             <NavBar 
                 count={count} 
                 deleteFunc={deleteFunc}
+                // items={items}
             />
             <Hero />
         </header>

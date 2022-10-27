@@ -8,7 +8,7 @@ const NavBar = ({ count, deleteFunc }) => {
         height: "54px",
         display: "grid",
         padding: "0 0 0 40px",
-        gridTemplateColumns: "1fr 8fr 1fr"
+        gridTemplateColumns: "1fr 4fr 1fr"
     }
 
     return (
@@ -19,6 +19,7 @@ const NavBar = ({ count, deleteFunc }) => {
                 <Cart 
                     count={count}
                     deleteFunc={deleteFunc} 
+                    // items={items}
                 />           
             </div> 
         </nav>

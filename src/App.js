@@ -1,56 +1,39 @@
 import { useState } from 'react';
 import Header from "./components/header/Header";
 import Main from "./components/main/Main";
-import { notBuy } from './utils/functions';
 
 function App() {
-  const purchaseList = document.getElementById('purchaseList');
+    let [items, setItems] = useState([]);
+    
+    localStorage.setItem('items', JSON.stringify(items));
 
-  const [count, setCount] = useState();
-
-  const countFunc = (productname, price) => {
-      if (isNaN(count)) {
-          setCount(1);
-          let item = document.createElement('li');
-          item.style.display = 'flex';
-          item.style.gap = '5px';
-          item.className = 'dropdown-item';
-          item.textContent = `${productname} - ${price}€`
-          
-          let eraseItem = document.createElement('button');
-          let eraseFunc = () => notBuy(this);
-          eraseItem.onClick = eraseFunc;
-          eraseItem.innerHTML = <i class="bi bi-trash"></i>;
-          item.append(eraseItem);
-
-          purchaseList.prepend(item);
-
-
-      } else {
-          setCount(parseInt(count) + 1);
-      }
-          
+    const storeItems = (id, name, price) => {
+        let i = JSON.parse(localStorage.getItem('items'));
+        i.push({
+            id: Math.floor(Math.random() * 1000), 
+            name,
+            price
+        })
+        setItems(i);
+        localStorage.setItem('items', JSON.stringify(i));
     }
 
-  const deleteFunc = () => {
-      setCount();
-      while (purchaseList.childNodes.length > 1) {
-          purchaseList.removeChild(purchaseList.firstChild);
-      }
-      localStorage.removeItem('cartItems');
-  }
+    const deleteFunc = () => {
+        localStorage.removeItem('items');
+        setItems([]);
+    }
 
-  return (
-      <>
-          <Header 
-              count={count}
-              deleteFunc={deleteFunc}
-          />
-          <Main 
-              countFunc={countFunc}
-          />
-      </>
-  );
+    return (
+        <>
+            <Header 
+                count={JSON.parse(localStorage.getItem('items')).length}
+                deleteFunc={deleteFunc}
+            />
+            <Main 
+                store={storeItems}
+            />
+        </>
+    );
 }
 
 export default App;

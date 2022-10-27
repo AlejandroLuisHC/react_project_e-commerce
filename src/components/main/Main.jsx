@@ -1,8 +1,7 @@
-import React from 'react';
 import BandCard from './bands_cards/BandCard';
 import { bandsData } from '../../data/db';
 
-const Main = ({ countFunc }) => {
+const Main = ({ countFunc, store }) => {
     const style = {
         marginTop: "30px",
         gridColumn: "2",
@@ -21,6 +20,7 @@ const Main = ({ countFunc }) => {
                     img={b.img}
                     price={b.price}
                     countFunc={countFunc}
+                    store={store}
                 />   
             )}
         </main>
