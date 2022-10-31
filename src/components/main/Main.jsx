@@ -14,11 +14,11 @@ const Main = ({ store }) => {
         <main style={style}>
             {bandsData.map(b => 
                 <BandCard key = {b.id}
-                    id      ={b.id}
-                    name    ={b.name}
-                    img     ={b.img}
-                    price   ={b.price}
-                    store   ={store}
+                    id      = {b.id}
+                    name    = {b.name}
+                    img     = {b.img}
+                    price   = {b.price}
+                    store   = {store}
                 />   
             )}
         </main>
