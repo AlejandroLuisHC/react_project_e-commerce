@@ -1,5 +1,5 @@
 import React from 'react';
-import Cart from './Cart/Cart';
+import ShoppingCart from './ShoppingCart/ShoppingCart';
 import SearchBar from './SearchBar';
 import logo from '../../assets/img/logo.svg';
 
@@ -16,7 +16,7 @@ const NavBar = ({ add, sub, deleteFunc }) => {
             <div className="container-fluid" style={navGrid}>
                 <a className="navbar-brand" href="./index.js"><img src={logo} alt="logo" /></a>
                 <SearchBar />
-                <Cart 
+                <ShoppingCart 
                     deleteFunc  = {deleteFunc} 
                     add         = {add}
                     sub         = {sub}
