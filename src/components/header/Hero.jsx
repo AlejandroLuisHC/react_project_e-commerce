@@ -8,7 +8,7 @@ const Hero = () => {
     const photoStyle  = {
         maxHeight: "210px",
         objectFit: "cover",
-        objectPosition: "50% 67%"
+        objectPosition: "50% 64%"
     }
     const label = {
         fontSize: "3em",

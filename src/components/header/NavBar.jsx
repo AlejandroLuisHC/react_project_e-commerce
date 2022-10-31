@@ -1,9 +1,9 @@
 import React from 'react';
-import Cart from './Cart';
+import Cart from './Cart/Cart';
 import SearchBar from './SearchBar';
 import logo from '../../assets/img/logo.svg';
 
-const NavBar = ({ count, deleteFunc }) => {
+const NavBar = ({ add, sub, deleteFunc }) => {
     const navGrid = {
         height: "54px",
         display: "grid",
@@ -17,9 +17,9 @@ const NavBar = ({ count, deleteFunc }) => {
                 <a className="navbar-brand" href="./index.js"><img src={logo} alt="logo" /></a>
                 <SearchBar />
                 <Cart 
-                    count={count}
-                    deleteFunc={deleteFunc} 
-                    // items={items}
+                    deleteFunc  = {deleteFunc} 
+                    add         = {add}
+                    sub         = {sub}
                 />           
             </div> 
         </nav>
