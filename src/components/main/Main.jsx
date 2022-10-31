@@ -1,7 +1,7 @@
 import BandCard from './bands_cards/BandCard';
 import { bandsData } from '../../data/db';
 
-const Main = ({ countFunc, store }) => {
+const Main = ({ store }) => {
     const style = {
         marginTop: "30px",
         gridColumn: "2",
@@ -13,14 +13,12 @@ const Main = ({ countFunc, store }) => {
     return (
         <main style={style}>
             {bandsData.map(b => 
-                <BandCard
-                    key={b.id}
-                    id={b.id}
-                    name={b.name}
-                    img={b.img}
-                    price={b.price}
-                    countFunc={countFunc}
-                    store={store}
+                <BandCard key = {b.id}
+                    id      ={b.id}
+                    name    ={b.name}
+                    img     ={b.img}
+                    price   ={b.price}
+                    store   ={store}
                 />   
             )}
         </main>

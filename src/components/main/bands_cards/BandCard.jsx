@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const BandCard = ({ countFunc, store, id, name, img, price }) => {
+const BandCard = ({ store, id, name, img, price }) => {
     const bandCard = {
         width: "100%",
         height: "200px",
@@ -23,7 +23,6 @@ const BandCard = ({ countFunc, store, id, name, img, price }) => {
         textShadow: "0 0 15px black"
     }
     const addProduct = () => {
-        // countFunc();
         store(id, name, price);
     }
     
