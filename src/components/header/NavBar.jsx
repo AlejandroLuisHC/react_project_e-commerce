@@ -7,7 +7,7 @@ const NavBar = ({ setItems, deleteFunc, items }) => {
     const navGrid = {
         height: "54px",
         display: "grid",
-        padding: "0 0 0 40px",
+        padding: "0 10px 0 40px",
         gridTemplateColumns: "1fr 4fr 1fr"
     }
 

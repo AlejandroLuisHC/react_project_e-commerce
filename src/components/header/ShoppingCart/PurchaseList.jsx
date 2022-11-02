@@ -11,7 +11,7 @@ const PurchaseList = ({ setItems, quantity, id, name, price, items }) => {
         fontSize: "13px",
         borderRadius: "5px",
         width: "20px",
-        backgroundColor: "rgba(56, 57, 65, .6)",
+        backgroundColor: "rgb(136, 137, 145)",
         cursor: "pointer",  
     }
 
