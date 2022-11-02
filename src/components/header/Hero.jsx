@@ -11,7 +11,7 @@ const Hero = () => {
         objectPosition: "50% 64%"
     }
     const label = {
-        fontSize: "3em",
+        fontSize: "4vw",
         fontWeight: "bold",
         color: "white",
         textShadow: "1px 1px 8px rgba(0, 0, 0, 1)"

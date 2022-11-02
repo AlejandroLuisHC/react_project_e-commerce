@@ -18,14 +18,14 @@ const BandCard = ({ store, items, id, name, img, price }) => {
     }
     const label = {
         fontWeight: "bold",
-        fontSize: "3em",
+        fontSize: "3vw",
         color: "white",
         textShadow: "0 0 15px black"
     }
     const priceTag = {
         fontWeight: "bold",
-        borderRadius: "20px",
-        fontSize: "2.5em",
+        borderRadius: "2vw",
+        fontSize: "2vw",
         boxShadow: "0 0 15px black",
         transform: "rotate(-10deg)"
     }

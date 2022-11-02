@@ -6,7 +6,7 @@ const Main = ({ store, items }) => {
         marginTop: "30px",
         gridColumn: "2",
         display: "grid",
-        gridTemplateColumns: "1fr 1fr",
+        gridTemplate: "repeat(auto-fill, 200px) / 1fr 1fr",
         gap: "30px"
     }
     
