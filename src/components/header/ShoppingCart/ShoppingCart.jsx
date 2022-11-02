@@ -1,16 +1,15 @@
 import PurchaseList from './PurchaseList';
 import { Cart } from 'react-bootstrap-icons';
-const ShoppingCart = ({ add, sub, deleteFunc }) => {
-    const itemsList = JSON.parse(localStorage.getItem('items'));
+const ShoppingCart = ({ setItems, deleteFunc, items }) => {
     let total = 0; 
-    itemsList.forEach(i => {
+    items.forEach(i => {
         total += i.quantity;   
     })
        
     function getPrice(){
-        if(itemsList.length > 0) {
+        if(items.length > 0) {
             let price = 0;
-            itemsList.map(i => price += i.price * i.quantity);
+            items.map(i => price += i.price * i.quantity);
             return price;
         }
         return 0;
@@ -23,14 +22,14 @@ const ShoppingCart = ({ add, sub, deleteFunc }) => {
                 <Cart /> <span id="productsInCart">{total === 0 ? "" : total}</span>
             </button>
             <ul id="purchaseList" className="dropdown-menu">
-                {itemsList.map(i => 
+                {items.map(i => 
                     <PurchaseList key = {i.id}
                         quantity  = {i.quantity}
                         id        = {i.id}
                         name      = {i.name}
                         price     = {i.price * i.quantity}
-                        add       = {add}
-                        sub       = {sub}
+                        setItems  = {setItems}
+                        items     = {items}
                     />
                 )}
                 <hr/> 

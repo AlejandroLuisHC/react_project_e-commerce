@@ -1,20 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect, } from 'react';
 import Footer from './components/footer/Footer';
 import Header from "./components/header/Header";
 import Main from "./components/main/Main";
 
 function App() {
-    const [items, setItems] = useState([]);
+    let itemsInCart = [];
+    if(localStorage.getItem('items')) {
+        itemsInCart = JSON.parse(localStorage.getItem('items'))
+    }
+    const [items, setItems] = useState(itemsInCart);
+
+    useEffect(() => {updateLocal(items)}, [items]);
+
+    function updateLocal(state) {
+        localStorage.setItem('items', JSON.stringify(state));
+        console.log('Actualizando localStorage');
+    }
     
-    localStorage.setItem('items', JSON.stringify(items));
-    
-    const storeItems = (id, name, price) => {
-        let itemsList = JSON.parse(localStorage.getItem('items'));
-        
-        function checkId(id) {
-            let itemsList = JSON.parse(localStorage.getItem('items'));
+    const storeItems = (id, name, price, state) => {
+        let itemsList = [...state]
+        function checkId(id, state) {
             let exist = false;
-            itemsList.forEach(item => {
+            state.forEach(item => {
                 if (item.id === id) {
                     exist = true;
                     return exist
@@ -23,8 +30,7 @@ function App() {
             return exist;
         }
 
-        
-        if (checkId(id)) {
+        if (checkId(id, itemsList)) {
             itemsList.forEach(i => {
                 if (i.id === id) {
                     i.quantity += 1;
@@ -38,56 +44,33 @@ function App() {
                 quantity: 1,
             })
         }
-        setItems(itemsList);
-        localStorage.setItem('items', JSON.stringify(itemsList));
-        console.log(checkId(id));
-        console.log(itemsList);
+        setItems(prev => prev = itemsList);
+    
     }
     
     const deleteFunc = () => {
-        localStorage.removeItem('items');
         setItems([]);
+        localStorage.clear();
+
     }
 
-    const add = (id) => {
-        const itemsList = JSON.parse(localStorage.getItem('items'));
-        itemsList.forEach(i => {
-            if (i.id === id) {
-                i.quantity++   
-            }
-        });
-        setItems(itemsList);
-        localStorage.setItem('items', JSON.stringify(itemsList));
-    }
-
-    const sub = (id) => {
-        const itemsList = JSON.parse(localStorage.getItem('items'));
-        itemsList.forEach(i => {
-            if (i.id === id) {
-                if (i.quantity > 0) {
-                    i.quantity-- 
-                } else {
-                    const pos = itemsList.indexOf(i);
-                    itemsList.splice(0, pos);
-                }    
-            }
-        });
-        setItems(itemsList);
-        localStorage.setItem('items', JSON.stringify(itemsList));
-    }
-
-    return (
-        <>
+    const renderApp = () => {
+        return(<>
             <Header 
                 deleteFunc  = {deleteFunc}
-                add         = {add}
-                sub         = {sub}
+                setItems    = {setItems}
+                items       = {items}
             />
             <Main 
                 store       = {storeItems}
+                items       = {items}
             />
             <Footer />
-        </>
+        </>)
+    }
+
+    return (
+        renderApp()
     );
 }
 

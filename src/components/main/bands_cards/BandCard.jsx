@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const BandCard = ({ store, id, name, img, price }) => {
+const BandCard = ({ store, items, id, name, img, price }) => {
     const bandCard = {
         width: "100%",
         height: "200px",
@@ -28,14 +28,10 @@ const BandCard = ({ store, id, name, img, price }) => {
         fontSize: "2.5em",
         boxShadow: "0 0 15px black",
         transform: "rotate(-10deg)"
-        
-    }
-    const addProduct = () => {
-        store(id, name, price);
     }
     
     return (
-        <div id={id} onClick={addProduct} className="card" style={bandCard}>
+        <div id={id} onClick={() => {store(id, name, price, items)}} className="card" style={bandCard}>
             <img src={img} style={bandPic} className="card-img-top" alt={name} />
             <div className="position-absolute w-100 top-50 d-flex align-items-center justify-content-between card-body">
                 <h3 className="card-title" style={label}>{name}</h3>

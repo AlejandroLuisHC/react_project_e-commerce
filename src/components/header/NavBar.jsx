@@ -3,7 +3,7 @@ import ShoppingCart from './ShoppingCart/ShoppingCart';
 import SearchBar from './SearchBar';
 import logo from '../../assets/img/logo.svg';
 
-const NavBar = ({ add, sub, deleteFunc }) => {
+const NavBar = ({ setItems, deleteFunc, items }) => {
     const navGrid = {
         height: "54px",
         display: "grid",
@@ -18,8 +18,8 @@ const NavBar = ({ add, sub, deleteFunc }) => {
                 <SearchBar />
                 <ShoppingCart 
                     deleteFunc  = {deleteFunc} 
-                    add         = {add}
-                    sub         = {sub}
+                    setItems    = {setItems}
+                    items       = {items}
                 />           
             </div> 
         </nav>

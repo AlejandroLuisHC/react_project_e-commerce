@@ -1,7 +1,7 @@
 import BandCard from './bands_cards/BandCard';
 import { bandsData } from '../../data/db';
 
-const Main = ({ store }) => {
+const Main = ({ store, items }) => {
     const style = {
         marginTop: "30px",
         gridColumn: "2",
@@ -19,6 +19,8 @@ const Main = ({ store }) => {
                     img     = {b.img}
                     price   = {b.price}
                     store   = {store}
+                    items   = {items}
+
                 />   
             )}
         </main>
