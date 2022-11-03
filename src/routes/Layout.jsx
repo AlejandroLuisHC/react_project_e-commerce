@@ -1,9 +1,9 @@
 import { useState, useEffect, } from 'react';
-import Footer from './components/footer/Footer';
-import Header from "./components/header/Header";
-import Main from "./components/main/Main";
+import { Outlet } from 'react-router-dom';
+import Footer from '../components/footer/Footer';
+import Header from "../components/header/Header";
 
-function App() {
+function Layout() {
     let itemsInCart = [];
     if(localStorage.getItem('items')) {
         itemsInCart = JSON.parse(localStorage.getItem('items'))
@@ -61,10 +61,7 @@ function App() {
                 setItems    = {setItems}
                 items       = {items}
             />
-            <Main 
-                store       = {storeItems}
-                items       = {items}
-            />
+            <Outlet context={[storeItems, items]}/>
             <Footer />
         </>)
     }
@@ -74,6 +71,6 @@ function App() {
     );
 }
 
-export default App;
+export default Layout;
 
 

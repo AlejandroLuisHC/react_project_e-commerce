@@ -1,7 +1,9 @@
-import BandCard from './bands_cards/BandCard';
-import { bandsData } from '../../data/db';
+import BandCard from '../components/main/bands_cards/BandCard';
+import { bandsData } from '../data/db';
+import { useOutletContext } from 'react-router-dom';
 
-const Main = ({ store, items }) => {
+const Main = () => {
+    const [store, items] = useOutletContext();
     const style = {
         marginTop: "30px",
         gridColumn: "2",
