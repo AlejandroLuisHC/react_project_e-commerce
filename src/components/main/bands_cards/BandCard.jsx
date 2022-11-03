@@ -22,22 +22,12 @@ const BandCard = ({ store, items, id, name, img, price }) => {
         color: "white",
         textShadow: "0 0 15px black"
     }
-    const priceTag = {
-        fontWeight: "bold",
-        borderRadius: "2vw",
-        fontSize: "2vw",
-        boxShadow: "0 0 15px black",
-        transform: "rotate(-10deg)"
-    }
     
     return (
-        <div id={id} onClick={() => {store(id, name, price, items)}} className="card" style={bandCard}>
+        <div id={id} className="card" style={bandCard}>
             <img src={img} style={bandPic} className="card-img-top" alt={name} />
             <div className="position-absolute w-100 top-50 d-flex align-items-center justify-content-between card-body">
                 <h3 className="card-title" style={label}>{name}</h3>
-                <div > 
-                    <span className="badge text-bg-warning" style={priceTag}>{price}€</span>
-                </div>
             </div>
         </div>
     )

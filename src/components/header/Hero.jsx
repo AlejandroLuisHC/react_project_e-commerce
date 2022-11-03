@@ -29,7 +29,7 @@ const Hero = () => {
         <div id="hero" className="carousel slide carousel-fade" data-bs-ride="carousel" style={style}>
             <div className="carousel-inner">
                 <div className="carousel-item active" data-bs-interval="10000">
-                    <img style={photoStyle}  src={photo} className="d-block w-100" alt="Concert party" />
+                    <img style={photoStyle}  src={photo} className="d-block w-100" alt="Concert party" loading="lazy" />
                     <div className="carousel-caption d-none d-md-block">
                         <h3 style={label}>All your bands gathered in one place</h3>
                         <p style={subLabel}>Find the merch of your favorite bands</p>

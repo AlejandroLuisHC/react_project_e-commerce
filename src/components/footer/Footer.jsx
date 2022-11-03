@@ -8,6 +8,7 @@ const Footer = () => {
         justifyContent: "center",
         alignItems: "center",
         color: "white",
+        marginTop: "15px"
     }
 
   return (

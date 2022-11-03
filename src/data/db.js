@@ -2,32 +2,6 @@ import bandPics from '../assets/img/bands_img';
 import judasAlbums from '../assets/img/bands_img/judas';
 import grimnerAlbums from '../assets/img/bands_img/grimner';
 
-export const bandsData = [
-    {
-        id: 1,
-        name: "Judas Priest",
-        img: bandPics.judasPriest,
-        price: 30,
-    },
-    {
-        id: 2,
-        name: "Grimner",
-        img: bandPics.grimner,
-        price: 20,
-    },
-    {
-        id: 3,
-        name: "Finntroll",
-        img: bandPics.finntroll,
-        price: 25,
-    },
-    {
-        id: 4,
-        name: "Amon Amarth",
-        img: bandPics.amonAmarth,
-        price: 35,
-    },
-]
 
 export const judasData = [
     {
@@ -193,5 +167,32 @@ export const grimnerData = [
         img: grimnerAlbums.urfader,
         price: 9,
         release: 2022,
+    },
+]
+
+export const bandsData = [
+    {
+        id: 1,
+        name: "Judas Priest",
+        img: bandPics.judasPriest,
+        data: judasData,
+    },
+    {
+        id: 2,
+        name: "Grimner",
+        img: bandPics.grimner,
+        data: grimnerData,
+    },
+    {
+        id: 3,
+        name: "Finntroll",
+        img: bandPics.finntroll,
+        data: "finntrollData"
+    },
+    {
+        id: 4,
+        name: "Amon Amarth",
+        img: bandPics.amonAmarth,
+        data: "amonAmarthData"
     },
 ]

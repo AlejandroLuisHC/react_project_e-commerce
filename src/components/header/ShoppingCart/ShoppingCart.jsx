@@ -33,9 +33,9 @@ const ShoppingCart = ({ setItems, deleteFunc, items }) => {
                         items     = {items}
                     />
                 )}
-                <li><hr class="dropdown-divider"/></li> 
+                <li><hr className="dropdown-divider"/></li> 
                 <li className='d-flex justify-content-end pe-3'><b>Total: {accounting.formatMoney(totalPrice, "€")}</b></li>
-                <li><hr class="dropdown-divider"/></li>
+                <li><hr className="dropdown-divider"/></li>
                 <li className="d-flex flex-column ps-2 pe-2 align-items-center justify-content-between gap-1"><button className='btn btn-success btn-lg'>Buy now!</button><button className='btn btn-outline-danger btn-sm' onClick={deleteFunc}>Empty cart</button></li>
             </ul>
         </div>

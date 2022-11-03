@@ -17,7 +17,7 @@ function Layout() {
         console.log('Actualizando localStorage');
     }
     
-    const storeItems = (id, name, price, state) => {
+    function storeItems (id, name, price, state) {
         let itemsList = [...state]
         function checkId(id, state) {
             let exist = false;
@@ -61,7 +61,7 @@ function Layout() {
                 setItems    = {setItems}
                 items       = {items}
             />
-            <Outlet context={[storeItems, items]}/>
+            <Outlet context={[storeItems, items, setItems]}/>
             <Footer />
         </>)
     }
