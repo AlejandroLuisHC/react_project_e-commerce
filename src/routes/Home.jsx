@@ -1,9 +1,8 @@
 import BandCard from '../components/main/bands_cards/BandCard';
 import { bandsData } from '../data/db';
-import { Link, useOutletContext } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-    const [storeItems, items, setItems] = useOutletContext();
     const style = {
         marginTop: "30px",
         gridColumn: "2",
