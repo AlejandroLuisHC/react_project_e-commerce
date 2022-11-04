@@ -15,4 +15,4 @@ body {
     display: grid;
     grid-template: 280px 1fr 60px / 1fr 6fr 1fr;
     background-color: rgb(56, 57, 65);
-}
+}   

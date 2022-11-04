@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Hero from './Hero';
 import NavBar from './NavBar';
 
@@ -20,4 +20,4 @@ const Header = ({ setItems, deleteFunc, items }) => {
     )
 }
 
-export default Header
+export default memo(Header)

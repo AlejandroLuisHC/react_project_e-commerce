@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import SearchBar from './SearchBar';
 import logo from '../../assets/img/logo.svg';
+import { NavLink } from 'react-router-dom';
 
 const NavBar = ({ setItems, deleteFunc, items }) => {
     const navGrid = {
@@ -14,7 +15,7 @@ const NavBar = ({ setItems, deleteFunc, items }) => {
     return (
         <nav className="navbar navbar-dark bg-dark">
             <div className="container-fluid" style={navGrid}>
-                <a className="navbar-brand" href="./index.js"><img src={logo} alt="logo" /></a>
+                <NavLink className="navbar-brand" to="/"><img src={logo} alt="logo" /></NavLink>
                 <SearchBar />
                 <ShoppingCart 
                     deleteFunc  = {deleteFunc} 
@@ -26,4 +27,4 @@ const NavBar = ({ setItems, deleteFunc, items }) => {
     )
 }
 
-export default NavBar
+export default memo(NavBar)

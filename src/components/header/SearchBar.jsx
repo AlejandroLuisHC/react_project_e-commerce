@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 const SearchBar = () => {
     const searchIcon = 
@@ -14,4 +14,4 @@ const SearchBar = () => {
     )
 }
 
-export default SearchBar
+export default memo(SearchBar)

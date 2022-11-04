@@ -19,7 +19,7 @@ const ShoppingCart = ({ setItems, deleteFunc, items }) => {
 
     return (
         <div className="dropstart">
-            <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="false" data-bs-toggle="dropdown" aria-expanded="false">
+            <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
                 <Cart /> <span id="productsInCart">{total === 0 ? "" : total}</span>
             </button>
             <ul id="purchaseList" className="dropdown-menu dropdown-menu-dark col-10">

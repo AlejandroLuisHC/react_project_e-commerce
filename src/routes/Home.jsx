@@ -6,9 +6,11 @@ const Home = () => {
     const style = {
         marginTop: "30px",
         gridColumn: "2",
-        display: "grid",
-        gridTemplate: "repeat(auto-fill, 200px) / 1fr 1fr",
-        gap: "30px",
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-evenly",
+        AlignItems: "start",
+        gap: "40px",
     }
     
     return (

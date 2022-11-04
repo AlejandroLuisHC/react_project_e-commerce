@@ -3,11 +3,11 @@ import React from 'react';
 
 const BandCard = ({ store, items, id, name, img, price }) => {
     const bandCard = {
-        width: "100%",
+        width: "400px",
         height: "200px",
         border: "none",
         borderRadius: "15px",
-        boxShadow: "3px 3px 10px rgba(0, 0, 0, 1)",
+        boxShadow: "2px 2px 8px rgba(0, 0, 0, 1)",
         cursor: "pointer",
     }
     const bandPic = {
@@ -18,7 +18,7 @@ const BandCard = ({ store, items, id, name, img, price }) => {
     }
     const label = {
         fontWeight: "bold",
-        fontSize: "3vw",
+        fontSize: "48px",
         color: "white",
         textShadow: "0 0 15px black"
     }

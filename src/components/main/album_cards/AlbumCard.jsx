@@ -2,30 +2,30 @@ import React from 'react'
 
 const AlbumCard = ({ setItems, items, store, id, name, img, price, release }) => {
     const albumCard = {
-        height: "200px",
-        width: "200px",
+        height: "250px",
+        width: "250px",
         border: "none",
         borderRadius: "50%",
-        boxShadow: "3px 3px 10px rgba(0, 0, 0, 1)",
+        boxShadow: "2px 2px 8px rgba(0, 0, 0, 1)",
         cursor: "pointer",
     }
     const albumPic = {
-        height: "200px",
-        width: "200px",
+        height: "250px",
+        width: "250px",
         objectFit: "cover",
         borderRadius: "50%",
         objectPosition: "50% 15%"
     }
     const label = {
         fontWeight: "bold",
-        fontSize: "1.3vw",
+        fontSize: "28px",
         color: "white",
         textShadow: "0 0 20px black"
     }
     const priceTag = {
         fontWeight: "bold",
-        borderRadius: "2vw",
-        fontSize: "1.3vw",
+        borderRadius: "20px",
+        fontSize: "22px",
         boxShadow: "0 0 15px black",
         transform: "rotate(-10deg)"
     }
