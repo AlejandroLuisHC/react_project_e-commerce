@@ -3,7 +3,7 @@ import { bandsData } from '../data/db';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-    const style = {
+    const styleMain = {
         marginTop: "30px",
         gridColumn: "2",
         display: "flex",
@@ -12,11 +12,15 @@ const Home = () => {
         AlignItems: "start",
         gap: "40px",
     }
+
+    const styleLink = {
+        height: "200px",
+    }
     
     return (
-        <main style={style}>
+        <main style={styleMain}>
             {bandsData?.map(b => 
-                <Link key = {b.id}
+                <Link style={styleLink} key = {b.id}
                     to      = {`${b.name}`}
                     state   = {{
                         data: b.data,

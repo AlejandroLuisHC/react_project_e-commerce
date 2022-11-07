@@ -45,7 +45,7 @@ const PurchaseList = ({ setItems, quantity, id, name, price, items }) => {
 
     return (
         <li className="p-3 pt-1 dropdown-item-text" style={style}>
-            <span><button onClick={()=>sub(id, items)} style={btnStyle}>-</button> {quantity} u. <button onClick={()=>add(id, items)} style={btnStyle}>+</button> {name} - {accounting.formatMoney(price, "€")}</span>
+            <span><button onClick={()=>sub(id, items)} style={btnStyle}>-</button> {quantity} u. <button onClick={()=>add(id, items)} style={btnStyle}>+</button> {name} - {accounting.formatMoney(price, {symbol:"€", format:"%v %s"})}</span>
         </li>
     )
 }

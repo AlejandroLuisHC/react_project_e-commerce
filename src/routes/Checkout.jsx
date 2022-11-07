@@ -1,9 +1,18 @@
-import React from 'react'
+import React from 'react';
+import GoHome from '../components/main/return_home/GoHome';
 
 const Checkout = () => {
-  return (
-    <div>Checkout</div>
-  )
+    const mainStyle = {
+        marginTop: "30px",
+        gridColumn: "2",
+    }
+
+    return (
+        <main style={mainStyle}>
+            <GoHome />
+            <div>Checkout</div>
+        </main>
+    )
 }
 
 export default Checkout

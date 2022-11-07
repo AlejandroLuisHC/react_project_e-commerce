@@ -4,17 +4,15 @@ import Footer from '../components/footer/Footer';
 import Header from "../components/header/Header";
 
 function Layout() {
-    let itemsInCart = [];
-    if(localStorage.getItem('items')) {
-        itemsInCart = JSON.parse(localStorage.getItem('items'))
-    }
+    const itemsInCart = JSON.parse(localStorage.getItem('items')) ?? [];
+
     const [items, setItems] = useState(itemsInCart);
 
-    useEffect(() => {updateLocal(items)}, [items]);
+    useEffect(() => {updateLocal(items); console.log(items);}, [items]);
 
     function updateLocal(state) {
         localStorage.setItem('items', JSON.stringify(state));
-        console.log('Actualizando localStorage');
+        console.log('Localstorage overwrite');
     }
     
     function storeItems (id, name, price, state) {
@@ -50,8 +48,6 @@ function Layout() {
     
     const deleteFunc = () => {
         setItems([]);
-        localStorage.clear();
-
     }
 
     const renderApp = () => {
