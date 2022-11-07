@@ -1,5 +1,7 @@
 import BandCard from '../components/main/bands_cards/BandCard';
-import { bandsData } from '../data/db';
+// import { bandsData } from '../data/db';
+import fetchBands from '../api/fetchBands';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -12,15 +14,25 @@ const Home = () => {
         AlignItems: "start",
         gap: "40px",
     }
-
+    
     const styleLink = {
         height: "200px",
     }
     
+    const [bands, setBands] = useState([]);
+
+    useEffect( () => {
+        const retrieveBands = async () => {
+            const bandsData = await fetchBands();
+            setBands(bandsData);
+        }
+        retrieveBands();
+    }, [])
+
     return (
         <main style={styleMain}>
-            {bandsData?.map(b => 
-                <Link style={styleLink} key = {b.id}
+            {bands.map(b => 
+                <Link style = {styleLink} key = {b.id}
                     to      = {`${b.name}`}
                     state   = {{
                         data: b.data,

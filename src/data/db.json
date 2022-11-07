@@ -1,0 +1,195 @@
+{
+    "judasData": [
+        {
+            "id": "j1",
+            "name": "Angel of Retribution",
+            "img": "src/assets/img/bands_img/judas/angelofretribution.jpg",
+            "price": 9,
+            "release": 2005
+        },
+        {
+            "id": "j2",
+            "name": "British steel",
+            "img": "src/assets/img/bands_img/judas/britishsteel.jpg",
+            "price": 10,
+            "release": 1980
+        },
+        {
+            "id": "j3",
+            "name": "Defenders of the faith",
+            "img": "src/assets/img/bands_img/judas/defendersofthefaith.jpg",
+            "price": 10,
+            "release": 1984
+        },
+        {
+            "id": "j4",
+            "name": "Demolition",
+            "img": "src/assets/img/bands_img/judas/demolition.jpg",
+            "price": 5,
+            "release": 2001
+        },
+        {
+            "id": "j5",
+            "name": "Firepower",
+            "img": "src/assets/img/bands_img/judas/firepower.jpg",
+            "price": 12,
+            "release": 2018
+        },
+        {
+            "id": "j6",
+            "name": "Jugulator",
+            "img": "src/assets/img/bands_img/judas/jugulator.jpg",
+            "price": 5,
+            "release": 1997
+        },
+        {
+            "id": "j7",
+            "name": "Killing machine",
+            "img": "src/assets/img/bands_img/judas/killingmachine.jpg",
+            "price": 7,
+            "release": 1978
+        },
+        {
+            "id": "j8",
+            "name": "Nostradamus",
+            "img": "src/assets/img/bands_img/judas/nostradamus.jpg",
+            "price": 6,
+            "release": 2008
+        },
+        {
+            "id": "j9",
+            "name": "PainKiller",
+            "img": "src/assets/img/bands_img/judas/painkiller.jpg",
+            "price": 10,
+            "release": 1990
+        },
+        {
+            "id": "j10",
+            "name": "Point of entry",
+            "img": "src/assets/img/bands_img/judas/pointofentry.jpg",
+            "price": 9,
+            "release": 1981
+        },
+        {
+            "id": "j11",
+            "name": "Ram it down",
+            "img": "src/assets/img/bands_img/judas/ramitdown.jpg",
+            "price": 6,
+            "release": 1988
+        },
+        {
+            "id": "j12",
+            "name": "Redeemer of souls",
+            "img": "src/assets/img/bands_img/judas/redeemerofsouls.jpg",
+            "price": 10,
+            "release": 2014
+        },
+        {
+            "id": "j13",
+            "name": "RockaRolla",
+            "img": "src/assets/img/bands_img/judas/rockarolla.jpg",
+            "price": 5,
+            "release": 1974
+        },
+        {
+            "id": "j14",
+            "name": "Sad wings of destiny",
+            "img": "src/assets/img/bands_img/judas/sadwingsofdestiny.jpg",
+            "price": 10,
+            "release": 1976
+        },
+        {
+            "id": "j15",
+            "name": "Screaming for vengeance",
+            "img": "src/assets/img/bands_img/judas/screamingforvengeance.jpg",
+            "price": 8,
+            "release": 1982
+        },
+        {
+            "id": "j16",
+            "name": "Sin after sin",
+            "img": "src/assets/img/bands_img/judas/sinaftersin.jpg",
+            "price": 7,
+            "release": 1977
+        },
+        {
+            "id": "j17",
+            "name": "Stained class",
+            "img": "src/assets/img/bands_img/judas/stainedclass.jpg",
+            "price": 8,
+            "release": 1978
+        },
+        {
+            "id": "j18",
+            "name": "Turbo",
+            "img": "src/assets/img/bands_img/judas/turbo.jpg",
+            "price": 8,
+            "release": 1986
+        }
+    ],
+    
+    "grimnerData": [
+        {
+            "id": "g1",
+            "name": "Blodshymner",
+            "img": "src/assets/img/bands_img/grimner/blodshymner.jpg",
+            "price": 7,
+            "release": 2014
+        },
+        {
+            "id": "g2",
+            "name": "Färd",
+            "img": "src/assets/img/bands_img/grimner/fard.jpg",
+            "price": 6,
+            "release": 2012
+        },
+        {
+            "id": "g3",
+            "name": "Frost Mot Eld",
+            "img": "src/assets/img/bands_img/grimner/frostmoteld.jpg",
+            "price": 8,
+            "release": 1016
+        },
+        {
+            "id": "g4",
+            "name": "Vanadrottning",
+            "img": "src/assets/img/bands_img/grimner/vanadrottning.jpg",
+            "price": 8,
+            "release": 2018
+        },
+        {
+            "id": "g5",
+            "name": "Urfader",
+            "img": "src/assets/img/bands_img/grimner/urfader.jpg",
+            "price": 9,
+            "release": 2022
+        }
+    ],
+    
+    "bandsData": [
+        {
+            "id": 1,
+            "name": "Judas Priest",
+            "img": "src/assets/img/bands_img/judas_priest.jpg",
+            "data": "judasData"
+        },
+        {
+            "id": 2,
+            "name": "Grimner",
+            "img": "src/assets/img/bands_img/grimner.jpg",
+            "data": "grimnerData"
+        },
+        {
+            "id": 3,
+            "name": "Finntroll",
+            "img": "src/assets/img/bands_img/finntroll.jpg",
+            "data": "finntrollData"
+        },
+        {
+            "id": 4,
+            "name": "Amon Amarth",
+            "img": "src/assets/img/bands_img/amon_amarth.jpg",
+            "data": "amonAmarthData"
+        }
+    ]
+}
