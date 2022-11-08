@@ -1,4 +1,5 @@
 import React from 'react';
+import CheckoutSection from '../components/main/checkout/CheckoutSection';
 import GoHome from '../components/main/return_home/GoHome';
 
 const Checkout = () => {
@@ -10,7 +11,7 @@ const Checkout = () => {
     return (
         <main style={mainStyle}>
             <GoHome />
-            <div>Checkout</div>
+            <CheckoutSection />
         </main>
     )
 }

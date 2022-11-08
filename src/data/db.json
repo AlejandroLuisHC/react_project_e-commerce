@@ -170,25 +170,25 @@
         {
             "id": 1,
             "name": "Judas Priest",
-            "img": "src/assets/img/bands_img/judas_priest.jpg",
+            "img": "public/assets/img/bands_img/judas_priest.jpg",
             "data": "judasData"
         },
         {
             "id": 2,
             "name": "Grimner",
-            "img": "src/assets/img/bands_img/grimner.jpg",
+            "img": "public/assets/img/bands_img/grimner.jpg",
             "data": "grimnerData"
         },
         {
             "id": 3,
             "name": "Finntroll",
-            "img": "src/assets/img/bands_img/finntroll.jpg",
+            "img": "public/assets/img/bands_img/finntroll.jpg",
             "data": "finntrollData"
         },
         {
             "id": 4,
             "name": "Amon Amarth",
-            "img": "src/assets/img/bands_img/amon_amarth.jpg",
+            "img": "public/assets/img/bands_img/amon_amarth.jpg",
             "data": "amonAmarthData"
         }
     ]

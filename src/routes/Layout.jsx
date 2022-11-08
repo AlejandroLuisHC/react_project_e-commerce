@@ -8,7 +8,9 @@ function Layout() {
 
     const [items, setItems] = useState(itemsInCart);
 
-    useEffect(() => {updateLocal(items); console.log(items);}, [items]);
+    useEffect(() => {
+        updateLocal(items)
+    }, [items]);
 
     function updateLocal(state) {
         localStorage.setItem('items', JSON.stringify(state));
