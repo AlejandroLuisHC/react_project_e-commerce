@@ -11,6 +11,7 @@ const GoHome = () => {
         fontSize: "40px",
         fontWeight: "bold",
         textDecoration: "none",
+        marginBottom: "20px",
     }
 
     return (
