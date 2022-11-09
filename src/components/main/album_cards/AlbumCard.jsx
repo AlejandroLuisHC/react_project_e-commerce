@@ -1,5 +1,3 @@
-import React from 'react'
-
 const AlbumCard = ({ setItems, items, store, id, name, img, price, release }) => {
     const albumCard = {
         height: "250px",
@@ -31,7 +29,7 @@ const AlbumCard = ({ setItems, items, store, id, name, img, price, release }) =>
     }
 
     return (
-        <div id={id} onClick={() => {store(id, name, price, items)}} className="card" style={albumCard}>
+        <div id={id} onClick={() => {store(id, name, price, img, items, setItems)}} className="card" style={albumCard}>
             <img src={img} style={albumPic} className="card-img-top" alt={name} />
             <div className="position-absolute d-flex flex-column justify-content-between gap-5 card-body" style={{height: "200px"}}>
                 <div > 

@@ -2,6 +2,8 @@ import PurchaseList from './PurchaseList';
 import accounting from 'accounting';
 import { Cart } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
+import getTotal from '../../../helper/utils/getTotal';
+
 const ShoppingCart = ({ setItems, deleteFunc, items }) => {
     let total = 0; 
     items.forEach(i => {
@@ -13,15 +15,7 @@ const ShoppingCart = ({ setItems, deleteFunc, items }) => {
         border: "none",
     }
 
-    function getPrice(){
-        if(items.length > 0) {
-            let price = 0;
-            items.map(i => price += i.price * i.quantity);
-            return price;
-        }
-        return 0;
-    }
-    const totalPrice = getPrice();
+    const totalPrice = getTotal(items);
 
     return (
         <div className="dropstart">
@@ -40,7 +34,7 @@ const ShoppingCart = ({ setItems, deleteFunc, items }) => {
                     />
                 )}
                 <li><hr className="dropdown-divider"/></li> 
-                <li className='d-flex justify-content-end pe-3'><b>Total: {accounting.formatMoney(totalPrice, {symbol:"€", format:"%v %s"})}</b></li>
+                <li className='d-flex justify-content-end pe-3'><b>Sub total: {accounting.formatMoney(totalPrice, {symbol:"€", format:"%v %s"})}</b></li>
                 <li><hr className="dropdown-divider"/></li>
                 <li className="d-flex flex-column ps-2 pe-2 align-items-center justify-content-between gap-1">
                     <Link to="checkout">

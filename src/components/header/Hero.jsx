@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import photo from '../../assets/img/carousel_2.jpg';
 
 const Hero = () => {

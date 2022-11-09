@@ -2,6 +2,7 @@ import { useState, useEffect, } from 'react';
 import { Outlet } from 'react-router-dom';
 import Footer from '../components/footer/Footer';
 import Header from "../components/header/Header";
+import storeItems from '../helper/utils/storeItems';
 
 function Layout() {
     const itemsInCart = JSON.parse(localStorage.getItem('items')) ?? [];
@@ -15,37 +16,6 @@ function Layout() {
     function updateLocal(state) {
         localStorage.setItem('items', JSON.stringify(state));
         console.log('Localstorage overwrite');
-    }
-    
-    function storeItems (id, name, price, state) {
-        let itemsList = [...state]
-        function checkId(id, state) {
-            let exist = false;
-            state.forEach(item => {
-                if (item.id === id) {
-                    exist = true;
-                    return exist
-                }
-            })
-            return exist;
-        }
-
-        if (checkId(id, itemsList)) {
-            itemsList.forEach(i => {
-                if (i.id === id) {
-                    i.quantity += 1;
-                }
-            }) 
-        } else {
-            itemsList.push({
-                id, 
-                name,
-                price,
-                quantity: 1,
-            })
-        }
-        setItems(prev => prev = itemsList);
-    
     }
     
     const deleteFunc = () => {

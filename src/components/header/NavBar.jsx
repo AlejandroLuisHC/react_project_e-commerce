@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import SearchBar from './SearchBar';
 import logo from '../../assets/img/logo.svg';

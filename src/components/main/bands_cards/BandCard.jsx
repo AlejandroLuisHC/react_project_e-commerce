@@ -1,5 +1,3 @@
-import React from 'react';
-
 const BandCard = ({ store, items, id, name, img, price }) => {
     const bandCard = {
         width: "400px",

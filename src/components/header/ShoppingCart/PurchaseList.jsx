@@ -1,4 +1,5 @@
 import accounting from 'accounting';
+import { add, sub } from '../../../helper/utils/modifyCart';
 
 const PurchaseList = ({ setItems, quantity, id, name, price, items }) => {
     const style = {
@@ -16,36 +17,10 @@ const PurchaseList = ({ setItems, quantity, id, name, price, items }) => {
         backgroundColor: "rgb(136, 137, 145)",
         cursor: "pointer",  
     }
-
-    const add = (id, state) => {
-        let itemsList = [...state];
-        itemsList.forEach(i => {
-            if (i.id === id) {
-                i.quantity++   
-            }
-        });
-        setItems(prev => prev = itemsList);
-    }
-
-    const sub = (id, state) => {
-        let itemsList = [...state];
-        itemsList.forEach(i => {
-            if (i.id === id) {
-                if (i.quantity > 1) {
-                    i.quantity-- 
-                } else {
-                    const pos = itemsList.indexOf(i);
-                    itemsList.splice(pos, 1);
     
-                }    
-            }
-        });
-        setItems(prev => prev = itemsList);
-    }
-
     return (
         <li className="p-3 pt-1 dropdown-item-text" style={style}>
-            <span><button onClick={()=>sub(id, items)} style={btnStyle}>-</button> {quantity} u. <button onClick={()=>add(id, items)} style={btnStyle}>+</button> {name} - {accounting.formatMoney(price, {symbol:"€", format:"%v %s"})}</span>
+            <span><button onClick={()=>sub(id, items, setItems)} style={btnStyle}>-</button> {quantity} u. <button onClick={()=>add(id, items, setItems)} style={btnStyle}>+</button> {name} - {accounting.formatMoney(price, {symbol:"€", format:"%v %s"})}</span>
         </li>
     )
 }

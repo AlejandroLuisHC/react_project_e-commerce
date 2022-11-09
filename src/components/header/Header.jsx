@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 import Hero from './Hero';
 import NavBar from './NavBar';
 

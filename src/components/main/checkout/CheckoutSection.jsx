@@ -1,17 +1,20 @@
-import React from 'react'
-import DisplayCart from './DisplayCart'
-import ShippingForm from './ShippingForm'
+import DisplayCart from './products_order/DisplayCart'
+import ShippingForm from './shipping/ShippingForm'
 
 const CheckoutSection = () => {
     const styleSection = {
         display: "flex",
+        gap: "20px",
         justifyContent: "space-between"
     }
+
 
     return (
         <section style={styleSection}>
             <DisplayCart />
-            <ShippingForm />
+            <div> 
+                <ShippingForm />
+            </div>
         </section>
         
     )
