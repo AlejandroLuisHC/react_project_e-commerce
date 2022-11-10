@@ -15,7 +15,6 @@ function Layout() {
 
     function updateLocal(state) {
         localStorage.setItem('items', JSON.stringify(state));
-        console.log('Localstorage overwrite');
     }
     
     const deleteFunc = () => {

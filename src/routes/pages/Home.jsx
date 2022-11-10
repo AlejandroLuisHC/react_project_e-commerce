@@ -1,6 +1,5 @@
-import BandCard from '../components/main/bands_cards/BandCard';
-// import { bandsData } from '../data/db';
-import fetchBands from '../api/fetchBands';
+import BandCard from '../../components/main/bands_cards/BandCard';
+import fetchBands from '../../api/fetchBands';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 

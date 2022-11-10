@@ -1,8 +1,10 @@
 import PurchaseList from './PurchaseList';
+import { useContext } from 'react';
 import accounting from 'accounting';
 import { Cart } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import getTotal from '../../../helper/utils/getTotal';
+import UserContext from '../../../context/UserContext';
 
 const ShoppingCart = ({ setItems, deleteFunc, items }) => {
     let total = 0; 
@@ -17,6 +19,11 @@ const ShoppingCart = ({ setItems, deleteFunc, items }) => {
 
     const totalPrice = getTotal(items);
 
+    const { user } = useContext(UserContext);
+    const checkUser = (username) => username === "Guest" ? "login" : "checkout";
+    const disableBtn = items.length === 0 ? "disabled" : "";
+    const disableLink = items.length === 0 ? "" : checkUser(user.username);
+    
     return (
         <div className="dropstart">
             <button className="btn btn-secondary dropdown-toggle" style={style} type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,8 +44,8 @@ const ShoppingCart = ({ setItems, deleteFunc, items }) => {
                 <li className='d-flex justify-content-end pe-3'><b>Sub total: {accounting.formatMoney(totalPrice, {symbol:"€", format:"%v %s"})}</b></li>
                 <li><hr className="dropdown-divider"/></li>
                 <li className="d-flex flex-column ps-2 pe-2 align-items-center justify-content-between gap-1">
-                    <Link to="checkout">
-                        <button className='btn btn-success btn-lg'>Buy now!</button>
+                    <Link to={disableLink}>
+                        <button className='btn btn-success btn-lg' disabled={disableBtn}>Buy now!</button>
                     </Link> 
                     <button className='btn btn-outline-danger btn-sm' onClick={deleteFunc}>Empty cart</button>
                 </li>

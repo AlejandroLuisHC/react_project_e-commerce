@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useOutletContext } from 'react-router-dom';
-import AlbumCard from '../components/main/album_cards/AlbumCard'
-import fetchAlbums from '../api/fetchAlbums';
-import GoHome from '../components/main/return_home/GoHome';
+import AlbumCard from '../../components/main/album_cards/AlbumCard'
+import fetchAlbums from '../../api/fetchAlbums';
+import GoHome from '../../components/main/return_home/GoHome';
 
 const Albums = (props) => {  
     const mainStyle = {
@@ -31,7 +31,6 @@ const Albums = (props) => {
         }
         retrieveAlbums();
     }, [albumsKey])
-    
 
     return (
         <main style={mainStyle}>

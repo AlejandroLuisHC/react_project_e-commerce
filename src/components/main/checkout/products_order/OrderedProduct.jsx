@@ -7,12 +7,6 @@ const OrderedProduct = ({ id, name, price, img, subTotal, quantity }) => {
       borderRadius: "5px",
       border: "1px "
     }
-    const imgStyleHover = {
-      transition: "500",
-      transform: "rotate(360deg)",
-      borderRadius: "50%",
-      border: "1px "
-    }
     const btnStyle = {
         border: "none",
         padding: "0 5px",
@@ -38,7 +32,7 @@ const OrderedProduct = ({ id, name, price, img, subTotal, quantity }) => {
                     quantity > 1 ? ` (${accounting.formatMoney(price, {symbol:"€", format:"%v %s"})}/u)` : null
                     }</small>
                 </div>
-                <img style={imgStyle} onMouseOver={imgStyleHover} src={img} alt={name} width="60px" />
+                <img style={imgStyle} src={img} alt={name} width="60px" />
             </div>
         </div>
         <hr/>
