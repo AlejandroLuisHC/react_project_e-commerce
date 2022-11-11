@@ -4,7 +4,7 @@ async function fetchUsers () {
         return await res.json()
 
     } catch(e) {
-        alert('Something went wrong while retrieving users data.')
+        console.log('Something went wrong while retrieving users data.')
     }
 }
 

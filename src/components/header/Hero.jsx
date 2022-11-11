@@ -11,7 +11,7 @@ const Hero = () => {
         objectPosition: "50% 64%"
     }
     const label = {
-        fontSize: "4vw",
+        fontSize: "3.2vw",
         fontWeight: "bold",
         color: "white",
         textShadow: "1px 1px 8px rgba(0, 0, 0, 1)"
@@ -23,7 +23,6 @@ const Hero = () => {
         color: "white",
         textShadow: "1px 1px 8px rgba(0, 0, 0, 1)"
     }
-    
 
     return (
         <div id="hero" className="carousel slide carousel-fade" data-bs-ride="carousel" style={style}>

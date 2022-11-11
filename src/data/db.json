@@ -293,7 +293,19 @@
       "email": "admin@admin.com",
       "address": "Fake Street 123",
       "postalCode": "12345",
-      "phone": "666123456"
+      "phone": "666123456",
+      "id": 1
+    },
+    {
+      "username": "user1",
+      "email": "user1@user.com",
+      "password": "123456",
+      "passwordCheck": "123456",
+      "fullName": "user1 surname",
+      "address": "user1",
+      "postalCode": "11111",
+      "phone": "111123456",
+      "id": 2
     }
   ]
 }

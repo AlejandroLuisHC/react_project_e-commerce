@@ -104,7 +104,7 @@ const ShippingForm = () => {
                         <label className='label col-12'>
                             Phone:
                             <input className={phoneState} autoComplete="off" type="tel" name="phone" value={input.phone} onChange={e => dispatch({ type: 'CH_PHONE', value: e.target.value })} required/>
-                            <div className={invalidMsgPhone }>
+                            <div className={invalidMsgPhone}>
                                 Not a valid phone number
                             </div>
                         </label>

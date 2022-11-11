@@ -4,7 +4,7 @@ async function fetchBands (band) {
         return await res.json()
 
     } catch(e) {
-        alert('Something went wrong while retrieving albums data.')
+        console.log('Something went wrong while retrieving albums data.')
     }
 }
 

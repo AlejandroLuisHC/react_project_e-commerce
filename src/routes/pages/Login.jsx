@@ -26,7 +26,7 @@ const Login = () => {
         color: "#eee",
     }
     
-    // Gathering of existing users in the system
+    // Gathering the existing users in the system
     const [existingUsers, setExistingUsers] = useState({})
     
     useEffect(() => {
@@ -115,7 +115,7 @@ const Login = () => {
                         <input className={btnState} disabled={enableSubmit} type="submit" value="Log in" />
                     </div>
                     <div className='mb-3 form-group d-flex justify-content-center'>
-                        <Link to="register" className="btn btn-secondary col-8">Sign up</Link>
+                        <Link to="../register" className="btn btn-secondary col-8">Sign up</Link>
                     </div>
                 </form>
             </fieldset>
