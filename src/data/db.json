@@ -292,6 +292,7 @@
       "passwordCheck": "123456",
       "fullName": "Alejandro L. Herrero",
       "email": "admin@admin.com",
+      "country": "Spain",
       "address": "Fake Street 123",
       "postalCode": "12345",
       "phone": "666123456",
@@ -302,10 +303,11 @@
       "email": "user1@user.com",
       "password": "123456",
       "passwordCheck": "123456",
-      "fullName": "user1 surname",
-      "address": "user1",
+      "fullName": "John Doe",
+      "country": "United States",
+      "address": "Street userstreet 1",
       "postalCode": "11111",
-      "phone": "111123456",
+      "phone": "699123456",
       "id": 1
     }
   ]

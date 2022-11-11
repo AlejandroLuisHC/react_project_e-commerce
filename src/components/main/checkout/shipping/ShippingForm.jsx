@@ -17,6 +17,7 @@ const ShippingForm = () => {
 
     // Manage of values by useReducer()
     const initialState = {
+        country: user.country,
         address: user.address,
         postalCode: user.postalCode,
         user: user.fullName,
@@ -26,6 +27,7 @@ const ShippingForm = () => {
     const [input, dispatch] = useReducer(addressReducer, initialState)
 
     // Manage inputs validation state
+    const validCountry      = input.country.length > 3 ? true : false;
     const validAddress      = input.address.length > 0 ? true : false;
     const validPostalCode   = input.postalCode.length === 5 ? true : false;
     const validUser         = (input.user.length > 5) && (input.user.includes(" ")) ? true : false;
@@ -37,13 +39,15 @@ const ShippingForm = () => {
         return ok;
     };
 
-    const btnState          = inputCheck(validAddress, validPostalCode, validUser, validEmail, validPhone) ? "btn btn-outline-success" : "btn btn-outline-warning";
-    const enableSubmit      = inputCheck(validAddress, validPostalCode, validUser, validEmail, validPhone) ? "" : "disabled";
+    const btnState          = inputCheck(validCountry, validAddress, validPostalCode, validUser, validEmail, validPhone) ? "btn btn-outline-success" : "btn btn-outline-warning";
+    const enableSubmit      = inputCheck(validCountry, validAddress, validPostalCode, validUser, validEmail, validPhone) ? "" : "disabled";
+    const countryState      = validCountry ? "form-control is-valid" : "form-control is-invalid"
     const addressState      = validAddress ? "form-control is-valid" : "form-control is-invalid"
     const postalCodeState   = validPostalCode ? "form-control is-valid" : "form-control is-invalid"
     const userState         = validUser ? "form-control is-valid" : "form-control is-invalid"
     const emailState        = validEmail ? "form-control is-valid" : "form-control is-invalid"
     const phoneState        = validPhone ? "form-control is-valid" : "form-control is-invalid"
+    const invalidMsgCountry = input.country === "" ? "d-none" : "invalid-feedback"; 
     const invalidMsgAddress = input.address === "" ? "d-none" : "invalid-feedback"; 
     const invalidMsgPostal  = input.postalCode === "" ? "d-none" : "invalid-feedback";
     const invalidMsgUser    = input.user === "" ? "d-none" : "invalid-feedback";
@@ -53,7 +57,7 @@ const ShippingForm = () => {
     // Submit functions
     const submitAddress = e => {
         e.preventDefault();
-        const ok = inputCheck(validAddress, validPostalCode, validUser, validEmail, validPhone) ? "Pa'lante" : "Dónde va', pisha?";
+        const ok = inputCheck(validCountry, validAddress, validPostalCode, validUser, validEmail, validPhone) ? "Pa'lante" : "Dónde va', pisha?";
         alert(ok);
     }
 
@@ -64,6 +68,15 @@ const ShippingForm = () => {
                 <form style={styleForm}
                     onSubmit={submitAddress} 
                 >
+                    <div className='mb-3 form-group'>
+                        <label className='label col-12'>
+                            Country:
+                            <input className={countryState} autoComplete="off" type="text" name="country" value={input.country} onChange={e => dispatch({ type: 'CH_COUNTRY', value: e.target.value })} required/>
+                            <div className={invalidMsgCountry}>
+                                Not a valid country
+                            </div>
+                        </label>
+                    </div>
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Address:

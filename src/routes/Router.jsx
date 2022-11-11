@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Checkout from './pages/Checkout';
 import Profile from './pages/Profile';
+import Search from './pages/Search';
 
 const router = () => {
     return (
@@ -23,6 +24,7 @@ const router = () => {
                         <Route path="/checkout" element={<Checkout />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
+                        <Route path="/search" element={<Search />} />
                         <Route path="/*" element={<Navigate replace to="/" />} />
                     </Route>
                 </Routes>

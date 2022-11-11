@@ -25,6 +25,14 @@ const regReducer = (input, action) => {
                 ...input,
                 fullName: action.value
             }
+        case 'CH_COUNTRY':
+            const value = action.value.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+                return letter.toUpperCase();
+            });
+            return {
+                ...input,
+                country: value
+            }
         case 'CH_ADDRESS':
             return {
                 ...input,
