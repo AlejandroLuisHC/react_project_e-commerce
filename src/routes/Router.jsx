@@ -6,6 +6,7 @@ import Albums from './pages/Albums';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Checkout from './pages/Checkout';
+import Profile from './pages/Profile';
 
 const router = () => {
     return (
@@ -18,6 +19,7 @@ const router = () => {
                         <Route path="/Finntroll" element={<Albums />} />
                         <Route path="/Grimner" element={<Albums />} />
                         <Route path="/Amon Amarth" element={<Albums />} />
+                        <Route path="/profile" element={<Profile />} />
                         <Route path="/checkout" element={<Checkout />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />

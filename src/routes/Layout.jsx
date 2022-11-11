@@ -5,7 +5,7 @@ import Header from "../components/header/Header";
 import storeItems from '../helper/utils/storeItems';
 
 function Layout() {
-    const itemsInCart = JSON.parse(localStorage.getItem('items')) ?? [];
+    const itemsInCart = JSON.parse(sessionStorage.getItem('items')) ?? [];
 
     const [items, setItems] = useState(itemsInCart);
 
@@ -14,7 +14,7 @@ function Layout() {
     }, [items]);
 
     function updateLocal(state) {
-        localStorage.setItem('items', JSON.stringify(state));
+        sessionStorage.setItem('items', JSON.stringify(state));
     }
     
     const deleteFunc = () => {

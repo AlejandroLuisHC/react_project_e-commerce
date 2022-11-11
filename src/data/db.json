@@ -289,12 +289,13 @@
     {
       "username": "admin",
       "password": "123456",
-      "name": "Alejandro L. Herrero",
+      "passwordCheck": "123456",
+      "fullName": "Alejandro L. Herrero",
       "email": "admin@admin.com",
       "address": "Fake Street 123",
       "postalCode": "12345",
       "phone": "666123456",
-      "id": 1
+      "id": 0
     },
     {
       "username": "user1",
@@ -305,7 +306,7 @@
       "address": "user1",
       "postalCode": "11111",
       "phone": "111123456",
-      "id": 2
+      "id": 1
     }
   ]
 }

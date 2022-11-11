@@ -19,7 +19,7 @@ const ShippingForm = () => {
     const initialState = {
         address: user.address,
         postalCode: user.postalCode,
-        user: user.name,
+        user: user.fullName,
         email: user.email,
         phone: user.phone,
     }
