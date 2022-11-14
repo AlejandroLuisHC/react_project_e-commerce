@@ -1,3 +1,4 @@
+import { memo } from "react"
 import { InfoCircleFill } from "react-bootstrap-icons"
 import { Link } from "react-router-dom"
 
@@ -13,7 +14,7 @@ const BandCard = ({ id, name, img, data, desc }) => {
     const bandPic = {
         height: "200px",
         objectFit: "cover",
-        borderRadius: "15px",
+        borderRadius: "14px",
         objectPosition: "50% 15%"
     }
     const label = {
@@ -61,14 +62,14 @@ const BandCard = ({ id, name, img, data, desc }) => {
             <button style={infoBtn} data-bs-toggle="modal" data-bs-target={`#description${id}`}><InfoCircleFill /></button>
         </div>
 
-        <div className="modal fade" id={`description${id}`} tabindex="-1" aria-labelledby={`description${id}Label`} aria-hidden="true">
+        <div className="modal fade" id={`description${id}`} tabIndex="-1" aria-labelledby={`description${id}Label`} aria-hidden="true">
             <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                 <div className="modal-content bg-dark text-white">
                     <div className="modal-header">
                         <h1 className="modal-title fs-2" id={`description${id}Label`}>{name}</h1>
                         <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body p-4" style={modalStyle}>
+                    <div className="modal-body p-4" style={modalStyle}>
                         <img src={img} alt={name} style={modalImg} width="100%"/>
                         <p>{desc}</p>
                     </div>
@@ -79,4 +80,4 @@ const BandCard = ({ id, name, img, data, desc }) => {
     )
 }
 
-export default BandCard
+export default memo(BandCard)

@@ -1,7 +1,6 @@
 import BandCard from '../../components/main/bands_cards/BandCard';
 import fetchBands from '../../api/fetchBands';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 const Home = () => {
     const styleMain = {
@@ -23,7 +22,7 @@ const Home = () => {
         }
         retrieveBands();
     }, [])
-
+    
     return (
         <main style={styleMain}>
             {bands.map(b => 

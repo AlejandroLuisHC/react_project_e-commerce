@@ -122,8 +122,6 @@ const UpdateForm = () => {
                 <form style={styleForm}
                     onSubmit={(e) => {
                         e.preventDefault();
-                        updateUser(input, user.id);
-                        userDispatch({ type: 'LOG', value: input });
                     }}
                 >
                     <div className='mb-3 form-group'>
@@ -191,13 +189,35 @@ const UpdateForm = () => {
                         </label>
                     </div>
                     <div className='mb-3 d-flex justify-content-center form-group'>
-                        <input className={btnState} disabled={enableSubmit} onClick={confirmChanges} type="submit" value="Submit" />
+                        <input className={btnState} data-bs-toggle="modal" data-bs-target="#confirmModal" disabled={enableSubmit} type="submit" value="Submit" />
                     </div>
                     <div id="confirm" className="d-none">
                         <p style={confirmStyle}>User updated successfully!</p>
                     </div>
                 </form>
             </fieldset>
+
+            <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content bg-dark text-white">
+                        <div class="modal-header">
+                            <h5 class="modal-title">WARNING</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>You are about to change you profile information. Are you sure?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            <button data-bs-dismiss="modal" onClick={() => {
+                                updateUser(input, user.id);
+                                userDispatch({ type: 'LOG', value: input });
+                                confirmChanges();
+                            }} type="button" class="btn btn-outline-success">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

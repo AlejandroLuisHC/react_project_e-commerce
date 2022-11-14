@@ -21,8 +21,8 @@ const Albums = (props) => {
     
     const [storeItems, items, setItems] = useOutletContext();
     const [albums, setAlbums] = useState([]);
-    const location = useLocation();
-    const albumsKey = location.state?.data; 
+    const { state } = useLocation();
+    const albumsKey = state?.data; 
     
     useEffect( () => {
         const retrieveAlbums = async () => {

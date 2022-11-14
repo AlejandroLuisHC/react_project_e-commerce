@@ -34,8 +34,8 @@ const ShippingForm = () => {
     const validEmail        = input.email.match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/) ? true : false;
     const validPhone        = input.phone.length === 9 ? true : false;
 
-    const inputCheck = (a, b, c, d, e) => {
-        const ok = (a && b && c && d && e) ? true : false;
+    const inputCheck = (a, b, c, d, e, f) => {
+        const ok = (a && b && c && d && e && f) ? true : false;
         return ok;
     };
 

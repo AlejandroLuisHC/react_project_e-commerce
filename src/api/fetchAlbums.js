@@ -1,4 +1,4 @@
-async function fetchBands (band) {
+async function fetchAlbums (band) {
     try {
         const res = await fetch(`http://localhost:3000/${band}`)
         return await res.json()
@@ -8,4 +8,4 @@ async function fetchBands (band) {
     }
 }
 
-export default fetchBands;
+export default fetchAlbums;

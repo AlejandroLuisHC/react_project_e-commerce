@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Cart } from "react-bootstrap-icons";
 
 const AlbumCard = ({ setItems, items, store, id, name, img, price, release, desc }) => {
@@ -62,9 +63,9 @@ const AlbumCard = ({ setItems, items, store, id, name, img, price, release, desc
 
     return (
         <>
-        <div id={id} className="card" data-bs-toggle="modal" data-bs-target={`#description${id}`} style={albumCard}>
-            <img src={img} style={albumPic} className="card-img-top" alt={name} />
-            <div className="position-absolute d-flex flex-column justify-content-between gap-5 card-body" style={{height: "200px"}}>
+        <div id={id} className="card" style={albumCard}>
+            <img src={img} data-bs-toggle="modal" data-bs-target={`#description${id}`} style={albumPic} className="card-img-top" alt={name} />
+            <div data-bs-toggle="modal" data-bs-target={`#description${id}`} className="position-absolute d-flex flex-column justify-content-between gap-5 card-body" style={{height: "200px"}}>
                 <div > 
                     <span className="badge text-bg-warning" style={priceTag}>{price}€</span>
                 </div>
@@ -73,18 +74,18 @@ const AlbumCard = ({ setItems, items, store, id, name, img, price, release, desc
             <button className="btn btn-primary" onClick={() => {store(id, name, price, img, items, setItems)}} style={buyBtn}><Cart/></button>
         </div>
 
-        <div className="modal fade" id={`description${id}`} tabindex="-1" aria-labelledby={`description${id}Label`} aria-hidden="true">
+        <div className="modal fade" id={`description${id}`} tabIndex="-1" aria-labelledby={`description${id}Label`} aria-hidden="true">
             <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                 <div className="modal-content bg-dark text-white">
                     <div className="modal-header">
                         <h1 className="modal-title fs-2" id={`description${id}Label`}>{`${name} (${release})`}</h1>
                         <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body p-4" style={modalStyle}>
+                    <div className="modal-body p-4" style={modalStyle}>
                         <img src={img} alt={name} style={modalImg} width="100%"/>
                         <p style={modalContent}>{desc}</p>
                     </div>
-                    <div class="modal-footer">
+                    <div className="modal-footer">
                         <button type="button" onClick={() => {store(id, name, price, img, items, setItems)}} className="btn btn-primary btn-lg d-flex align-items-center rounded-5 text-white">Add to cart!</button>
                     </div>
                 </div>
@@ -94,4 +95,4 @@ const AlbumCard = ({ setItems, items, store, id, name, img, price, release, desc
     )
 }
 
-export default AlbumCard
+export default memo(AlbumCard)

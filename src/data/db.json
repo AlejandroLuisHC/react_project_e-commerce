@@ -227,37 +227,86 @@
   "amonAmarthData": [
     {
       "id": "aa1",
-      "name": "Blodshymner",
-      "img": "img/grimner/blodshymner.jpg",
-      "price": 7,
-      "release": 2014
+      "name": "Once Sent from the Golden Hall",
+      "img": "img/amon/onceSentFromTheGoldenHall.jpg",
+      "price": 5,
+      "release": 1998
     },
     {
       "id": "aa2",
-      "name": "Färd",
-      "img": "img/grimner/fard.jpg",
-      "price": 6,
-      "release": 2012
+      "name": "The Avenger",
+      "img": "img/amon/theAvenger.jpg",
+      "price": 5,
+      "release": 1999
     },
     {
       "id": "aa3",
-      "name": "Frost Mot Eld",
-      "img": "img/grimner/frostmoteld.jpg",
-      "price": 8,
-      "release": 1016
+      "name": "The Crusher",
+      "img": "img/amon/theCrusher.jpg",
+      "price": 5,
+      "release": 2001
     },
     {
       "id": "aa4",
-      "name": "Vanadrottning",
-      "img": "img/grimner/vanadrottning.jpg",
-      "price": 8,
-      "release": 2018
+      "name": "Versus the World",
+      "img": "img/amon/versusTheWorld.jpg",
+      "price": 7,
+      "release": 2002
     },
     {
       "id": "aa5",
-      "name": "Urfader",
-      "img": "img/grimner/urfader.jpg",
+      "name": "Fate of Norns",
+      "img": "img/amon/fateOfTheNorns.jpg",
+      "price": 7,
+      "release": 2004
+    },
+    {
+      "id": "aa6",
+      "name": "With Oden on Our Side",
+      "img": "img/amon/withOdenOnOurSide.jpg",
+      "price": 8,
+      "release": 2006
+    },
+    {
+      "id": "aa7",
+      "name": "Twilight of the Thunder God",
+      "img": "img/amon/twilightOfTheThunderGod.jpg",
+      "price": 11,
+      "release": 2008
+    },
+    {
+      "id": "aa8",
+      "name": "Surtur Rising",
+      "img": "img/amon/surturRising.jpg",
       "price": 9,
+      "release": 2011
+    },
+    {
+      "id": "aa9",
+      "name": "Deceiver of the Gods",
+      "img": "img/amon/deceiverOfTheGods.jpg",
+      "price": 10,
+      "release": 2013
+    },
+    {
+      "id": "aa10",
+      "name": "Jomsviking",
+      "img": "img/amon/jomsviking.jpg",
+      "price": 12,
+      "release": 2016
+    },
+    {
+      "id": "aa11",
+      "name": "Berserker",
+      "img": "img/amon/berserker.jpg",
+      "price": 13,
+      "release": 2019
+    },
+    {
+      "id": "aa12",
+      "name": "The Great Heathen Army",
+      "img": "img/amon/theGreatHeathenArmy.jpg",
+      "price": 15,
       "release": 2022
     }
   ],
