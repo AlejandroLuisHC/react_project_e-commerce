@@ -38,14 +38,15 @@ const Albums = (props) => {
             <div style={style}>
                 {albums?.map(a => 
                     <AlbumCard key = {a.id}
-                        name      = {a.name}
-                        img       = {a.img}
-                        price     = {a.price}
-                        release   = {a.release}
-                        id        = {a.id}
-                        items     = {items}
-                        setItems  = {setItems}
-                        store     = {storeItems}
+                        id       = {a.id}
+                        name     = {a.name}
+                        img      = {a.img}
+                        price    = {a.price}
+                        release  = {a.release}
+                        desc     = {a.description}
+                        items    = {items}
+                        setItems = {setItems}
+                        store    = {storeItems}
                     />
                 )}
             </div>
