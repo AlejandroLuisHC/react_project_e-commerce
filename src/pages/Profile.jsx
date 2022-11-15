@@ -1,5 +1,5 @@
-import DisplayUserData from "../../components/main/profile/DisplayUserData"
-import UpdateForm from "../../components/main/profile/UpdateForm"
+import DisplayUserData from "../components/main/profile/DisplayUserData"
+import UpdateForm from "../components/main/profile/UpdateForm"
 
 const Profile = () => {
     const styleMain = {

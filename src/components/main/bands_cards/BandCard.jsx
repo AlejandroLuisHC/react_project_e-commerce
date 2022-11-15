@@ -49,11 +49,7 @@ const BandCard = ({ id, name, img, data, desc }) => {
     return (
         <>
         <div id={id} className="card" style={bandCard}>
-            <Link to = {`${name}`}
-                state = {{
-                    data: data,
-                }}
-            >
+            <Link to = {`${data}`}>
                 <img src={img} style={bandPic} className="card-img-top" alt={name} />
                 <div className="position-absolute w-100 top-50 d-flex align-items-center justify-content-between card-body">
                     <h3 className="card-title" style={label}>{name}</h3>

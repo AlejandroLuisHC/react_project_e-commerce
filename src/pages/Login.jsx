@@ -1,8 +1,8 @@
 import { useReducer, useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import fetchUsers from '../../api/fetchUsers';
-import UserContext from '../../context/UserContext';
-import logReducer from '../../reducers/logReducer';
+import fetchUsers from '../api/fetchUsers';
+import UserContext from '../context/UserContext';
+import logReducer from '../reducers/logReducer';
 
 const Login = () => {
     const styleForm = {

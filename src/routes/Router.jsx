@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Layout from '../routes/Layout';
+import Layout from './Layout';
 import UserProvider from '../context/UserProvider';
-import Home from './pages/Home';
-import Albums from './pages/Albums';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Checkout from './pages/Checkout';
-import Profile from './pages/Profile';
-import Search from './pages/Search';
+import Home from '../pages/Home';
+import Albums from '../pages/Albums';
+import Login from '../pages/Login';
+import Register from '../pages/Register';
+import Checkout from '../pages/Checkout';
+import Profile from '../pages/Profile';
+import Search from '../pages/Search';
 
 const router = () => {
     return (

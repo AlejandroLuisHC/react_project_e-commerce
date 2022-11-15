@@ -15,7 +15,6 @@ const AlbumCard = ({ setItems, items, store, id, name, img, price, release, desc
         width: "250px",
         objectFit: "cover",
         borderRadius: "50%",
-        objectPosition: "50% 15%"
     }
     const label = {
         fontWeight: "bold",

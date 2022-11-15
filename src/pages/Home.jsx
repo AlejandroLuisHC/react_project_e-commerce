@@ -1,32 +1,26 @@
-import BandCard from '../../components/main/bands_cards/BandCard';
-import fetchBands from '../../api/fetchBands';
+import BandCard from '../components/main/bands_cards/BandCard';
+import fetchBands from '../api/fetchBands';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Filter } from 'react-bootstrap-icons';
 
 const Home = () => {
     const styleMain = {
-        marginTop: "25px",
+        marginTop: "15px",
         gridColumn: "2",
         display: "grid",
-        gridTemplate: "20px 1fr / 1fr"
+        gridTemplate: "50px 1fr / 1fr"
     }
     const styleSection = {
-        marginTop: "30px",
+        marginTop: "15px",
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "space-evenly",
         AlignItems: "start",
-        gap: "40px",
+        gap: "30px",
     }
     
     const [bands, setBands] = useState([]);
-    const [search, setSearch] = useSearchParams()
-    const filter = search.get("filter") ?? "";
-    const setFilter = e => {
-        setSearch({filter: e.target.value})
-    }
-
     useEffect( () => {
         const retrieveBands = async () => {
             const bandsData = await fetchBands();
@@ -35,6 +29,12 @@ const Home = () => {
         retrieveBands();
     }, [])
     
+    const [search, setSearch] = useSearchParams()
+    const filter = search.get("filter") ?? "";
+    const setFilter = e => {
+        setSearch({filter: e.target.value})
+    }
+
     return (
         <main style={styleMain}>
             <form className="col-2 w-100 d-flex align-items-center justify-content-end pe-5" role="search">
@@ -44,7 +44,7 @@ const Home = () => {
                 </label>
             </form>
             <section style={styleSection}>
-                {bands.map(b => {
+                {bands?.map(b => {
                     if (b.name.toLowerCase().includes(filter.toLowerCase())) {
                         return (<BandCard key = {b.id}
                             id      = {b.id}

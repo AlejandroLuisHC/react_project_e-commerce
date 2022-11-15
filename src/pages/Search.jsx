@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useOutletContext } from 'react-router-dom'
-import fetchBands from '../../api/fetchBands'
-import fetchAlbums from '../../api/fetchAlbums'
-import BandCard from '../../components/main/bands_cards/BandCard'
-import AlbumCard from '../../components/main/album_cards/AlbumCard'
+import fetchBands from '../api/fetchBands'
+import fetchAlbums from '../api/fetchAlbums'
+import BandCard from '../components/main/bands_cards/BandCard'
+import AlbumCard from '../components/main/album_cards/AlbumCard'
 
 const Search = () => {
     const styleMain = {

@@ -1,5 +1,5 @@
 {
-  "judasData": [
+  "judasAlbums": [
     {
       "id": "j1",
       "name": "Angel of Retribution",
@@ -129,7 +129,7 @@
       "release": 1986
     }
   ],
-  "grimnerData": [
+  "grimnerAlbums": [
     {
       "id": "g1",
       "name": "Blodshymner",
@@ -166,7 +166,7 @@
       "release": 2022
     }
   ],
-  "finntrollData": [
+  "finntrollAlbums": [
     {
       "id": "f1",
       "name": "Midnattens Widunder",
@@ -224,7 +224,7 @@
       "release": 2020
     }
   ],
-  "amonAmarthData": [
+  "amonAmarthAlbums": [
     {
       "id": "aa1",
       "name": "Once Sent from the Golden Hall",
@@ -315,28 +315,28 @@
       "id": 1,
       "name": "Judas Priest",
       "img": "img/judas_priest.jpg",
-      "data": "judasData",
+      "data": "judasAlbums",
       "description": "One of the most influential heavy metal groups of all time, Judas Priest emerged at the dawn of the New Wave of British Heavy Metal. Decked out in leather and chains, the band combined the gothic doom of Black Sabbath and blazing speed of Led Zeppelin with the inventive art rock of Queen, powered by the dynamic banshee wail of Rob Halford and the vicious dual lead guitar attack of Glenn Tipton and K.K. Downing. Judas Priest set the pace for the genre from 1975 until 1985 with iconic albums like British Steel (1980), Screaming for Vengeance (1982), and Defenders of the Faith (1984) and helped lay the groundwork for speed and death metal. The group struggled after Rob Halford's departure in the early '90s but were restored to prominence in the 2000s upon his return, issuing a string of acclaimed efforts -- Angel of Retribution (2005), Nostradamus (2010), Redeemer of Souls (2014), and Firepower (2018) -- that skillfully married melody, pageantry, and muscle."
     },
     {
       "id": 2,
       "name": "Grimner",
       "img": "img/grimner.jpg",
-      "data": "grimnerData",
+      "data": "grimnerAlbums",
       "description": "Grimner, founded in 2008, shows that the past few years of silence and pandemics hasn't been for nothing - silence means working. In the wake of a plague, Grimner emerge battle-scarred to release new tunes and tales to the world, inspired as always by ancient nordic myths and history. At the same time, this album certainly brings something special to the genre."
     },
     {
       "id": 3,
       "name": "Finntroll",
       "img": "img/finntroll.jpg",
-      "data": "finntrollData",
+      "data": "finntrollAlbums",
       "description": "Regarded as pioneers of the folk-metal movement, Finntroll emerged in the late 1990s with a sound that combined the extreme elements of death metal with traditional Finnish folk melodies. In the 2000s and beyond, the band found international success with albums like Ur Jordens Djup (2007), Blodsvept (2013), and Vredesvävd (2020), which saw them move deeper into the realm of ancient music, incorporating joik (a shamanistic chant that is believed to be one of the oldest-known musical forms in Northern Europe) into their death metal maelstrom."
     },
     {
       "id": 4,
       "name": "Amon Amarth",
       "img": "img/amon_amarth.jpg",
-      "data": "amonAmarthData",
+      "data": "amonAmarthAlbums",
       "description": "Formed in 1992, Amon Amarth became modern metal greats the hard way. The Swedes steadily built a formidable reputation as a ferocious live band and, as the years passed, were increasingly recognised for their recorded achievements. Breakthrough releases like 2006’s With Oden On Our Side and 2008’s Twilight Of The Thunder God, cemented their popularity throughout the metal world. Jomsviking (2015) hit the #1 spot in Germany’s official album chart and swiftly became their most successful worldwide release to date. Amon Amarth return to action in 2019, with their biggest, boldest and most bombastic musical statement to date. Amon Amarth – completed by vocalist Johan Hegg, guitarists Olavi Mikkonen and Johan Söderberg, bassist Ted Lundström and drummer Jocke Wallgren - know that expectations for their next move are at an all-time high. The excellent news is that the band’s 11th studio album, the aptly-named Berserker, is guaranteed to have all discerning metal fans punching the air with joy. Today, Amon Amarth stand tall and unassailable: over 25 years into a career that has seen them evolve from humble origins in the dark, dank rehearsal rooms of their native Tumba to their current status as explosive festival headliners and one of the metal world’s most widely adored bands."
     }
   ],
