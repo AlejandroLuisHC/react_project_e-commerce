@@ -1,4 +1,4 @@
-import ResgisterForm from "../../components/main/register/ResgisterForm";
+import ResgisterForm from "../../components/main/register/RegisterForm";
 
 const Register = () => {
   const styleMain = {

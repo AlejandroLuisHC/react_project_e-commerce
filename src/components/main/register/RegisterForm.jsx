@@ -147,7 +147,6 @@ const ResgisterForm = () => {
                         </div>
                     </label>
                 </div>
-
                 <div className='mb-3 form-group'>
                     <label className='label col-12'>
                         Full name: 

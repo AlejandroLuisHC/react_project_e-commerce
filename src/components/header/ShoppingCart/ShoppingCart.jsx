@@ -7,10 +7,8 @@ import getTotal from '../../../helper/utils/getTotal';
 import UserContext from '../../../context/UserContext';
 
 const ShoppingCart = ({ setItems, deleteFunc, items }) => {
-    let total = 0; 
-    items.forEach(i => {
-        total += i.quantity;   
-    })
+    let total = 0;
+    items.map(i => total += i.quantity)
     
     const style = {
         boxShadow: "inset 5px 5px 10px rgba(0, 0, 0, .4)",

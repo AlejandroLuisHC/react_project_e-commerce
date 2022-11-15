@@ -8,10 +8,10 @@ const SearchBar = () => {
     }
 
     const [search, setSearch] = useState("");
-
+    const searchOk = search ?? "";
     return (
         <form className="col-11 d-flex" role="search">
-            <input className="form-control me-2" style={style} value={search} onChange={e => setSearch(e.target.value)} type="search" placeholder="Search" aria-label="Search" />
+            <input className="form-control me-2" style={style} value={searchOk} onChange={e => setSearch(e.target.value)} type="search" placeholder="Search in web..." aria-label="Search" />
             <Link to="search" 
                 state = {{
                     search

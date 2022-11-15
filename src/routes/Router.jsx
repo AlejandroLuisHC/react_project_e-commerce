@@ -16,13 +16,10 @@ const router = () => {
                 <Routes>
                     <Route path="/" element={<Layout />}> 
                         <Route index element={<Home />} />
-                        <Route path="/Judas Priest" element={<Albums />} />
-                        <Route path="/Finntroll" element={<Albums />} />
-                        <Route path="/Grimner" element={<Albums />} />
-                        <Route path="/Amon Amarth" element={<Albums />} />
+                        <Route path="/:bandName" element={<Albums />} />
                         <Route path="/profile" element={<Profile />} />
-                        <Route path="/checkout" element={<Checkout />} />
                         <Route path="/login" element={<Login />} />
+                        <Route path="/checkout" element={<Checkout />} />
                         <Route path="/register" element={<Register />} />
                         <Route path="/search" element={<Search />} />
                         <Route path="/*" element={<Navigate replace to="/" />} />
