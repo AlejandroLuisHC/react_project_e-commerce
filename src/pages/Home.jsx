@@ -30,9 +30,9 @@ const Home = () => {
     }, [])
     
     const [search, setSearch] = useSearchParams()
-    const filter = search.get("filter") ?? "";
+    const query = search.get("query") ?? "";
     const setFilter = e => {
-        setSearch({filter: e.target.value})
+        setSearch({query: e.target.value})
     }
 
     return (
@@ -40,12 +40,12 @@ const Home = () => {
             <form className="col-2 w-100 d-flex align-items-center justify-content-end pe-5" role="search">
                 <label className='label text-white d-flex gap-2 align-items-center'>
                     <Filter />
-                    <input className="form-control" value={filter} onChange={setFilter} type="search" placeholder="Filter bands..." aria-label="Search" />
+                    <input className="form-control" value={query} onChange={setFilter} type="search" placeholder="Filter bands..." aria-label="Search" />
                 </label>
             </form>
             <section style={styleSection}>
                 {bands?.map(b => {
-                    if (b.name.toLowerCase().includes(filter.toLowerCase())) {
+                    if (b.name.toLowerCase().includes(query.toLowerCase())) {
                         return (<BandCard key = {b.id}
                             id      = {b.id}
                             name    = {b.name}

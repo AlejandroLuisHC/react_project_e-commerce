@@ -4,6 +4,7 @@ import AlbumCard from '../components/main/album_cards/AlbumCard'
 import fetchAlbums from '../api/fetchAlbums';
 import GoHome from '../components/main/return_home/GoHome';
 import { Filter } from 'react-bootstrap-icons';
+
 const Albums = () => {  
     const mainStyle = {
         marginTop: "15px",
@@ -39,9 +40,9 @@ const Albums = () => {
     }, [albumsKey])
 
     const [search, setSearch] = useSearchParams()
-    const filter = search.get("filter") ?? "";
+    const query = search.get("query") ?? "";
     const setFilter = e => {
-        setSearch({filter: e.target.value})
+        setSearch({query: e.target.value})
     }
 
     return (
@@ -53,13 +54,13 @@ const Albums = () => {
                 <form className="d-flex align-items-center justify-content-end pe-5" role="search">
                     <label className='label text-white d-flex gap-2 align-items-center'>
                         <Filter />
-                        <input className="form-control" value={filter} onChange={setFilter} type="search" placeholder="Filter bands..." aria-label="Search" />
+                        <input className="form-control" value={query} onChange={setFilter} type="search" placeholder="Filter bands..." aria-label="Search" />
                     </label>
                 </form>
             </div>
             <section style={sectionStyle}>
                 {albums?.map(a => {
-                    if (a.name.toLowerCase().includes(filter.toLowerCase())) {
+                    if (a.name.toLowerCase().includes(query.toLowerCase())) {
                         return (<AlbumCard key = {a.id}
                             id       = {a.id}
                             name     = {a.name}

@@ -77,7 +77,7 @@ const Login = () => {
         e.preventDefault();
         if (validUser(logInput.username, logInput.pwd).length) {
             userDispatch({ type: 'LOG', value: validUser(logInput.username, logInput.pwd)[0] })
-            window.location.replace("/home")
+            window.location.replace("/")
         } else {
             alert("Dónde va', pisha?");
         }

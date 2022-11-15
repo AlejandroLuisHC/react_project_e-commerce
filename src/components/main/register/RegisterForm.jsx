@@ -11,6 +11,10 @@ const ResgisterForm = () => {
     const styleText = {
         color: "#eee",
     }
+    const confirmStyle = {
+        color: "#5d5",
+        fontSize: "1.8em"
+    }
 
     // Gathering the existing users in the system
     const [existingUsers, setExistingUsers] = useState([])
@@ -30,6 +34,7 @@ const ResgisterForm = () => {
         password: "",
         passwordCheck: "",
         fullName: "",
+        country: "",
         address: "",
         postalCode: "",
         phone: "",
@@ -61,22 +66,24 @@ const ResgisterForm = () => {
     const validPwd          = input.password.length > 5 ? true : false;
     const validPwdCheck     = (input.passwordCheck > 5) && (input.passwordCheck === input.password) ? true : false;
     const validFullName     = (input.fullName.length > 5) && (input.fullName.includes(" ")) ? true : false;
+    const validCountry      = input.country.length > 3 ? true : false;
     const validAddress      = input.address.length > 0 ? true : false;
     const validPostalCode   = input.postalCode.length === 5 ? true : false;
     const validPhone        = input.phone.length === 9 ? true : false;
 
-    const inputCheck = (a, b, c, d, e, f, g, h) => {
-        const ok = (a && b && c && d && e && f && g && h) ? true : false;
+    const inputCheck = (a, b, c, d, e, f, g, h, i) => {
+        const ok = (a && b && c && d && e && f && g && h && i) ? true : false;
         return ok;
     };
 
-    const btnState           = inputCheck(validUsername, validEmail, validPwd, validPwdCheck, validAddress, validPostalCode, validFullName, validPhone) ? "btn btn-outline-success" : "btn btn-outline-warning";
-    const enableSubmit       = inputCheck(validUsername, validEmail, validPwd, validPwdCheck, validAddress, validPostalCode, validFullName, validPhone) ? "" : "disabled";
+    const btnState           = inputCheck(validUsername, validEmail, validPwd, validPwdCheck, validCountry, validAddress, validPostalCode, validFullName, validPhone) ? "btn btn-outline-success" : "btn btn-outline-warning";
+    const enableSubmit       = inputCheck(validUsername, validEmail, validPwd, validPwdCheck, validCountry, validAddress, validPostalCode, validFullName, validPhone) ? "" : "disabled";
     const usernameState      = validUsername ? "form-control is-valid" : "form-control is-invalid"
     const emailState         = validEmail ? "form-control is-valid" : "form-control is-invalid"
     const pwdState           = validPwd ? "form-control is-valid" : "form-control is-invalid"
     const pwdCheckState      = validPwdCheck ? "form-control is-valid" : "form-control is-invalid"
     const fullNameState      = validFullName ? "form-control is-valid" : "form-control is-invalid"
+    const countryState       = validCountry ? "form-control is-valid" : "form-control is-invalid"
     const addressState       = validAddress ? "form-control is-valid" : "form-control is-invalid"
     const postalCodeState    = validPostalCode ? "form-control is-valid" : "form-control is-invalid"
     const phoneState         = validPhone ? "form-control is-valid" : "form-control is-invalid"
@@ -85,14 +92,28 @@ const ResgisterForm = () => {
     const invalidMsgPwd      = input.password === "" ? "d-none" : "invalid-feedback"; 
     const invalidMsgPwdCheck = input.passwordCheck=== "" ? "d-none" : "invalid-feedback"; 
     const invalidMsgFullName = input.fullName === "" ? "d-none" : "invalid-feedback";
+    const invalidMsgCountry  = input.country === "" ? "d-none" : "invalid-feedback"; 
     const invalidMsgAddress  = input.address === "" ? "d-none" : "invalid-feedback"; 
     const invalidMsgPostal   = input.postalCode === "" ? "d-none" : "invalid-feedback";
     const invalidMsgPhone    = input.phone === "" ? "d-none" : "invalid-feedback";
+    const confirmChanges = (e) => {
+        if (inputCheck(validUsername, validEmail, validPwd, validPwdCheck, validCountry, validAddress, validPostalCode, validFullName, validPhone)) {
+            const msg = document.getElementById("confirm");
+            msg.className = "d-flex justify-content-center";
+            setTimeout(() => {
+                msg.className = "d-none";
+            }, 2000);
+        }
+    }
 
     // Post new user to the database 
     const createUser = async (user) => {
-        if (inputCheck(validUsername, validEmail, validPwd, validPwdCheck, validAddress, validPostalCode, validFullName, validPhone)) {
-            await fetchCreateUser(user); 
+        if (inputCheck(validUsername, validEmail, validPwd, validPwdCheck, validCountry, validAddress, validPostalCode, validFullName, validPhone)) {
+            await fetchCreateUser(user);
+            confirmChanges();
+            setTimeout(() => {
+                window.location.replace('/login'); 
+            }, 1900);            
         } else {
             console.log('Something when wrong while submitting the register');
         }
@@ -158,6 +179,15 @@ const ResgisterForm = () => {
                 </div>
                 <div className='mb-3 form-group'>
                     <label className='label col-12'>
+                        Country: 
+                        <input className={countryState} autoComplete="off" name="address" value={input.country} onChange={e => dispatch({ type: 'CH_COUNTRY', value: e.target.value })} type="text" required/>
+                        <div className={invalidMsgCountry}>
+                            Not a valid country
+                        </div>
+                    </label>
+                </div>
+                <div className='mb-3 form-group'>
+                    <label className='label col-12'>
                         Address: 
                         <input className={addressState} autoComplete="off" name="address" value={input.address} onChange={e => dispatch({ type: 'CH_ADDRESS', value: e.target.value })} type="text" required/>
                         <div className={invalidMsgAddress}>
@@ -185,6 +215,9 @@ const ResgisterForm = () => {
                 </div>
                 <div className='mb-3 d-flex justify-content-center form-group'>
                     <input className={btnState} disabled={enableSubmit} type="submit" value="Submit" />
+                </div>
+                <div id="confirm" className="d-none">
+                    <p style={confirmStyle}>Account created successfully!</p>
                 </div>
             </form>
         </fieldset>
