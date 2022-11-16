@@ -5,8 +5,11 @@ import { Cart } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import getTotal from '../../../helper/utils/getTotal';
 import UserContext from '../../../context/UserContext';
+import CartContext from '../../../context/CartContext';
 
-const ShoppingCart = ({ setItems, deleteFunc, items }) => {
+const ShoppingCart = () => {
+    const { items, setItems, deleteFunc } = useContext(CartContext)
+    
     let total = 0;
     items.map(i => total += i.quantity)
     
@@ -14,9 +17,9 @@ const ShoppingCart = ({ setItems, deleteFunc, items }) => {
         boxShadow: "inset 5px 5px 10px rgba(0, 0, 0, .4)",
         border: "none",
     }
-
+    
     const totalPrice = getTotal(items);
-
+    
     const { user } = useContext(UserContext);
     const checkUser = (username) => username === "Guest" ? "login" : "checkout";
     const disableBtn = items.length === 0 ? "disabled" : "";

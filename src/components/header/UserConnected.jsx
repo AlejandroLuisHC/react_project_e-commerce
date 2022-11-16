@@ -13,8 +13,8 @@ const UserConnected = ({ user }) => {
     const { username } = user;
     const { userDispatch } = useContext(UserContext);
     const closeSession = () => {
-        userDispatch({ type: 'RESET' })
-        window.location.replace('/')
+        userDispatch({ type: 'RESET' });
+        window.location.replace('/') 
     }
     return (
         <div className='d-flex align-items-center justify-content-start gap-3'>

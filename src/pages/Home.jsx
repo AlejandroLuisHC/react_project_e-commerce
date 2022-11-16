@@ -33,7 +33,7 @@ const Home = () => {
     const query = search.get("query") ?? "";
     const setFilter = e => {
         setSearch({query: e.target.value})
-    }
+    } 
 
     return (
         <main style={styleMain}>

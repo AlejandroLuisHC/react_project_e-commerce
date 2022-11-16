@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useContext } from 'react'
+import { Navigate } from 'react-router-dom'
 import fetchDeleteUser from '../../../api/fetchDeleteUser'
 import UserContext from '../../../context/UserContext'
 
@@ -10,6 +11,7 @@ const DisplayUserData = () => {
     }
     const styleText = {
         marginBottom: "30px",
+        textShadow: "1px 1px 5px #00000088"
     }
     const margin = {
         marginBottom: "7px"
@@ -33,7 +35,7 @@ const DisplayUserData = () => {
         if (confirmPwd === user.password){
             await fetchDeleteUser(user.id);
             sessionStorage.removeItem('user');
-            window.location.replace('/');
+            <Navigate to='/'/>
         }
     }
 
