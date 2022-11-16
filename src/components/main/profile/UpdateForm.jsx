@@ -189,7 +189,7 @@ const UpdateForm = () => {
                         </label>
                     </div>
                     <div className='mb-3 d-flex justify-content-center form-group'>
-                        <input className={btnState} data-bs-toggle="modal" data-bs-target="#confirmModal" disabled={enableSubmit} type="submit" value="Submit" />
+                        <input className={btnState} data-bs-toggle="modal" data-bs-target="#confirmUpdateModal" disabled={enableSubmit} type="submit" value="Submit" />
                     </div>
                     <div id="confirm" className="d-none">
                         <p style={confirmStyle}>User updated successfully!</p>
@@ -197,7 +197,7 @@ const UpdateForm = () => {
                 </form>
             </fieldset>
 
-            <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+            <div class="modal fade" id="confirmUpdateModal" tabindex="-1" aria-labelledby="confirmUpdateModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content bg-dark text-white">
                         <div class="modal-header">
@@ -205,7 +205,7 @@ const UpdateForm = () => {
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <p>You are about to change you profile information. Are you sure?</p>
+                            <p>You are about to change your profile information. Are you sure?</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
