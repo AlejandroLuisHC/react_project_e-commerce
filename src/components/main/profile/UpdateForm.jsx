@@ -11,7 +11,8 @@ const UpdateForm = () => {
     }
     const styleText = {
         color: "#eee",
-        marginBottom: "30px"
+        marginBottom: "30px",
+        textShadow: "1px 1px 5px #00000088"
     }
     const confirmStyle = {
         color: "#5d5",
@@ -197,23 +198,23 @@ const UpdateForm = () => {
                 </form>
             </fieldset>
 
-            <div class="modal fade" id="confirmUpdateModal" tabindex="-1" aria-labelledby="confirmUpdateModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content bg-dark text-white">
-                        <div class="modal-header">
-                            <h5 class="modal-title">WARNING</h5>
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div className="modal fade" id="confirmUpdateModal" tabIndex="-1" aria-labelledby="confirmUpdateModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content bg-dark text-white">
+                        <div className="modal-header">
+                            <h5 className="modal-title">WARNING</h5>
+                            <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div className="modal-body">
                             <p>You are about to change your profile information. Are you sure?</p>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
                             <button data-bs-dismiss="modal" onClick={() => {
                                 updateUser(input, user.id);
                                 userDispatch({ type: 'LOG', value: input });
                                 confirmChanges();
-                            }} type="button" class="btn btn-outline-success">Save changes</button>
+                            }} type="button" className="btn btn-outline-success">Save changes</button>
                         </div>
                     </div>
                 </div>

@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
-import { useOutletContext, useParams, useSearchParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import AlbumCard from '../components/main/album_cards/AlbumCard'
 import fetchAlbums from '../api/fetchAlbums';
 import GoHome from '../components/main/return_home/GoHome';
 import { Filter } from 'react-bootstrap-icons';
+import { useContext } from 'react';
+import CartContext from '../context/CartContext';
+import WishContext from '../context/WishContext';
 
 const Albums = () => {  
     const mainStyle = {
@@ -13,7 +16,7 @@ const Albums = () => {
         gridTemplate: "50px 1fr / 1fr"
     }
     const sectionStyle = {
-        marginTop: "25px",
+        marginTop: "35px",
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "space-evenly",
@@ -25,7 +28,8 @@ const Albums = () => {
         gridTemplateColumns: "1fr 1fr 1fr"
     }
 
-    const [storeItems, items, setItems] = useOutletContext();
+    const { items, setItems } = useContext(CartContext)
+    const { wish, setWish } = useContext(WishContext)
 
     const { bandName } = useParams();
     const albumsKey = bandName; 
@@ -70,7 +74,8 @@ const Albums = () => {
                             desc     = {a.description}
                             items    = {items}
                             setItems = {setItems}
-                            store    = {storeItems}
+                            wish     = {wish}
+                            setWish  = {setWish}
                         />)
                     }
                     return null;

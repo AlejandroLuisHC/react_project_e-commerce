@@ -1,5 +1,5 @@
-function storeItems (id, name, price, img, state, setItems) {
-    let itemsList = [...state]
+function storeWishes (id, name, price, img, state, setWish) {
+    let wishList = [...state]
     function existId(id, state) {
         let exist = false;
         state.map(item => {
@@ -12,24 +12,24 @@ function storeItems (id, name, price, img, state, setItems) {
         return exist;
     }
 
-    if (existId(id, itemsList)) {
-        itemsList.map(i => {
+    if (existId(id, wishList)) {
+        wishList.map(i => {
             if (i.id === id) {
-                return i.quantity += 1;
+                const pos = wishList.indexOf(i);
+                return wishList.splice(pos, 1);
             }
             return null
         }) 
     } else {
-        itemsList.push({
+        wishList.push({
             id, 
             name,
             price,
             img,
-            quantity: 1,
         })
     }
-    setItems(prev => prev = itemsList);
+    setWish(prev => prev = wishList);
 
 }
 
-export default storeItems;
+export default storeWishes;

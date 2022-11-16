@@ -21,7 +21,6 @@ const OrderedProduct = ({ id, name, price, img, subTotal, quantity }) => {
 
     const [, items, setItems] = useOutletContext();
 
-    console.log(img);
     return (
         <>
         <div>

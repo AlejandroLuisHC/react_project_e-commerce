@@ -1,4 +1,5 @@
 import { useState, useEffect, useReducer } from "react"
+import { Navigate } from "react-router-dom"
 import fetchCreateUser from "../../../api/fetchCreateUser"
 import fetchUsers from "../../../api/fetchUsers"
 import regReducer from "../../../reducers/regReducer"
@@ -112,7 +113,7 @@ const ResgisterForm = () => {
             await fetchCreateUser(user);
             confirmChanges();
             setTimeout(() => {
-                window.location.replace('/login'); 
+                window.location.replace('/login') 
             }, 1900);            
         } else {
             console.log('Something when wrong while submitting the register');

@@ -1,7 +1,10 @@
 import { memo } from "react";
-import { Cart } from "react-bootstrap-icons";
+import { Cart, Heart } from "react-bootstrap-icons";
+import storeItems from "../../../helper/utils/storeItems";
+import storeWish from "../../../helper/utils/storeWish";
+import ModalAlbumDescription from "./ModalAlbumDescription";
 
-const AlbumCard = ({ setItems, items, store, id, name, img, price, release, desc }) => {
+const AlbumCard = ({ setItems, items, id, name, img, price, release, desc, wish, setWish }) => {
     const albumCard = {
         height: "250px",
         width: "250px",
@@ -30,8 +33,8 @@ const AlbumCard = ({ setItems, items, store, id, name, img, price, release, desc
         transform: "rotate(-10deg)"
     }
     const buyBtn = {
-        width: "60px",
-        height: "60px",
+        width: "50px",
+        height: "50px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -41,25 +44,30 @@ const AlbumCard = ({ setItems, items, store, id, name, img, price, release, desc
         border: "none",
         boxShadow: "0 0 15px black"
     }
-    const modalImg = {
-        borderRadius: "10px",
-        marginBottom: "15px",
-        opacity: ".3"
-    }
-    const modalStyle = {
-        textAlign: "justify",
-        textJustify: "inter-word"
-    }
-    const modalContent = {
+    const wishBtn = {
+        width: "30px",
+        height: "30px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: "50%",
         position: "absolute",
-        paddingLeft: "15px",
-        paddingRight: "40px",
-        fontSize: "1.1em",
-        whiteSpace: "pre-line",
-        lineHeight: "1.6",
-        top: "5%"
+        left: "65%",
+        top: "-7%",
     }
-
+    
+    const setClassWish = () => {
+        setTimeout(() => {
+            const wishStatus = document.getElementById(`wishStatus${id}`)
+            let status = "btn btn-outline-danger btn-sm"
+            wish.map(w => {
+                if (w.id === id) return status = "btn btn-danger btn-sm";
+                return null
+            });
+            return wishStatus.className = status
+        }, 1);
+    }
+    
     return (
         <>
         <div id={id} className="card" style={albumCard}>
@@ -70,26 +78,20 @@ const AlbumCard = ({ setItems, items, store, id, name, img, price, release, desc
                 </div>
                 <h3 className="card-title" style={label}>{name}</h3>
             </div>
-            <button className="btn btn-primary" onClick={() => {store(id, name, price, img, items, setItems)}} style={buyBtn}><Cart/></button>
+            <button className="btn btn-primary btn-lg" onClick={() => {storeItems(id, name, price, img, items, setItems)}} style={buyBtn}><Cart/></button>
+            <button id={`wishStatus${id}`} className={setClassWish()} onClick={() => {storeWish(id, name, price, img, wish, setWish)}} style={wishBtn}><Heart/></button>
         </div>
 
-        <div className="modal fade" id={`description${id}`} tabIndex="-1" aria-labelledby={`description${id}Label`} aria-hidden="true">
-            <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-                <div className="modal-content bg-dark text-white">
-                    <div className="modal-header">
-                        <h1 className="modal-title fs-2" id={`description${id}Label`}>{`${name} (${release})`}</h1>
-                        <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div className="modal-body p-4" style={modalStyle}>
-                        <img src={img} alt={name} style={modalImg} width="100%"/>
-                        <p style={modalContent}>{desc}</p>
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" onClick={() => {store(id, name, price, img, items, setItems)}} className="btn btn-primary btn-lg d-flex align-items-center rounded-5 text-white">Add to cart!</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <ModalAlbumDescription 
+            id       = {id}
+            name     = {name}
+            release  = {release}
+            img      = {img}
+            desc     = {desc}
+            price    = {price}
+            items    = {items}
+            setItems = {items}
+        />
         </>
     )
 }

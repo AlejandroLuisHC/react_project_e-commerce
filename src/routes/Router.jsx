@@ -1,17 +1,15 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Home, Albums, Login, Register, Checkout, Search, Profile } from '../pages'
 import Layout from './Layout';
 import UserProvider from '../context/UserProvider';
-import Home from '../pages/Home';
-import Albums from '../pages/Albums';
-import Login from '../pages/Login';
-import Register from '../pages/Register';
-import Checkout from '../pages/Checkout';
-import Profile from '../pages/Profile';
-import Search from '../pages/Search';
+import CartProvider from '../context/CartProvider';
+import WishProvider from '../context/WishProvider';
 
 const router = () => {
     return (
         <UserProvider>
+        <CartProvider>
+        <WishProvider>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Layout />}> 
@@ -26,6 +24,8 @@ const router = () => {
                     </Route>
                 </Routes>
             </BrowserRouter>
+        </WishProvider>
+        </CartProvider>
         </UserProvider>
     )
 }
