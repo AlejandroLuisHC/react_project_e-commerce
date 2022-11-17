@@ -1,37 +1,37 @@
 const addressReducer = (input, action) => {
     switch (action.type) {
         case 'CH_COUNTRY':
-            const value = action.value.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+            const payload = action.payload.toLowerCase().replace(/\b[a-z]/g, function(letter) {
                 return letter.toUpperCase();
             });
             return {
                 ...input,
-                country: value
+                country: payload
             }
         case 'CH_ADDRESS':
             return {
                 ...input,
-                address: action.value
+                address: action.payload
             }
         case 'CH_POSTAL':
             return {
                 ...input,
-                postalCode: action.value
+                postalCode: action.payload
             }
         case 'CH_USER':
             return {
                 ...input,
-                user: action.value
+                user: action.payload
             }
         case 'CH_EMAIL':
             return {
                 ...input,
-                email: action.value
+                email: action.payload
             }
         case 'CH_PHONE':
             return {
                 ...input,
-                phone: action.value
+                phone: action.payload
             }
         default:
             return input

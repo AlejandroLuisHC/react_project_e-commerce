@@ -1,9 +1,9 @@
-const userReducer = (user, action) => {
+const userReducer = (_, action) => {
     switch (action.type) {
-        case 'LOG':
-            sessionStorage.setItem('user', JSON.stringify(action.value))
-            return action.value
-        case 'RESET':
+        case '@user/log':
+            sessionStorage.setItem('user', JSON.stringify(action.payload))
+            return action.payload
+        case '@user/reset':
             sessionStorage.removeItem('user');
             return { username: "Guest" };
         default:

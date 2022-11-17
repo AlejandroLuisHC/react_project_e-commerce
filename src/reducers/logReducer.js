@@ -3,12 +3,12 @@ const logReducer = (logInput, action) => {
         case 'CH_USERNAME':
             return {
                 ...logInput,
-                username: action.value
+                username: action.payload
             }
         case 'CH_PWD':
             return {
             ...logInput,
-            pwd: action.value
+            pwd: action.payload
         }
         
         default:

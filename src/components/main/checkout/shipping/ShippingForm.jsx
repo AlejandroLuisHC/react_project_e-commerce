@@ -71,7 +71,7 @@ const ShippingForm = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Country:
-                            <input className={countryState} autoComplete="off" type="text" name="country" value={input.country} onChange={e => dispatch({ type: 'CH_COUNTRY', value: e.target.value })} required/>
+                            <input className={countryState} autoComplete="off" type="text" name="country" value={input.country} onChange={e => dispatch({ type: 'CH_COUNTRY', payload: e.target.value })} required/>
                             <div className={invalidMsgCountry}>
                                 Not a valid country
                             </div>
@@ -80,7 +80,7 @@ const ShippingForm = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Address:
-                            <input className={addressState} autoComplete="off" type="text" name="address" value={input.address} onChange={e => dispatch({ type: 'CH_ADDRESS', value: e.target.value })} required/>
+                            <input className={addressState} autoComplete="off" type="text" name="address" value={input.address} onChange={e => dispatch({ type: 'CH_ADDRESS', payload: e.target.value })} required/>
                             <div className={invalidMsgAddress}>
                                 Not a valid address
                             </div>
@@ -89,7 +89,7 @@ const ShippingForm = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Postal code:
-                            <input className={postalCodeState} autoComplete="off" type="number" name="postalCode" value={input.postalCode} onChange={e => dispatch({ type: 'CH_POSTAL', value: e.target.value })} required/>
+                            <input className={postalCodeState} autoComplete="off" type="number" name="postalCode" value={input.postalCode} onChange={e => dispatch({ type: 'CH_POSTAL', payload: e.target.value })} required/>
                             <div className={invalidMsgPostal}>
                                 Not a valid postal code
                             </div>
@@ -98,7 +98,7 @@ const ShippingForm = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Full name:
-                            <input className={userState} autoComplete="off" type="text" name="user" value={input.user} onChange={e => dispatch({ type: 'CH_USER', value: e.target.value })} required/>
+                            <input className={userState} autoComplete="off" type="text" name="user" value={input.user} onChange={e => dispatch({ type: 'CH_USER', payload: e.target.value })} required/>
                             <div className={invalidMsgUser}>
                                 Not a valid name
                             </div>
@@ -107,7 +107,7 @@ const ShippingForm = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Email:
-                            <input className={emailState} autoComplete="off" type="email" name="email" value={input.email} onChange={e => dispatch({ type: 'CH_EMAIL', value: e.target.value })} required/>
+                            <input className={emailState} autoComplete="off" type="email" name="email" value={input.email} onChange={e => dispatch({ type: 'CH_EMAIL', payload: e.target.value })} required/>
                             <div className={invalidMsgEmail}>
                                 Not a valid email
                             </div>
@@ -116,7 +116,7 @@ const ShippingForm = () => {
                     <div className='mb-4 form-group'>
                         <label className='label col-12'>
                             Phone:
-                            <input className={phoneState} autoComplete="off" type="tel" name="phone" value={input.phone} onChange={e => dispatch({ type: 'CH_PHONE', value: e.target.value })} required/>
+                            <input className={phoneState} autoComplete="off" type="tel" name="phone" value={input.phone} onChange={e => dispatch({ type: 'CH_PHONE', payload: e.target.value })} required/>
                             <div className={invalidMsgPhone}>
                                 Not a valid phone number
                             </div>

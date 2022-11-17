@@ -20,7 +20,7 @@ const UserConnected = ({ user }) => {
         setSendHome(prev => prev = null)
     }, [sendHome])
     const closeSession = () => {
-        userDispatch({ type: 'RESET' });
+        userDispatch({ type: '@user/reset' });
         setSendHome(prev => prev = true)
     }
     return (

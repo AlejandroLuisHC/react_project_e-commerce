@@ -82,7 +82,7 @@ const Login = () => {
     const submitUser = e => {
         e.preventDefault();
         if (validUser(logInput.username, logInput.pwd).length) {
-            userDispatch({ type: 'LOG', value: validUser(logInput.username, logInput.pwd)[0]});
+            userDispatch({ type: '@user/log', payload: validUser(logInput.username, logInput.pwd)[0]});
             setSendProfile(prev => prev = true)
         } else {
             alert("Dónde va', pisha?");
@@ -102,7 +102,7 @@ const Login = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Username or Email: 
-                            <input className={usernameState} onChange={e => dispatch({ type: 'CH_USERNAME', value: e.target.value })} value={logInput.username} autoComplete="off" type="text" name="username" required/>
+                            <input className={usernameState} onChange={e => dispatch({ type: 'CH_USERNAME', payload: e.target.value })} value={logInput.username} autoComplete="off" type="text" name="username" required/>
                             <div className={invalidMsgUsername}>
                                 Not a valid username
                             </div>
@@ -111,7 +111,7 @@ const Login = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Password:
-                            <input className={pwdState} onChange={e => dispatch({ type: 'CH_PWD', value: e.target.value })} value={logInput.pwd} type="password" name="pwd" required/>
+                            <input className={pwdState} onChange={e => dispatch({ type: 'CH_PWD', payload: e.target.value })} value={logInput.pwd} type="password" name="pwd" required/>
                             <div className={invalidMsgPwd}>
                                 Not a valid password
                             </div>
