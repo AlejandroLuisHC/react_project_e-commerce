@@ -77,7 +77,7 @@ const Login = () => {
     const submitUser = e => {
         e.preventDefault();
         if (validUser(logInput.username, logInput.pwd).length) {
-            userDispatch({ type: 'LOG', value: validUser(logInput.username, logInput.pwd).flat()});
+            userDispatch({ type: 'LOG', value: validUser(logInput.username, logInput.pwd)[0]});
             window.location.replace('/profile') 
         } else {
             alert("Dónde va', pisha?");

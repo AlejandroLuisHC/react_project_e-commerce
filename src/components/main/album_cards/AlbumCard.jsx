@@ -4,37 +4,37 @@ import storeItems from "../../../helper/utils/storeItems";
 import storeWish from "../../../helper/utils/storeWish";
 import ModalAlbumDescription from "./ModalAlbumDescription";
 
-const AlbumCard = ({ setItems, items, id, name, img, price, release, desc, wish, setWish }) => {
+const AlbumCard = ({ size = 250, setItems, items, id, name, img, price, release, desc, wish, setWish }) => {
     const albumCard = {
-        height: "250px",
-        width: "250px",
+        height: `${size}px`,
+        width: `${size}px`,
         border: "none",
         borderRadius: "50%",
         boxShadow: "2px 2px 8px rgba(0, 0, 0, 1)",
         cursor: "pointer",
     }
     const albumPic = {
-        height: "250px",
-        width: "250px",
+        height: `${size}px`,
+        width: `${size}px`,
         objectFit: "cover",
         borderRadius: "50%",
     }
     const label = {
         fontWeight: "bold",
-        fontSize: "28px",
+        fontSize: `${size / 8.9}px`,
         color: "white",
         textShadow: "0 0 20px black"
     }
     const priceTag = {
         fontWeight: "bold",
-        borderRadius: "20px",
-        fontSize: "22px",
+        borderRadius: `${size / 12.5}px`,
+        fontSize: `${size / 11.3}px`,
         boxShadow: "0 0 15px black",
         transform: "rotate(-10deg)"
     }
     const buyBtn = {
-        width: "50px",
-        height: "50px",
+        width: `${size / 5}px`,
+        height: `${size / 5}px`,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -45,8 +45,8 @@ const AlbumCard = ({ setItems, items, id, name, img, price, release, desc, wish,
         boxShadow: "0 0 15px black"
     }
     const wishBtn = {
-        width: "30px",
-        height: "30px",
+        width: `${size / 8.3}px`,
+        height: `${size / 8.3}px`,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -78,8 +78,8 @@ const AlbumCard = ({ setItems, items, id, name, img, price, release, desc, wish,
                 </div>
                 <h3 className="card-title" style={label}>{name}</h3>
             </div>
-            <button className="btn btn-primary btn-lg" onClick={() => {storeItems(id, name, price, img, items, setItems)}} style={buyBtn}><Cart/></button>
-            <button id={`wishStatus${id}`} className={setClassWish()} onClick={() => {storeWish(id, name, price, img, wish, setWish)}} style={wishBtn}><Heart/></button>
+            <button className="btn btn-primary btn-lg d-flex align-items-center justify" onClick={() => {storeItems(id, name, price, img, items, setItems)}} style={buyBtn}><span style={{fontSize: `${size / 10}px`}}><Cart/></span></button>
+            <button id={`wishStatus${id}`} className={setClassWish()} onClick={() => {storeWish(id, name, price, img, wish, setWish)}} style={wishBtn}><span style={{fontSize: `${size / 16}px`}}><Heart/></span></button>
         </div>
 
         <ModalAlbumDescription 

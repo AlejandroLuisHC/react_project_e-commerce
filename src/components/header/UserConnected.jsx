@@ -9,6 +9,9 @@ const UserConnected = ({ user }) => {
         color: "#eee",
         textDecoration: "none",
         fontSize: "1.2em",
+        display: "flex",
+        alignItems: "center",
+        gap: "8px"
     }
     const { username } = user;
     const { userDispatch } = useContext(UserContext);
@@ -18,7 +21,7 @@ const UserConnected = ({ user }) => {
     }
     return (
         <div className='d-flex align-items-center justify-content-start gap-3'>
-            <Link to={username !== "Guest" ? "profile" : "login"} style={style}><PersonCircle/> {username !== "Guest" ? username : "Log in"}</Link>
+            <Link to={username !== "Guest" ? "profile" : "login"} style={style}><span style={{fontSize: "30px"}}><PersonCircle/></span> {username !== "Guest" ? username : "Log in"}</Link>
             <button className="btn btn-outline-danger btn-sm d-flex justify-content-center align-items-center" onClick={closeSession}><BoxArrowLeft/></button>
         </div>
     )

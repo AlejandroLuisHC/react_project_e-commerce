@@ -1,11 +1,13 @@
 import DisplayUserData from "../components/main/profile/DisplayUserData"
 import UpdateForm from "../components/main/profile/UpdateForm"
+import WishListDisplay from "../components/main/profile/WishListDisplay"
 
 const Profile = () => {
     const styleMain = {
         marginTop: "30px",
-        paddingLeft: "20px",
         gridColumn: "2",
+    }
+    const styleSection = {
         display: "grid",
         gridTemplateColumns: "4fr 1fr",
         gap: "40px",
@@ -14,8 +16,13 @@ const Profile = () => {
     return (
         <>
             <main style={styleMain}>
-                <DisplayUserData />
-                <UpdateForm />
+                <div className="d-flex flex-column justify-content-center align-items-center">
+                    <WishListDisplay />
+                </div>
+                <section style={styleSection}>
+                    <DisplayUserData />
+                    <UpdateForm />
+                </section>
             </main>
         </>
     )
