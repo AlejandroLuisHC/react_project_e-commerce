@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useReducer, useEffect } from 'react';
 import userReducer from '../reducers/userReducer';
 import UserContext from './UserContext';
 
@@ -10,10 +10,19 @@ const UserProvider = ({ children }) => {
     
     const [user, userDispatch] = useReducer(userReducer, defaultUser);
 
+    useEffect(()=>{
+        const userTimeout = () => setTimeout(() => {
+            userDispatch({type: "RESET"})
+        }, 24 * 3.6e6);
+        clearTimeout(userTimeout);
+        userTimeout();
+    }, [user, ])
+    
     const providerValue = {
         user,
         userDispatch,
     }
+
     return (
         <UserContext.Provider value={providerValue}>
             { children }

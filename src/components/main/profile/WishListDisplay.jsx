@@ -6,10 +6,15 @@ import AlbumCard from '../album_cards/AlbumCard'
 const WishListDisplay = () => {
     const {items, setItems} = useContext(UserContext)
     const { wish, setWish } = useContext(WishContext)
+    
+    setTimeout(() => {
+        document.getElementById("wishlist").classList.toggle("d-none")
+    }, 1);
+
     return (
         <>
         <button type="button" className="btn btn-outline-danger d-flex align-items-center justify-content-center gap-2 col-6 dropdown-toggle" onClick={() => {document.getElementById("wishlist").classList.toggle("d-none")}}><HeartFill/> My wishlist</button>
-        <div id="wishlist" className='mt-5 mb-5 d-flex flex-wrap gap-5'>
+        <div id="wishlist" className='d-flex mt-5 mb-5 flex-wrap gap-5'>
             {wish.map(w => <AlbumCard key = {w.id}
                 id       = {w.id}
                 size     = {'150'}
