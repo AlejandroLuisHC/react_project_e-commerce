@@ -12,7 +12,7 @@ const UserProvider = ({ children }) => {
 
     useEffect(()=>{
         const userTimeout = () => setTimeout(() => {
-            userDispatch({type: "RESET"})
+            userDispatch({type: "@user/reset"})
         }, 24 * 3.6e6);
         clearTimeout(userTimeout);
         userTimeout();
