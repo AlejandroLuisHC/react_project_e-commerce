@@ -103,18 +103,23 @@ const ResgisterForm = () => {
             msg.className = "d-flex justify-content-center";
             setTimeout(() => {
                 msg.className = "d-none";
-            }, 2000);
+            }, 1990);
         }
     }
 
     // Post new user to the database 
+    const [sendLogin, setSendLogin] = useState(null)
+    useEffect(()=>{
+        setSendLogin(prev => prev = null)
+    }, [sendLogin])
+
     const createUser = async (user) => {
         if (inputCheck(validUsername, validEmail, validPwd, validPwdCheck, validCountry, validAddress, validPostalCode, validFullName, validPhone)) {
             await fetchCreateUser(user);
             confirmChanges();
             setTimeout(() => {
-                window.location.replace('/login') 
-            }, 1900);            
+                setSendLogin(prev => prev = true)
+            }, 2000);            
         } else {
             console.log('Something when wrong while submitting the register');
         }
@@ -222,6 +227,7 @@ const ResgisterForm = () => {
                 </div>
             </form>
         </fieldset>
+        {sendLogin && <Navigate to="/login" replace={true}/>}
         </>
     )
 }

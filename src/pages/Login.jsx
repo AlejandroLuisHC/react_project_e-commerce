@@ -1,5 +1,5 @@
 import { useReducer, useEffect, useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import fetchUsers from '../api/fetchUsers';
 import UserContext from '../context/UserContext';
 import logReducer from '../reducers/logReducer';
@@ -62,6 +62,11 @@ const Login = () => {
     
     // Submit functions
     const { userDispatch } = useContext(UserContext)
+    
+    const [sendProfile, setSendProfile] = useState(null)
+    useEffect(()=>{
+        setSendProfile(prev => prev = null)
+    }, [sendProfile])
 
     const validUser = (username, pwd) => {
         const cb = u => {
@@ -77,8 +82,8 @@ const Login = () => {
     const submitUser = e => {
         e.preventDefault();
         if (validUser(logInput.username, logInput.pwd).length) {
-            userDispatch({ type: 'LOG', value: validUser(logInput.username, logInput.pwd).flat()});
-            window.location.replace('/profile') 
+            userDispatch({ type: 'LOG', value: validUser(logInput.username, logInput.pwd)[0]});
+            setSendProfile(prev => prev = true)
         } else {
             alert("Dónde va', pisha?");
         }
@@ -120,6 +125,7 @@ const Login = () => {
                     </div>
                 </form>
             </fieldset>
+            {sendProfile && <Navigate to="/profile" replace={true} />}
         </main>
     )
 }

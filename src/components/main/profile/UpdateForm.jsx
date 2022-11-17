@@ -32,7 +32,7 @@ const UpdateForm = () => {
 
     // Upload default form values depending on the user
     const { user, userDispatch } = useContext(UserContext);
-
+    
     // Manage of values by useReducer()
     const initialState = {
         username: user.username,
