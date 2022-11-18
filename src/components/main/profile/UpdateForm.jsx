@@ -1,8 +1,9 @@
-import { useState, useEffect, useReducer, useContext } from "react"
+import { useState, useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import fetchUpdateUser from "../../../api/fetchUpdateUser"
 import fetchUsers from "../../../api/fetchUsers"
-import UserContext from "../../../context/UserContext"
-import regReducer from "../../../reducers/regReducer"
+import useFormController from "../../../hooks/useFormController"
+import { logInUser } from "../../../redux/features/user/userSlice"
 
 const UpdateForm = () => {
     const styleForm = {
@@ -30,24 +31,12 @@ const UpdateForm = () => {
         retrieveUsers();
     }, [])
 
-    // Upload default form values depending on the user
-    const { user, userDispatch } = useContext(UserContext);
+    // Upload default form values depending on the user in the store
+    const user = useSelector((state) => state.user.user)
+    const dispatchUser = useDispatch();
     
-    // Manage of values by useReducer()
-    const initialState = {
-        username: user.username,
-        email: user.email,
-        password: user.password,
-        passwordCheck: user.passwordCheck,
-        fullName: user.fullName,
-        country: user.country,
-        address: user.address,
-        postalCode: user.postalCode,
-        phone: user.phone,
-        id: user.id
-    }
-
-    const [input, dispatch] = useReducer(regReducer, initialState)
+    // Manage of values by "useFormController()" <-- custom hook
+    const { form, changeValue } = useFormController(user)
 
     // Manage inputs validation state
     const isNewUsername = (username) => {
@@ -68,21 +57,21 @@ const UpdateForm = () => {
         const pickedUser = existingUsers.filter(cb)   
         return pickedUser.length === 0 ? true : false
     }
-    const validUsername     = ((input.username.length > 4) && isNewUsername(input.username)) || input.username === user.username ? true : false;
-    const validEmail        = ((input.email.match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) && isNewEmail(input.email)) || input.email === user.email ? true : false;
-    const validFullName     = (input.fullName.length > 5) && (input.fullName.includes(" ")) ? true : false;
-    const validCountry      = input.country.length > 3 ? true : false;
-    const validAddress      = input.address.length > 0 ? true : false;
-    const validPostalCode   = input.postalCode.length === 5 ? true : false;
-    const validPhone        = input.phone.length === 9 ? true : false;
+    const validUsername     = ((form.username.length > 4) && isNewUsername(form.username)) || form.username === user.username ? true : false;
+    const validEmail        = ((form.email.match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) && isNewEmail(form.email)) || form.email === user.email ? true : false;
+    const validFullName     = (form.fullName.length > 5) && (form.fullName.includes(" ")) ? true : false;
+    const validCountry      = form.country.length > 3 ? true : false;
+    const validAddress      = form.address.length > 0 ? true : false;
+    const validPostalCode   = form.postalCode.length === 5 ? true : false;
+    const validPhone        = form.phone.length === 9 ? true : false;
 
-    const inputCheck = (a, b, c, d, e, f, g) => {
+    const formCheck = (a, b, c, d, e, f, g) => {
         const ok = (a && b && c && d && e && f && g) ? true : false;
         return ok;
     };
 
-    const btnState           = inputCheck(validUsername, validEmail, validCountry, validAddress, validPostalCode, validFullName, validPhone) ? "btn btn-outline-success" : "btn btn-outline-warning";
-    const enableSubmit       = inputCheck(validUsername, validEmail, validCountry, validAddress, validPostalCode, validFullName, validPhone) ? "" : "disabled";
+    const btnState           = formCheck(validUsername, validEmail, validCountry, validAddress, validPostalCode, validFullName, validPhone) ? "btn btn-outline-success" : "btn btn-outline-warning";
+    const enableSubmit       = formCheck(validUsername, validEmail, validCountry, validAddress, validPostalCode, validFullName, validPhone) ? "" : "disabled";
     const usernameState      = validUsername ? "form-control is-valid" : "form-control is-invalid"
     const emailState         = validEmail ? "form-control is-valid" : "form-control is-invalid"
     const fullNameState      = validFullName ? "form-control is-valid" : "form-control is-invalid"
@@ -90,15 +79,16 @@ const UpdateForm = () => {
     const addressState       = validAddress ? "form-control is-valid" : "form-control is-invalid"
     const postalCodeState    = validPostalCode ? "form-control is-valid" : "form-control is-invalid"
     const phoneState         = validPhone ? "form-control is-valid" : "form-control is-invalid"
-    const invalidMsgUsername = input.username === "" ? "d-none" : "invalid-feedback"; 
-    const invalidMsgEmail    = input.email === "" ? "d-none" : "invalid-feedback";
-    const invalidMsgFullName = input.fullName === "" ? "d-none" : "invalid-feedback";
-    const invalidMsgCountry  = input.country === "" ? "d-none" : "invalid-feedback"; 
-    const invalidMsgAddress  = input.address === "" ? "d-none" : "invalid-feedback"; 
-    const invalidMsgPostal   = input.postalCode === "" ? "d-none" : "invalid-feedback";
-    const invalidMsgPhone    = input.phone === "" ? "d-none" : "invalid-feedback";
+    const invalidMsgUsername = form.username === "" ? "d-none" : "invalid-feedback"; 
+    const invalidMsgEmail    = form.email === "" ? "d-none" : "invalid-feedback";
+    const invalidMsgFullName = form.fullName === "" ? "d-none" : "invalid-feedback";
+    const invalidMsgCountry  = form.country === "" ? "d-none" : "invalid-feedback"; 
+    const invalidMsgAddress  = form.address === "" ? "d-none" : "invalid-feedback"; 
+    const invalidMsgPostal   = form.postalCode === "" ? "d-none" : "invalid-feedback";
+    const invalidMsgPhone    = form.phone === "" ? "d-none" : "invalid-feedback";
+    
     const confirmChanges = (e) => {
-        if (inputCheck(validUsername, validEmail, validCountry, validAddress, validPostalCode, validFullName, validPhone)) {
+        if (formCheck(validUsername, validEmail, validCountry, validAddress, validPostalCode, validFullName, validPhone)) {
             const msg = document.getElementById("confirm");
             msg.className = "d-flex justify-content-center";
             setTimeout(() => {
@@ -107,9 +97,9 @@ const UpdateForm = () => {
         }
     }
 
-    // Put current user to the database
+    // Update current user on the database
     const updateUser = async (u, id) => {
-        if (inputCheck(validUsername, validEmail, validCountry, validAddress, validPostalCode, validFullName, validPhone)) {
+        if (formCheck(validUsername, validEmail, validCountry, validAddress, validPostalCode, validFullName, validPhone)) {
             await fetchUpdateUser(u, id); 
         } else {
             console.log('Something when wrong while submitting the register');
@@ -128,7 +118,7 @@ const UpdateForm = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Username: 
-                            <input className={usernameState} autoComplete="off" name="username" value={input.username} type="text" onChange={e => dispatch({ type: 'CH_USERNAME', value: e.target.value })} required/>
+                            <input className={usernameState} autoComplete="off" name="username" value={form.username} type="text" onChange={changeValue} autoFocus required/>
                             <div className={invalidMsgUsername}>
                                 Not a valid username
                             </div>
@@ -137,7 +127,7 @@ const UpdateForm = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Email: 
-                            <input className={emailState} autoComplete="off" name="email" value={input.email} onChange={e => dispatch({ type: 'CH_EMAIL', value: e.target.value })} type="email" required/>
+                            <input className={emailState} autoComplete="off" name="email" value={form.email} onChange={changeValue} type="email" required/>
                             <div className={invalidMsgEmail}>
                                 Not a valid email
                             </div>
@@ -147,7 +137,7 @@ const UpdateForm = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Full name: 
-                            <input className={fullNameState} autoComplete="off" name="fullName" value={input.fullName} onChange={e => dispatch({ type: 'CH_FULLNAME', value: e.target.value })} type="text" required/>
+                            <input className={fullNameState} autoComplete="off" name="fullName" value={form.fullName} onChange={changeValue} type="text" required/>
                             <div className={invalidMsgFullName}>
                                 Not a valid name
                             </div>
@@ -156,7 +146,7 @@ const UpdateForm = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Country: 
-                            <input className={countryState} autoComplete="off" name="country" value={input.country} onChange={e => dispatch({ type: 'CH_COUNTRY', value: e.target.value })} type="text" required/>
+                            <input className={countryState} autoComplete="off" name="country" value={form.country} onChange={changeValue} type="text" required/>
                             <div className={invalidMsgCountry}>
                                 Not a valid country
                             </div>
@@ -165,7 +155,7 @@ const UpdateForm = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Address: 
-                            <input className={addressState} autoComplete="off" name="address" value={input.address} onChange={e => dispatch({ type: 'CH_ADDRESS', value: e.target.value })} type="text" required/>
+                            <input className={addressState} autoComplete="off" name="address" value={form.address} onChange={changeValue} type="text" required/>
                             <div className={invalidMsgAddress}>
                                 Not a valid address
                             </div>
@@ -174,7 +164,7 @@ const UpdateForm = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Postal Code: 
-                            <input className={postalCodeState} autoComplete="off" name="postalCode" value={input.postalCode} onChange={e => dispatch({ type: 'CH_POSTAL', value: e.target.value })} type="number" required/>
+                            <input className={postalCodeState} autoComplete="off" name="postalCode" value={form.postalCode} onChange={changeValue} type="number" required/>
                             <div className={invalidMsgPostal}>
                                 Not a valid postal code
                             </div>
@@ -183,7 +173,7 @@ const UpdateForm = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Phone: 
-                            <input className={phoneState} autoComplete="off" name="phone" value={input.phone} onChange={e => dispatch({ type: 'CH_PHONE', value: e.target.value })} type="tel" required/>
+                            <input className={phoneState} autoComplete="off" name="phone" value={form.phone} onChange={changeValue} type="tel" required/>
                             <div className={invalidMsgPhone}>
                                 Not a valid phone number
                             </div>
@@ -211,8 +201,8 @@ const UpdateForm = () => {
                         <div className="modal-footer">
                             <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
                             <button data-bs-dismiss="modal" onClick={() => {
-                                updateUser(input, user.id);
-                                userDispatch({ type: 'LOG', value: input });
+                                updateUser(form, user.id);
+                                dispatchUser(logInUser(form));
                                 confirmChanges();
                             }} type="button" className="btn btn-outline-success">Save changes</button>
                         </div>

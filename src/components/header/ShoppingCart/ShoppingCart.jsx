@@ -4,8 +4,8 @@ import accounting from 'accounting';
 import { Cart } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import getTotal from '../../../helper/utils/getTotal';
-import UserContext from '../../../context/UserContext';
 import CartContext from '../../../context/CartContext';
+import { useSelector } from 'react-redux';
 
 const ShoppingCart = () => {
     const { items, setItems, deleteFunc } = useContext(CartContext)
@@ -20,7 +20,7 @@ const ShoppingCart = () => {
     
     const totalPrice = getTotal(items);
     
-    const { user } = useContext(UserContext);
+    const user = useSelector((state) => state.user.user)
     const checkUser = (username) => username === "Guest" ? "login" : "checkout";
     const disableBtn = items.length === 0 ? "disabled" : "";
     const disableLink = items.length === 0 ? "" : checkUser(user.username);

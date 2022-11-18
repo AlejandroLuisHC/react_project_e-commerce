@@ -1,19 +1,21 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Home, Albums, Login, Register, Checkout, Search, Profile } from '../pages'
 import Layout from './Layout';
-import UserProvider from '../context/UserProvider';
 import CartProvider from '../context/CartProvider';
 import WishProvider from '../context/WishProvider';
+import { Provider } from 'react-redux';
+import { store } from '../redux/store';
 
 const router = () => {
     return (
-        <UserProvider>
+        <Provider store={store}>
         <CartProvider>
         <WishProvider>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Layout />}> 
                         <Route index element={<Home />} />
+                        {/* <Route path="/landing" element={<Landing />} /> */}
                         <Route path="/:bandName" element={<Albums />} />
                         <Route path="/profile" element={<Profile />} />
                         <Route path="/login" element={<Login />} />
@@ -26,7 +28,7 @@ const router = () => {
             </BrowserRouter>
         </WishProvider>
         </CartProvider>
-        </UserProvider>
+        </Provider>
     )
 }
 

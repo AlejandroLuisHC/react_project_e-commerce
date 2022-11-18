@@ -1,21 +1,27 @@
-import { useContext } from 'react'
-import { HeartFill } from 'react-bootstrap-icons'
-import UserContext from '../../../context/UserContext';
+import { useContext, useState } from 'react'
+import { HeartFill, CaretDownFill, CaretUpFill } from 'react-bootstrap-icons'
+import CartContext from '../../../context/CartContext';
 import WishContext from  '../../../context/WishContext';
 import AlbumCard from '../album_cards/AlbumCard'
 const WishListDisplay = () => {
-    const {items, setItems} = useContext(UserContext)
+    const { items, setItems } = useContext(CartContext)
     const { wish, setWish } = useContext(WishContext)
+    const [closed, setClosed] = useState(wish.length > 0 ? true : false)
+    let wishStyle = closed ? "d-flex mt-5 mb-5 flex-wrap gap-5" : "d-none";
     
-    setTimeout(() => {
-        document.getElementById("wishlist").classList.toggle("d-none")
-    }, 1);
-
     return (
         <>
-        <button type="button" className="btn btn-outline-danger d-flex align-items-center justify-content-center gap-2 col-6 dropdown-toggle" onClick={() => {document.getElementById("wishlist").classList.toggle("d-none")}}><HeartFill/> My wishlist</button>
-        <div id="wishlist" className='d-flex mt-5 mb-5 flex-wrap gap-5'>
-            {wish.map(w => <AlbumCard key = {w.id}
+        <button type="button" className="btn btn-outline-danger d-flex align-items-center justify-content-center gap-2 col-6" 
+            onClick={() => {
+                document.getElementById("wishlist").classList.toggle("d-none");
+                if (closed === true) setClosed(prev => prev = false);
+                if (closed === false) setClosed(prev => prev = true);
+            }}
+        >
+            {closed ? <CaretUpFill/> : <CaretDownFill/>} <HeartFill/> My wishlist {closed ? <CaretUpFill/> : <CaretDownFill/>}
+        </button>
+        <div id="wishlist" className={wishStyle}>
+            {(wish.length > 0 && wish.map(w => <AlbumCard key = {w.id}
                 id       = {w.id}
                 size     = {'150'}
                 name     = {w.name}
@@ -27,7 +33,7 @@ const WishListDisplay = () => {
                 setItems = {setItems}
                 wish     = {wish}
                 setWish  = {setWish}
-            />)}
+            />)) || <p className='text-white'>No items saved</p>}
         </div>
         </>
     )
