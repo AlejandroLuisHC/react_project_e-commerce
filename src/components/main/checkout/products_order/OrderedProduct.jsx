@@ -1,5 +1,6 @@
 import accounting from "accounting";
-import { useOutletContext } from "react-router-dom";
+import { useContext } from "react";
+import CartContext from "../../../../context/CartContext";
 import { add, sub } from "../../../../helper/utils/modifyCart";
 
 const OrderedProduct = ({ id, name, price, img, subTotal, quantity }) => {
@@ -19,7 +20,7 @@ const OrderedProduct = ({ id, name, price, img, subTotal, quantity }) => {
         cursor: "pointer",  
     }
 
-    const [, items, setItems] = useOutletContext();
+    const { items, setItems } = useContext(CartContext);
 
     return (
         <>

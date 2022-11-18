@@ -1,8 +1,9 @@
-import { useReducer, useEffect, useState, useContext } from 'react';
+import { useReducer, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 import fetchUsers from '../api/fetchUsers';
-import UserContext from '../context/UserContext';
 import logReducer from '../reducers/logReducer';
+import { logInUser } from '../redux/features/user/userSlice';
 
 const Login = () => {
     const styleForm = {
@@ -27,7 +28,7 @@ const Login = () => {
     }
     
     // Gathering the existing users in the system
-    const [existingUsers, setExistingUsers] = useState({})
+    const [existingUsers, setExistingUsers] = useState([])
     
     useEffect(() => {
         const retrieveUsers = async() => {
@@ -36,7 +37,7 @@ const Login = () => {
         }
         retrieveUsers();
     }, [])
-    
+
     // Manage of values by useReducer()
     const initialState = {
         username: "",
@@ -61,8 +62,8 @@ const Login = () => {
     const invalidMsgPwd = logInput.pwd === "" ? "d-none" : "invalid-feedback"; 
     
     // Submit functions
-    const { userDispatch } = useContext(UserContext)
-    
+    const dispatchUser = useDispatch();
+
     const [sendProfile, setSendProfile] = useState(null)
     useEffect(()=>{
         setSendProfile(prev => prev = null)
@@ -78,11 +79,12 @@ const Login = () => {
         }
         return existingUsers.filter(cb)
     }
-
+    const payload = validUser(logInput.username, logInput.pwd)[0];
+    
     const submitUser = e => {
         e.preventDefault();
         if (validUser(logInput.username, logInput.pwd).length) {
-            userDispatch({ type: '@user/log', payload: validUser(logInput.username, logInput.pwd)[0]});
+            dispatchUser(logInUser(payload));
             setSendProfile(prev => prev = true)
         } else {
             alert("Dónde va', pisha?");

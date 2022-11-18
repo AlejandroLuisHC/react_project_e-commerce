@@ -1,10 +1,10 @@
 import { useContext } from 'react'
 import { HeartFill } from 'react-bootstrap-icons'
-import UserContext from '../../../context/UserContext';
+import CartContext from '../../../context/CartContext';
 import WishContext from  '../../../context/WishContext';
 import AlbumCard from '../album_cards/AlbumCard'
 const WishListDisplay = () => {
-    const {items, setItems} = useContext(UserContext)
+    const { items, setItems } = useContext(CartContext)
     const { wish, setWish } = useContext(WishContext)
     
     setTimeout(() => {

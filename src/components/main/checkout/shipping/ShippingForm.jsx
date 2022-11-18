@@ -1,5 +1,5 @@
-import { memo, useReducer, useContext } from 'react'
-import UserContext from '../../../../context/UserContext'
+import { memo, useReducer } from 'react'
+import { useSelector } from 'react-redux'
 import addressReducer from '../../../../reducers/addressReducer'
 
 const ShippingForm = () => {
@@ -13,7 +13,7 @@ const ShippingForm = () => {
     }
     
     // Upload default form values depending on the user
-    const { user } = useContext(UserContext);
+    const user = useSelector((state) => state.user.user)
 
     // Manage of values by useReducer()
     const initialState = {
