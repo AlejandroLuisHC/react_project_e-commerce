@@ -1,10 +1,11 @@
-import { useContext, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { PersonCircle } from 'react-bootstrap-icons';
 import { BoxArrowLeft } from 'react-bootstrap-icons';
-import UserContext from '../../context/UserContext';
+import { useSelector, useDispatch } from 'react-redux';
+import { logOutUser } from '../../redux/features/user/userSlice';
 
-const UserConnected = ({ user }) => {
+const UserConnected = () => {
     const style = {
         color: "#eee",
         textDecoration: "none",
@@ -13,14 +14,15 @@ const UserConnected = ({ user }) => {
         alignItems: "center",
         gap: "8px"
     }
-    const { username } = user;
-    const { userDispatch } = useContext(UserContext);
+    const username = useSelector((state) => state.user.user.username)
+    const dispatch = useDispatch();
+
     const [sendHome, setSendHome] = useState(null)
     useEffect(()=>{
         setSendHome(prev => prev = null)
     }, [sendHome])
     const closeSession = () => {
-        userDispatch({ type: '@user/reset' });
+        dispatch(logOutUser());
         setSendHome(prev => prev = true)
     }
     return (

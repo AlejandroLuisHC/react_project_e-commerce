@@ -1,10 +1,11 @@
-import { useOutletContext } from 'react-router-dom';
 import OrderedProduct from './OrderedProduct';
 import accounting from "accounting";
 import getTotal from '../../../../helper/utils/getTotal';
+import { useContext } from 'react';
+import CartContext from '../../../../context/CartContext';
 
 const DisplayCart = () => {
-    const [, items] = useOutletContext();
+    const { items } = useContext(CartContext)
     const title = {
         color: "#eee",
         textShadow: "1px 1px 5px rgba(0, 0, 0, .6)",

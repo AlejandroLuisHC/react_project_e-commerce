@@ -1,8 +1,9 @@
-import { useState, useEffect, useReducer, useContext } from "react"
+import { useState, useEffect, useReducer } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import fetchUpdateUser from "../../../api/fetchUpdateUser"
 import fetchUsers from "../../../api/fetchUsers"
-import UserContext from "../../../context/UserContext"
 import regReducer from "../../../reducers/regReducer"
+import { logInUser } from "../../../redux/features/user/userSlice"
 
 const UpdateForm = () => {
     const styleForm = {
@@ -30,8 +31,9 @@ const UpdateForm = () => {
         retrieveUsers();
     }, [])
 
-    // Upload default form values depending on the user
-    const { user, userDispatch } = useContext(UserContext);
+    // Upload default form values depending on the user in the store
+    const user = useSelector((state) => state.user.user)
+    const dispatchUser = useDispatch();
     
     // Manage of values by useReducer()
     const initialState = {
@@ -107,7 +109,7 @@ const UpdateForm = () => {
         }
     }
 
-    // Put current user to the database
+    // Update current user on the database
     const updateUser = async (u, id) => {
         if (inputCheck(validUsername, validEmail, validCountry, validAddress, validPostalCode, validFullName, validPhone)) {
             await fetchUpdateUser(u, id); 
@@ -212,7 +214,7 @@ const UpdateForm = () => {
                             <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
                             <button data-bs-dismiss="modal" onClick={() => {
                                 updateUser(input, user.id);
-                                userDispatch({ type: 'LOG', value: input });
+                                dispatchUser(logInUser(input));
                                 confirmChanges();
                             }} type="button" className="btn btn-outline-success">Save changes</button>
                         </div>
