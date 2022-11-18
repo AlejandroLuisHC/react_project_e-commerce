@@ -1,8 +1,8 @@
-import { useReducer, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 import fetchUsers from '../api/fetchUsers';
-import formReducer from '../reducers/formReducer';
+import useFormController from '../hooks/useFormController';
 import { logInUser } from '../redux/features/user/userSlice';
 
 const Login = () => {
@@ -38,28 +38,24 @@ const Login = () => {
         retrieveUsers();
     }, [])
 
-    // Manage of values by useReducer()
-    const initialState = {
-        username: "",
-        password: ""
-    }
-    const [logInput, dispatch] = useReducer(formReducer, initialState)
+    // Manage of values by "useFormController()" <-- custom hook
+    const { form, changeValue } = useFormController()
 
     // Manage inputs validation state
-    const validUsername = logInput.username.length > 0 ? true : false;
-    const validPwd = logInput.password.length > 5 ? true : false;
+    const validUsername = form.username.length > 0 ? true : false;
+    const validPwd = form.password.length > 5 ? true : false;
     
     const inputCheck = (a, b) => {
         const ok = (a && b) ? true : false;
         return ok;
     };
     
-    const usernameState = validUsername ? "form-control is-valid" : "form-control is-invalid"
-    const pwdState      = validPwd ? "form-control is-valid" : "form-control is-invalid"
-    const btnState      = inputCheck(validUsername, validPwd) ? "btn btn-outline-success col-8" : "btn btn-outline-warning col-8";
-    const enableSubmit  = inputCheck(validUsername, validPwd) ? "" : "disabled";
-    const invalidMsgUsername = logInput.username === "" ? "d-none" : "invalid-feedback"; 
-    const invalidMsgPwd = logInput.pwd === "" ? "d-none" : "invalid-feedback"; 
+    const usernameState      = validUsername ? "form-control is-valid" : "form-control is-invalid"
+    const pwdState           = validPwd ? "form-control is-valid" : "form-control is-invalid"
+    const btnState           = inputCheck(validUsername, validPwd) ? "btn btn-outline-success col-8" : "btn btn-outline-warning col-8";
+    const enableSubmit       = inputCheck(validUsername, validPwd) ? "" : "disabled";
+    const invalidMsgUsername = form.username === "" ? "d-none" : "invalid-feedback"; 
+    const invalidMsgPwd      = form.password === "" ? "d-none" : "invalid-feedback"; 
     
     // Submit functions
     const dispatchUser = useDispatch();
@@ -79,11 +75,11 @@ const Login = () => {
         }
         return existingUsers.filter(cb)
     }
-    const payload = validUser(logInput.username, logInput.password)[0];
+    const payload = validUser(form.username, form.password)[0];
     
     const submitUser = e => {
         e.preventDefault();
-        if (validUser(logInput.username, logInput.password).length) {
+        if (validUser(form.username, form.password).length) {
             dispatchUser(logInUser(payload));
             setSendProfile(prev => prev = true)
         } else {
@@ -104,7 +100,7 @@ const Login = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Username or Email: 
-                            <input className={usernameState} onChange={e => dispatch({ type: 'CH_USERNAME', payload: e.target.value })} value={logInput.username} autoComplete="off" type="text" name="username" autofocus required/>
+                            <input className={usernameState} onChange={changeValue} value={form.username} autoComplete="off" type="text" name="username" autoFocus required/>
                             <div className={invalidMsgUsername}>
                                 Not a valid username
                             </div>
@@ -113,7 +109,7 @@ const Login = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Password:
-                            <input className={pwdState} onChange={e => dispatch({ type: 'CH_PWD', payload: e.target.value })} value={logInput.password} type="password" name="password" required/>
+                            <input className={pwdState} onChange={changeValue} value={form.password} type="password" name="password" required/>
                             <div className={invalidMsgPwd}>
                                 Not a valid password
                             </div>

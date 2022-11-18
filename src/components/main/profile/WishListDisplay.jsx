@@ -6,9 +6,9 @@ import AlbumCard from '../album_cards/AlbumCard'
 const WishListDisplay = () => {
     const { items, setItems } = useContext(CartContext)
     const { wish, setWish } = useContext(WishContext)
-    console.log(wish);
     const [closed, setClosed] = useState(wish.length > 0 ? true : false)
     let wishStyle = closed ? "d-flex mt-5 mb-5 flex-wrap gap-5" : "d-none";
+    
     return (
         <>
         <button type="button" className="btn btn-outline-danger d-flex align-items-center justify-content-center gap-2 col-6" 
