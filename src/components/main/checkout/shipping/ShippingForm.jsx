@@ -1,6 +1,6 @@
 import { memo, useReducer } from 'react'
 import { useSelector } from 'react-redux'
-import addressReducer from '../../../../reducers/addressReducer'
+import formReducer from '../../../../reducers/formReducer'
 
 const ShippingForm = () => {
     const title = {
@@ -24,7 +24,7 @@ const ShippingForm = () => {
         email: user.email,
         phone: user.phone,
     }
-    const [input, dispatch] = useReducer(addressReducer, initialState)
+    const [input, dispatch] = useReducer(formReducer, initialState)
 
     // Manage inputs validation state
     const validCountry      = input.country.length > 3 ? true : false;

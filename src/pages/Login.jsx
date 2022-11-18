@@ -2,7 +2,7 @@ import { useReducer, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 import fetchUsers from '../api/fetchUsers';
-import logReducer from '../reducers/logReducer';
+import formReducer from '../reducers/formReducer';
 import { logInUser } from '../redux/features/user/userSlice';
 
 const Login = () => {
@@ -41,13 +41,13 @@ const Login = () => {
     // Manage of values by useReducer()
     const initialState = {
         username: "",
-        pwd: ""
+        password: ""
     }
-    const [logInput, dispatch] = useReducer(logReducer, initialState)
+    const [logInput, dispatch] = useReducer(formReducer, initialState)
 
     // Manage inputs validation state
     const validUsername = logInput.username.length > 0 ? true : false;
-    const validPwd = logInput.pwd.length > 5 ? true : false;
+    const validPwd = logInput.password.length > 5 ? true : false;
     
     const inputCheck = (a, b) => {
         const ok = (a && b) ? true : false;
@@ -79,11 +79,11 @@ const Login = () => {
         }
         return existingUsers.filter(cb)
     }
-    const payload = validUser(logInput.username, logInput.pwd)[0];
+    const payload = validUser(logInput.username, logInput.password)[0];
     
     const submitUser = e => {
         e.preventDefault();
-        if (validUser(logInput.username, logInput.pwd).length) {
+        if (validUser(logInput.username, logInput.password).length) {
             dispatchUser(logInUser(payload));
             setSendProfile(prev => prev = true)
         } else {
@@ -104,7 +104,7 @@ const Login = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Username or Email: 
-                            <input className={usernameState} onChange={e => dispatch({ type: 'CH_USERNAME', payload: e.target.value })} value={logInput.username} autoComplete="off" type="text" name="username" required/>
+                            <input className={usernameState} onChange={e => dispatch({ type: 'CH_USERNAME', payload: e.target.value })} value={logInput.username} autoComplete="off" type="text" name="username" autofocus required/>
                             <div className={invalidMsgUsername}>
                                 Not a valid username
                             </div>
@@ -113,7 +113,7 @@ const Login = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Password:
-                            <input className={pwdState} onChange={e => dispatch({ type: 'CH_PWD', payload: e.target.value })} value={logInput.pwd} type="password" name="pwd" required/>
+                            <input className={pwdState} onChange={e => dispatch({ type: 'CH_PWD', payload: e.target.value })} value={logInput.password} type="password" name="password" required/>
                             <div className={invalidMsgPwd}>
                                 Not a valid password
                             </div>

@@ -2,7 +2,7 @@ import { useState, useEffect, useReducer } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import fetchUpdateUser from "../../../api/fetchUpdateUser"
 import fetchUsers from "../../../api/fetchUsers"
-import regReducer from "../../../reducers/regReducer"
+import formReducer from "../../../reducers/formReducer"
 import { logInUser } from "../../../redux/features/user/userSlice"
 
 const UpdateForm = () => {
@@ -49,7 +49,7 @@ const UpdateForm = () => {
         id: user.id
     }
 
-    const [input, dispatch] = useReducer(regReducer, initialState)
+    const [input, dispatch] = useReducer(formReducer, initialState)
 
     // Manage inputs validation state
     const isNewUsername = (username) => {
@@ -99,6 +99,7 @@ const UpdateForm = () => {
     const invalidMsgAddress  = input.address === "" ? "d-none" : "invalid-feedback"; 
     const invalidMsgPostal   = input.postalCode === "" ? "d-none" : "invalid-feedback";
     const invalidMsgPhone    = input.phone === "" ? "d-none" : "invalid-feedback";
+    
     const confirmChanges = (e) => {
         if (inputCheck(validUsername, validEmail, validCountry, validAddress, validPostalCode, validFullName, validPhone)) {
             const msg = document.getElementById("confirm");
@@ -130,7 +131,7 @@ const UpdateForm = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Username: 
-                            <input className={usernameState} autoComplete="off" name="username" value={input.username} type="text" onChange={e => dispatch({ type: 'CH_USERNAME', value: e.target.value })} required/>
+                            <input className={usernameState} autoComplete="off" name="username" value={input.username} type="text" onChange={e => dispatch({ type: 'CH_USERNAME', value: e.target.value })} autofocus required/>
                             <div className={invalidMsgUsername}>
                                 Not a valid username
                             </div>

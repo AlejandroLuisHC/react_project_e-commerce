@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    user: {
+    user: JSON.parse(sessionStorage.getItem('user')) || {
         username: "Guest"
     }
 }
@@ -15,8 +15,11 @@ export const userSlice = createSlice({
             state.user = action.payload;
         },
         logOutUser: (state) => {
+            console.log('loggin out');
             sessionStorage.removeItem('user');
-            state.user = initialState;
+            state.user = {
+                username: "Guest"
+            };
         }
     }
 })

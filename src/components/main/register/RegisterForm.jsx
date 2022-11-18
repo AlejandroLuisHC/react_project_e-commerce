@@ -2,7 +2,7 @@ import { useState, useEffect, useReducer } from "react"
 import { Navigate } from "react-router-dom"
 import fetchCreateUser from "../../../api/fetchCreateUser"
 import fetchUsers from "../../../api/fetchUsers"
-import regReducer from "../../../reducers/regReducer"
+import formReducer from "../../../reducers/formReducer"
 
 const ResgisterForm = () => {
     const styleForm = {
@@ -41,7 +41,7 @@ const ResgisterForm = () => {
         phone: "",
         id: ""
     }
-    const [input, dispatch] = useReducer(regReducer, initialState)
+    const [input, dispatch] = useReducer(formReducer, initialState)
 
     // Manage inputs validation state
     const isNewUsername = (username) => {
@@ -141,7 +141,7 @@ const ResgisterForm = () => {
                 <div className='mb-3 form-group'>
                     <label className='label col-12'>
                         Username: 
-                        <input className={usernameState} autoComplete="off" name="username" value={input.username} type="text" onChange={e => dispatch({ type: 'CH_USERNAME', payload: e.target.value })} required/>
+                        <input className={usernameState} autoComplete="off" name="username" value={input.username} type="text" onChange={e => dispatch({ type: 'CH_USERNAME', payload: e.target.value })} autofocus required/>
                         <div className={invalidMsgUsername}>
                             Not a valid username
                         </div>
