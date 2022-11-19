@@ -129,7 +129,7 @@ const ResgisterForm = () => {
                 <div className='mb-3 form-group'>
                     <label className='label col-12'>
                         Username: 
-                        <input className={usernameState} autoComplete="off" name="username" value={form.username} type="text" onChange={changeValue} autofocus required/>
+                        <input className={usernameState} autoComplete="off" name="username" value={form.username} type="text" onChange={changeValue} autoFocus required/>
                         <div className={invalidMsgUsername}>
                             Not a valid username
                         </div>
@@ -215,7 +215,7 @@ const ResgisterForm = () => {
                 </div>
             </form>
         </fieldset>
-        {sendLogin && <Navigate to="/login" replace={true}/>}
+        {sendLogin && <Navigate to="/login" />}
         </>
     )
 }
