@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
-import { useLocation, useOutletContext } from 'react-router-dom'
+import { useState, useEffect, useContext } from 'react';
+import { useLocation } from 'react-router-dom'
 import fetchBands from '../api/fetchBands'
 import fetchAlbums from '../api/fetchAlbums'
 import BandCard from '../components/main/bands_cards/BandCard'
 import AlbumCard from '../components/main/album_cards/AlbumCard'
+import CartContext from '../context/CartContext';
+import WishContext from '../context/WishContext';
 
 const Search = () => {
     const styleMain = {
@@ -24,7 +26,9 @@ const Search = () => {
         gap: "40px",
     }
     
-    const [storeItems, items, setItems] = useOutletContext();
+    const { items, setItems } = useContext(CartContext);
+    const { wish, setWish } = useContext(WishContext);
+
     const { state } = useLocation();
     const search = state?.search.toLowerCase();
 
@@ -39,7 +43,6 @@ const Search = () => {
         }
         retrieveBands();
     }, [])
-    console.log(bands);
 
     // Store all albums
     const [albums, setAlbums] = useState([]);
@@ -50,8 +53,6 @@ const Search = () => {
             setAlbums(prev => prev = [...prev, albums])
         })
     }, [bands])
-console.log(albums);
-
 
     return (
         <main style={styleMain}>
@@ -89,7 +90,8 @@ console.log(albums);
                                 desc     = {a.description}
                                 items    = {items}
                                 setItems = {setItems}
-                                store    = {storeItems}
+                                wish     = {wish}
+                                setWish  = {setWish}
                             />
                         )}  
                         return null;

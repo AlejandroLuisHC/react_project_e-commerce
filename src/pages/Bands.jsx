@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Filter } from 'react-bootstrap-icons';
 
-const Home = () => {
+const Bands = () => {
     const styleMain = {
         marginTop: "15px",
         gridColumn: "2",
@@ -61,4 +61,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Bands

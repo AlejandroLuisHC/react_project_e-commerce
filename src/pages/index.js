@@ -1,18 +1,21 @@
 import Albums from "./Albums";
 import Checkout from "./Checkout";
-import Home from "./Home";
+import Bands from "./Bands";
 import Login from "./Login";
 import Profile from "./Profile";
 import Register from "./Register";
+import Landing from "./Landing";
 import Search from "./Search";
 
-export {
+const pages = {
     Albums,
     Checkout,
-    Home,
+    Bands,
     Login,
     Profile,
     Register,
-    Search
+    Search,
+    Landing
 }
 
+export default pages;
