@@ -1,29 +1,29 @@
 import PurchaseList from './PurchaseList';
-import { useContext } from 'react';
 import accounting from 'accounting';
 import { Cart } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import getTotal from '../../../helper/utils/getTotal';
-import CartContext from '../../../context/CartContext';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { emptyCart } from '../../../redux/features/userData/userSlice';
 
 const ShoppingCart = () => {
-    const { items, setItems, deleteFunc } = useContext(CartContext)
-    
-    let total = 0;
-    items.map(i => total += i.quantity)
-    
     const style = {
         boxShadow: "inset 5px 5px 10px rgba(0, 0, 0, .4)",
         border: "none",
     }
+
+    const items = useSelector((state) => state.userData.cart)
+    const dispatch = useDispatch();
+
+    let total = 0;
+    items.map(i => total += i.quantity)
     
     const totalPrice = getTotal(items);
     
-    const user = useSelector((state) => state.user.user)
+    const username = useSelector((state) => state.userData.user.username)
     const checkUser = (username) => username === "Guest" ? "login" : "checkout";
+    const disableLink = items.length === 0 ? "/" : checkUser(username);
     const disableBtn = items.length === 0 ? "disabled" : "";
-    const disableLink = items.length === 0 ? "" : checkUser(user.username);
     
     return (
         <div className="dropstart">
@@ -37,8 +37,6 @@ const ShoppingCart = () => {
                         id        = {i.id}
                         name      = {i.name}
                         price     = {i.price * i.quantity}
-                        setItems  = {setItems}
-                        items     = {items}
                     />
                 )}
                 <li><hr className="dropdown-divider"/></li> 
@@ -48,7 +46,7 @@ const ShoppingCart = () => {
                     <Link to={disableLink}>
                         <button className='btn btn-success btn-lg' disabled={disableBtn}>Buy now!</button>
                     </Link> 
-                    <button className='btn btn-outline-danger btn-sm' onClick={deleteFunc}>Empty cart</button>
+                    <button className='btn btn-outline-danger btn-sm' onClick={() => dispatch(emptyCart())}>Empty cart</button>
                 </li>
             </ul>
         </div>

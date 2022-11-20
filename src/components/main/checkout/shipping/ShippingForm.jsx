@@ -13,7 +13,7 @@ const ShippingForm = () => {
     }
     
     // Upload default form values depending on the user
-    const user = useSelector((state) => state.user.user)
+    const user = useSelector((state) => state.userData.user)
 
     // Manage of values by "useFormController()" <-- custom hook
     const { form, changeValue } = useFormController(user)

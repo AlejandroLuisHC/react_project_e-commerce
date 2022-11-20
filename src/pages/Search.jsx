@@ -1,11 +1,9 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom'
 import fetchBands from '../api/fetchBands'
 import fetchAlbums from '../api/fetchAlbums'
 import BandCard from '../components/main/bands_cards/BandCard'
 import AlbumCard from '../components/main/album_cards/AlbumCard'
-import CartContext from '../context/CartContext';
-import WishContext from '../context/WishContext';
 
 const Search = () => {
     const styleMain = {
@@ -26,9 +24,6 @@ const Search = () => {
         gap: "40px",
     }
     
-    const { items, setItems } = useContext(CartContext);
-    const { wish, setWish } = useContext(WishContext);
-
     const { state } = useLocation();
     const search = state?.search.toLowerCase();
 
@@ -88,10 +83,6 @@ const Search = () => {
                                 price    = {a.price}
                                 release  = {a.release}
                                 desc     = {a.description}
-                                items    = {items}
-                                setItems = {setItems}
-                                wish     = {wish}
-                                setWish  = {setWish}
                             />
                         )}  
                         return null;

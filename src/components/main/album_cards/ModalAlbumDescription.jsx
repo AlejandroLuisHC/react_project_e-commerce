@@ -1,7 +1,8 @@
 import React from 'react'
-import storeItems from '../../../helper/utils/storeItems'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../../../redux/features/userData/userSlice'
 
-const ModalAlbumDescription = ({ id, name, release, img, desc, price, items, setItems }) => {
+const ModalAlbumDescription = ({ id, name, release, img, desc, price }) => {
     const modalImg = {
         borderRadius: "10px",
         marginBottom: "15px",
@@ -20,7 +21,8 @@ const ModalAlbumDescription = ({ id, name, release, img, desc, price, items, set
         lineHeight: "1.6",
         top: "5%"
     }
-    
+    const dispatch = useDispatch();
+
     return (
         <div className="modal fade" id={`description${id}`} tabIndex="-1" aria-labelledby={`description${id}Label`} aria-hidden="true">
             <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
@@ -34,7 +36,7 @@ const ModalAlbumDescription = ({ id, name, release, img, desc, price, items, set
                         <p style={modalContent}>{desc}</p>
                     </div>
                     <div className="modal-footer">
-                        <button type="button" onClick={() => {storeItems(id, name, price, img, items, setItems)}} className="btn btn-primary btn-lg d-flex align-items-center rounded-5 text-white">Add to cart!</button>
+                        <button type="button" onClick={() => dispatch(addToCart({id, name, price, img}))} className="btn btn-primary btn-lg d-flex align-items-center rounded-5 text-white">Add to cart!</button>
                     </div>
                 </div>
             </div>

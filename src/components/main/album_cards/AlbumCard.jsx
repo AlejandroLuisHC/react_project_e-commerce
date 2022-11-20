@@ -1,10 +1,10 @@
 import { memo } from "react";
 import { Cart, Heart } from "react-bootstrap-icons";
-import storeItems from "../../../helper/utils/storeItems";
-import storeWish from "../../../helper/utils/storeWish";
 import ModalAlbumDescription from "./ModalAlbumDescription";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, setWish } from '../../../redux/features/userData/userSlice.js'
 
-const AlbumCard = ({ size = 250, setItems, items, id, name, img, price, release, desc, wish, setWish }) => {
+const AlbumCard = ({ size = 250, id, name, img, price, release, desc}) => {
     const albumCard = {
         height: `${size}px`,
         width: `${size}px`,
@@ -55,7 +55,9 @@ const AlbumCard = ({ size = 250, setItems, items, id, name, img, price, release,
         left: "65%",
         top: "-7%",
     }
-    
+    const wish = useSelector((state) => state.userData.wish)
+    const dispatch = useDispatch();
+
     const setClassWish = () => {
         setTimeout(() => {
             const wishStatus = document.getElementById(`wishStatus${id}`)
@@ -67,7 +69,7 @@ const AlbumCard = ({ size = 250, setItems, items, id, name, img, price, release,
             return wishStatus.className = status
         }, 1);
     }
-    
+
     return (
         <>
         <div id={id} className="card" style={albumCard}>
@@ -78,8 +80,8 @@ const AlbumCard = ({ size = 250, setItems, items, id, name, img, price, release,
                 </div>
                 <h3 className="card-title" style={label}>{name}</h3>
             </div>
-            <button className="btn btn-primary btn-lg d-flex align-items-center justify" onClick={() => {storeItems(id, name, price, img, items, setItems)}} style={buyBtn}><span style={{fontSize: `${size / 10}px`}}><Cart/></span></button>
-            <button id={`wishStatus${id}`} className={setClassWish()} onClick={() => {storeWish(id, name, price, img, wish, setWish)}} style={wishBtn}><span style={{fontSize: `${size / 16}px`}}><Heart/></span></button>
+            <button className="btn btn-primary btn-lg d-flex align-items-center justify" onClick={() => dispatch(addToCart({id, name, price, img, release, desc}))} style={buyBtn}><span style={{fontSize: `${size / 10}px`}}><Cart/></span></button>
+            <button id={`wishStatus${id}`} className={setClassWish()} onClick={() => dispatch(setWish({id, name, price, img, release, desc}))} style={wishBtn}><span style={{fontSize: `${size / 16}px`}}><Heart/></span></button>
         </div>
 
         <ModalAlbumDescription 
@@ -89,8 +91,6 @@ const AlbumCard = ({ size = 250, setItems, items, id, name, img, price, release,
             img      = {img}
             desc     = {desc}
             price    = {price}
-            items    = {items}
-            setItems = {items}
         />
         </>
     )

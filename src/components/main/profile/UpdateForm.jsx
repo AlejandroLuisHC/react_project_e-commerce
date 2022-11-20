@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import fetchUpdateUser from "../../../api/fetchUpdateUser"
 import fetchUsers from "../../../api/fetchUsers"
 import useFormController from "../../../hooks/useFormController"
-import { logInUser } from "../../../redux/features/user/userSlice"
+import { logInUser } from "../../../redux/features/userData/userSlice"
 
 const UpdateForm = () => {
     const styleForm = {
@@ -32,8 +32,8 @@ const UpdateForm = () => {
     }, [])
 
     // Upload default form values depending on the user in the store
-    const user = useSelector((state) => state.user.user)
-    const dispatchUser = useDispatch();
+    const user = useSelector((state) => state.userData.user)
+    const dispatch = useDispatch();
     
     // Manage of values by "useFormController()" <-- custom hook
     const { form, changeValue } = useFormController(user)
@@ -202,7 +202,7 @@ const UpdateForm = () => {
                             <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
                             <button data-bs-dismiss="modal" onClick={() => {
                                 updateUser(form, user.id);
-                                dispatchUser(logInUser(form));
+                                dispatch(logInUser(form));
                                 confirmChanges();
                             }} type="button" className="btn btn-outline-success">Save changes</button>
                         </div>

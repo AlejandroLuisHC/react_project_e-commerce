@@ -1,11 +1,11 @@
 import OrderedProduct from './OrderedProduct';
 import accounting from "accounting";
 import getTotal from '../../../../helper/utils/getTotal';
-import { useContext } from 'react';
-import CartContext from '../../../../context/CartContext';
+import { useSelector } from 'react-redux';
 
 const DisplayCart = () => {
-    const { items } = useContext(CartContext)
+    const items = useSelector((state) => state.userData.cart)
+
     const title = {
         color: "#eee",
         textShadow: "1px 1px 5px rgba(0, 0, 0, .6)",

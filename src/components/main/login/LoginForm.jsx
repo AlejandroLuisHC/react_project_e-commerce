@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 import fetchUsers from '../../../api/fetchUsers'
 import useFormController from '../../../hooks/useFormController'
-import { logInUser } from '../../../redux/features/user/userSlice'
+import { logInUser } from '../../../redux/features/userData/userSlice'
 
 const LoginForm = () => {
     const styleForm = {
@@ -42,7 +42,7 @@ const LoginForm = () => {
     const invalidMsgPwd      = form.password === "" ? "d-none" : "invalid-feedback"; 
 
     // Submit functions
-    const dispatchUser = useDispatch();
+    const dispatch = useDispatch();
 
     const [sendProfile, setSendProfile] = useState(null)
     useEffect(()=>{
@@ -64,7 +64,7 @@ const LoginForm = () => {
     const submitUser = e => {
         e.preventDefault();
         if (validUser(form.username, form.password).length) {
-            dispatchUser(logInUser(payload));
+            dispatch(logInUser(payload));
             setSendProfile(prev => prev = true)
         } else {
             alert("Dónde va', pisha?");
