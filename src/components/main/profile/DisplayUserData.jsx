@@ -20,7 +20,7 @@ const DisplayUserData = () => {
         fontWeight: "bold",
         fontSize: "1.2em" 
     }
-    const user = useSelector((state) => state.user.user)
+    const user = useSelector((state) => state.userData.user)
 
     // Delete user logic 
     const [confirmPwd, setConfirmPwd] = useState("")

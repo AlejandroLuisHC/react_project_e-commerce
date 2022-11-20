@@ -1,7 +1,8 @@
 import accounting from 'accounting';
-import { add, sub } from '../../../helper/utils/modifyCart';
+import { useDispatch } from 'react-redux';
+import { addToQuantity, subtractFromQuantity } from '../../../redux/features/userData/userSlice';
 
-const PurchaseList = ({ setItems, quantity, id, name, price, items }) => {
+const PurchaseList = ({ quantity, id, name, price, items }) => {
     const style = {
         display: "flex",
         fontSize: "14px",
@@ -17,10 +18,11 @@ const PurchaseList = ({ setItems, quantity, id, name, price, items }) => {
         backgroundColor: "rgb(136, 137, 145)",
         cursor: "pointer",  
     }
-    
+    const dispatch = useDispatch();
+
     return (
         <li className="p-3 pt-1 dropdown-item-text" style={style}>
-            <span><button onClick={()=>sub(id, items, setItems)} style={btnStyle}>-</button> {quantity} u. <button onClick={()=>add(id, items, setItems)} style={btnStyle}>+</button> {name} - {accounting.formatMoney(price, {symbol:"€", format:"%v %s"})}</span>
+            <span><button onClick={() => dispatch(subtractFromQuantity(id))} style={btnStyle}>-</button> {quantity} u. <button onClick={() => dispatch(addToQuantity(id))} style={btnStyle}>+</button> {name} - {accounting.formatMoney(price, {symbol:"€", format:"%v %s"})}</span>
         </li>
     )
 }

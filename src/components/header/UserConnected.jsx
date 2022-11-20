@@ -3,7 +3,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { PersonCircle } from 'react-bootstrap-icons';
 import { BoxArrowLeft } from 'react-bootstrap-icons';
 import { useSelector, useDispatch } from 'react-redux';
-import { logOutUser } from '../../redux/features/user/userSlice';
+import { logOutUser } from '../../redux/features/userData/userSlice';
 
 const UserConnected = () => {
     const style = {
@@ -14,7 +14,7 @@ const UserConnected = () => {
         alignItems: "center",
         gap: "8px"
     }
-    const username = useSelector((state) => state.user.user.username)
+    const username = useSelector((state) => state.userData.user.username)
     const dispatch = useDispatch();
 
     const [sendHome, setSendHome] = useState(null)

@@ -1,8 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import Layout from './Layout';
-import CartProvider from '../context/CartProvider';
-import WishProvider from '../context/WishProvider';
 import { Provider } from 'react-redux';
 import { store } from '../redux/store';
 import Spinner from '../components/spinner/Spinner';
@@ -19,8 +17,6 @@ const Landing = lazy(() => import('../pages/Landing'));
 const router = () => {
     return (
         <Provider store={store}>
-        <CartProvider>
-        <WishProvider>
             <BrowserRouter>
                 <Suspense fallback={<Spinner />}>
                     <Routes>
@@ -38,8 +34,6 @@ const router = () => {
                     </Routes>
                 </Suspense> 
             </BrowserRouter>
-        </WishProvider>
-        </CartProvider>
         </Provider>
     )
 }

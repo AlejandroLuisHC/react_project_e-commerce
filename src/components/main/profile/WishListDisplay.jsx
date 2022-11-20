@@ -1,11 +1,11 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { HeartFill, CaretDownFill, CaretUpFill } from 'react-bootstrap-icons'
-import CartContext from '../../../context/CartContext';
-import WishContext from  '../../../context/WishContext';
-import AlbumCard from '../album_cards/AlbumCard'
+import { useSelector } from 'react-redux';
+import AlbumCard from '../album_cards/AlbumCard';
+
 const WishListDisplay = () => {
-    const { items, setItems } = useContext(CartContext)
-    const { wish, setWish } = useContext(WishContext)
+    const wish  = useSelector((state) => state.userData.wish)
+
     const [closed, setClosed] = useState(wish.length > 0 ? true : false)
     let wishStyle = closed ? "d-flex mt-5 mb-5 flex-wrap gap-5" : "d-none";
     
@@ -29,10 +29,6 @@ const WishListDisplay = () => {
                 price    = {w.price}
                 release  = {w.release}
                 desc     = {w.description}
-                items    = {items}
-                setItems = {setItems}
-                wish     = {wish}
-                setWish  = {setWish}
             />)) || <p className='text-white'>No items saved</p>}
         </div>
         </>

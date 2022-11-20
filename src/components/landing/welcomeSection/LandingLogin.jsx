@@ -6,7 +6,7 @@ const LandingLogin = () => {
         color: "#eee",
     }
 
-    const username = useSelector((state) => state.user.user.username)
+    const username = useSelector((state) => state.userData.user.username)
 
     return (
         <div>

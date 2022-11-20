@@ -1,8 +1,6 @@
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import fetchAlbums from '../../api/fetchAlbums'
 import fetchBands from '../../api/fetchBands'
-import CartContext from '../../context/CartContext'
-import WishContext from '../../context/WishContext'
 import AlbumCard from '../main/album_cards/AlbumCard'
 
 const Banner = () => {
@@ -16,9 +14,6 @@ const Banner = () => {
         boxShadow: "0 0 10px black",
         borderRadius: "10px",
     }
-
-    const { items, setItems } = useContext(CartContext)
-    const { wish, setWish } = useContext(WishContext)
 
     // Store all bands
     const [bands, setBands] = useState([]);
@@ -69,10 +64,6 @@ const Banner = () => {
                                     price    = {albums[b.id - 1]?.price}
                                     release  = {albums[b.id - 1]?.release}
                                     desc     = {albums[b.id - 1]?.description}
-                                    items    = {items}
-                                    setItems = {setItems}
-                                    wish     = {wish}
-                                    setWish  = {setWish}
                                 />
                             </div>
                         </div>)
