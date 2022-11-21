@@ -3,6 +3,7 @@ import { Cart, Heart } from "react-bootstrap-icons";
 import ModalAlbumDescription from "./ModalAlbumDescription";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, setWish } from '../../../redux/features/userData/userSlice.js'
+import toast from "react-hot-toast";
 
 const AlbumCard = ({ size = 250, id, name, img, price, release, desc}) => {
     const albumCard = {
@@ -70,6 +71,19 @@ const AlbumCard = ({ size = 250, id, name, img, price, release, desc}) => {
         }, 1);
     }
 
+    const handleBuy = () => {
+        dispatch(addToCart({id, name, price, img, release, desc}));
+        toast.success(`Added ${name} to cart`, {
+            style: {
+                borderRadius: '10px',
+                background: 'rgb(56, 57, 65)',
+                color: '#eee',
+            }
+        }) 
+    }
+    const handleWish = () => {
+        dispatch(setWish({id, name, price, img, release, desc}));
+    }
     return (
         <>
         <div id={id} className="card" style={albumCard}>
@@ -80,8 +94,12 @@ const AlbumCard = ({ size = 250, id, name, img, price, release, desc}) => {
                 </div>
                 <h3 className="card-title" style={label}>{name}</h3>
             </div>
-            <button className="btn btn-primary btn-lg d-flex align-items-center justify" onClick={() => dispatch(addToCart({id, name, price, img, release, desc}))} style={buyBtn}><span style={{fontSize: `${size / 10}px`}}><Cart/></span></button>
-            <button id={`wishStatus${id}`} className={setClassWish()} onClick={() => dispatch(setWish({id, name, price, img, release, desc}))} style={wishBtn}><span style={{fontSize: `${size / 16}px`}}><Heart/></span></button>
+            <button className="btn btn-primary btn-lg d-flex align-items-center justify" style={buyBtn} onClick={handleBuy}>
+                <span style={{fontSize: `${size / 10}px`}}><Cart/></span>
+            </button>
+            <button id={`wishStatus${id}`} className={setClassWish()} style={wishBtn} onClick={handleWish}>
+                <span style={{fontSize: `${size / 16}px`}}><Heart/></span>
+            </button>
         </div>
 
         <ModalAlbumDescription 

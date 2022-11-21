@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import toast from "react-hot-toast";
 
 const initialState = {
     user: JSON.parse(sessionStorage.getItem('user')) ?? {
@@ -19,6 +20,14 @@ export const userSlice = createSlice({
                 ...action.payload,
                 isLogged: true
             }
+            toast(`Welcome, ${action.payload.username}`, {
+                icon: '🤟',
+                style: {
+                    borderRadius: '10px',
+                    background: 'rgb(56, 57, 65)',
+                    color: '#eee',
+                }
+            })
         },
         logOutUser: (state) => {
             sessionStorage.removeItem('user');
@@ -76,6 +85,13 @@ export const userSlice = createSlice({
                         return e.quantity -= 1
                     } else {
                         const pos = state.cart.indexOf(e);
+                        toast.success(`The item's been removed`, {
+                            style: {
+                                borderRadius: '10px',
+                                background: 'rgb(56, 57, 65)',
+                                color: '#eee',
+                            }
+                        })
                         return state.cart.splice(pos, 1);
                     }
                 }
@@ -91,10 +107,24 @@ export const userSlice = createSlice({
                 } else return null;
             })
             sessionStorage.setItem('cart', JSON.stringify(state.cart));
+            toast.success(`The item's been removed`, {
+                style: {
+                    borderRadius: '10px',
+                    background: 'rgb(56, 57, 65)',
+                    color: '#eee',
+                }
+            })
         },
         emptyCart: (state) => {
             sessionStorage.removeItem('cart');
             state.cart = [];
+            toast.success('Your cart is empty', {
+                style: {
+                    borderRadius: '10px',
+                    background: 'rgb(56, 57, 65)',
+                    color: '#eee',
+                }
+            })
         },
         setWish: (state, action) => {
             if (state.wish.length > 0) {
@@ -114,15 +144,39 @@ export const userSlice = createSlice({
                     state.wish.map(e => {
                         if (e.id === action.payload.id) {
                             const pos = state.wish.indexOf(e);
+                            toast(`Item deleted from wishlist`, {
+                                icon: '💔',
+                                style: {
+                                    borderRadius: '10px',
+                                    background: 'rgb(56, 57, 65)',
+                                    color: '#eee',
+                                }
+                            })
                             return state.wish.splice(pos, 1);
                         }
                         return null
                     }) 
                 } else {
-                    state.wish.push(action.payload)
+                    state.wish.push(action.payload);
+                    toast(`Item added to wishlist`, {
+                        icon: '💖',
+                        style: {
+                            borderRadius: '10px',
+                            background: 'rgb(56, 57, 65)',
+                            color: '#eee',
+                        }
+                    })
                 }
             } else {
                 state.wish.push(action.payload);
+                toast(`Item added to wishlist`, {
+                    icon: '💖',
+                    style: {
+                        borderRadius: '10px',
+                        background: 'rgb(56, 57, 65)',
+                        color: '#eee',
+                    }
+                })
             }
             sessionStorage.setItem('wish', JSON.stringify(state.wish));
         },
