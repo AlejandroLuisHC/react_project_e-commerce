@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import getTotal from '../../../helper/utils/getTotal';
 import { useDispatch, useSelector } from 'react-redux';
 import { emptyCart } from '../../../redux/features/userData/userSlice';
+import toast from 'react-hot-toast';
 
 const ShoppingCart = () => {
     const style = {
@@ -21,6 +22,9 @@ const ShoppingCart = () => {
     const totalPrice = getTotal(items);
     const disableBtn = items.length === 0 ? "disabled" : "";
     
+    const handleEmpty = () => {
+        dispatch(emptyCart());
+    }
     return (
         <div className="dropstart">
             <button className="btn btn-secondary dropdown-toggle" style={style} type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
@@ -42,7 +46,7 @@ const ShoppingCart = () => {
                     <Link to="checkout">
                         <button className='btn btn-success btn-lg' disabled={disableBtn}>Buy now!</button>
                     </Link> 
-                    <button className='btn btn-outline-danger btn-sm' onClick={() => dispatch(emptyCart())}>Empty cart</button>
+                    <button className='btn btn-outline-danger btn-sm' onClick={handleEmpty}>Empty cart</button>
                 </li>
             </ul>
         </div>
