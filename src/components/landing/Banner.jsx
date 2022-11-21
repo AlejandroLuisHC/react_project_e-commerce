@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, memo } from 'react'
 import fetchAlbums from '../../api/fetchAlbums'
 import fetchBands from '../../api/fetchBands'
 import AlbumCard from '../main/album_cards/AlbumCard'
@@ -12,7 +12,6 @@ const Banner = () => {
         height: "250px",
         objectPosition: "50% 20%",
         boxShadow: "0 0 10px black",
-        borderRadius: "10px",
     }
 
     // Store all bands
@@ -35,7 +34,7 @@ const Banner = () => {
             setAlbums(prev => prev = [...prev, albumsData[albumsData.length - 1]])
         })
     }, [bands])
-
+    
     return (
         <div id="carouselBands" className="carousel carousel slide" style={styleBanner} data-bs-ride="carousel">
             <div className="carousel-indicators">
@@ -46,7 +45,7 @@ const Banner = () => {
                     })
                 }
             </div>
-            <div className="carousel-inner" style={{borderRadius: "10px"}}>
+            <div className="carousel-inner">
                 {
                     bands.map( b => {
                         return (<div className="carousel-item active" data-bs-interval="10000" key={b.id}>
@@ -80,4 +79,4 @@ const Banner = () => {
     )
 }
 
-export default Banner
+export default memo(Banner)

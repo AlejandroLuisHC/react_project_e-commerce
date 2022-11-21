@@ -5,8 +5,8 @@ const WelcomeSection = () => {
     const styleWelcomeSection = {
         gridColumn: "2",
         display: "flex",
-        padding: "10px",
-        gap: "100px"
+        justifyContent: "space-evenly",
+        gap: "2vw"
     }
 
     return (

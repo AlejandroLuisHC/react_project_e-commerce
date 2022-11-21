@@ -4,6 +4,7 @@ import LoginForm from '../../main/login/LoginForm'
 const LandingLogin = () => {
     const styleH2 = {
         color: "#eee",
+        textShadow: "1px 1px 5px black"
     }
 
     const username = useSelector((state) => state.userData.user.username)

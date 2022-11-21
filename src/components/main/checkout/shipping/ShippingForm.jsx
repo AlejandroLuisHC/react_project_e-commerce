@@ -90,7 +90,7 @@ const ShippingForm = () => {
                     <div className='mb-3 form-group'>
                         <label className='label col-12'>
                             Full name:
-                            <input className={userState} autoComplete="off" type="text" name="user" value={form.user} onChange={changeValue} required/>
+                            <input className={userState} autoComplete="off" type="text" name="user" value={form.fullName} onChange={changeValue} required/>
                             <div className={invalidMsgUser}>
                                 Not a valid name
                             </div>

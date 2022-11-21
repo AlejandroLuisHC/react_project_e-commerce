@@ -5,7 +5,7 @@ import fetchUsers from "../../../api/fetchUsers"
 import useFormController from "../../../hooks/useFormController"
 import { logInUser } from "../../../redux/features/userData/userSlice"
 
-const UpdateForm = () => {
+const UpdateForm = ({ user }) => {
     const styleForm = {
         color: "#eee",
         width: "100%",
@@ -31,8 +31,6 @@ const UpdateForm = () => {
         retrieveUsers();
     }, [])
 
-    // Upload default form values depending on the user in the store
-    const user = useSelector((state) => state.userData.user)
     const dispatch = useDispatch();
     
     // Manage of values by "useFormController()" <-- custom hook
