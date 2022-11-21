@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
+import existId from "../../../helper/utils/existId";
 
 const initialState = {
     user: JSON.parse(sessionStorage.getItem('user')) ?? {
@@ -42,18 +43,6 @@ export const userSlice = createSlice({
                 quantity: 1
             }
             if (state.cart.length > 0) {
-                const existId = (id, state) => {
-                    let exist = false;
-                    state.map(e => {
-                        if (e.id === id) {
-                            exist = true;
-                            return exist
-                        }
-                        return null;
-                    })
-                    return exist;
-                }
-
                 if (existId(item.id, state.cart)) {
                     state.cart.map(e => {
                         if (e.id === item.id) {
@@ -128,18 +117,6 @@ export const userSlice = createSlice({
         },
         setWish: (state, action) => {
             if (state.wish.length > 0) {
-                const existId = (id, state) => {
-                    let exist = false;
-                    state.map(e => {
-                        if (e.id === id) {
-                            exist = true;
-                            return exist
-                        }
-                        return null;
-                    })
-                    return exist;
-                }
-
                 if (existId(action.payload.id, state.wish)) {
                     state.wish.map(e => {
                         if (e.id === action.payload.id) {
