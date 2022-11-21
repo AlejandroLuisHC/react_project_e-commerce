@@ -19,10 +19,6 @@ const ShoppingCart = () => {
     items.map(i => total += i.quantity)
     
     const totalPrice = getTotal(items);
-    
-    const username = useSelector((state) => state.userData.user.username)
-    const checkUser = (username) => username === "Guest" ? "login" : "checkout";
-    const disableLink = items.length === 0 ? "/" : checkUser(username);
     const disableBtn = items.length === 0 ? "disabled" : "";
     
     return (
@@ -43,7 +39,7 @@ const ShoppingCart = () => {
                 <li className='d-flex justify-content-end pe-3'><b>Sub total: {accounting.formatMoney(totalPrice, {symbol:"€", format:"%v %s"})}</b></li>
                 <li><hr className="dropdown-divider"/></li>
                 <li className="d-flex flex-column ps-2 pe-2 align-items-center justify-content-between gap-1">
-                    <Link to={disableLink}>
+                    <Link to="checkout">
                         <button className='btn btn-success btn-lg' disabled={disableBtn}>Buy now!</button>
                     </Link> 
                     <button className='btn btn-outline-danger btn-sm' onClick={() => dispatch(emptyCart())}>Empty cart</button>

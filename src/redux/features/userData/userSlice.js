@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     user: JSON.parse(sessionStorage.getItem('user')) ?? {
+        isLogged: false,
         username: "Guest"
     },
     cart: JSON.parse(sessionStorage.getItem('cart')) ?? [],
@@ -14,11 +15,15 @@ export const userSlice = createSlice({
     reducers: {
         logInUser: (state, action) => {
             sessionStorage.setItem('user', JSON.stringify(action.payload));
-            state = action.payload;
+            state.user = {
+                ...action.payload,
+                isLogged: true
+            }
         },
         logOutUser: (state) => {
             sessionStorage.removeItem('user');
             state.user = {
+                isLogged: false,
                 username: "Guest"
             };
         },

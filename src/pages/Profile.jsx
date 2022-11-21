@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux"
 import DisplayUserData from "../components/main/profile/DisplayUserData"
 import UpdateForm from "../components/main/profile/UpdateForm"
 import WishListDisplay from "../components/main/profile/WishListDisplay"
@@ -12,7 +13,10 @@ const Profile = () => {
         gridTemplateColumns: "4fr 1fr",
         gap: "40px",
     }
-    
+
+    // Upload default form values depending on the user in the store
+    const user = useSelector((state) => state.userData.user)
+
     return (
         <>
             <main style={styleMain}>
@@ -20,8 +24,8 @@ const Profile = () => {
                     <WishListDisplay />
                 </div>
                 <section style={styleSection}>
-                    <DisplayUserData />
-                    <UpdateForm />
+                    <DisplayUserData user = {user} />
+                    <UpdateForm user = {user} />
                 </section>
             </main>
         </>

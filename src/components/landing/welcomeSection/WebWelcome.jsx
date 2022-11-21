@@ -2,18 +2,18 @@ import { Link } from 'react-router-dom'
 
 const WebWelcome = () => {
     const styleWelcome = {
-        padding: "30px",
-        marginBottom: "20px",
+        padding: "30px 20px 30px 30px",
         backgroundColor: "#e6e6e6",
-        boxShadow: "0 0 10px black",
-        borderRadius: "10px",
+        boxShadow: "2px 2px 10px black",
         display: "flex",
         maxHeight: "500px",
+        borderRadius: "10px",
         flexDirection: "column",
         justifyContent: "space-between"
     }
     const descriptionText = {
         textAlign: "justify",
+        overflowY: "auto"
     }
     const styleMoreBandsBtn = {
         marginTop: "20px",

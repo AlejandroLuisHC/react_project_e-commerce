@@ -14,7 +14,7 @@ const UserConnected = () => {
         alignItems: "center",
         gap: "8px"
     }
-    const username = useSelector((state) => state.userData.user.username)
+    const user = useSelector((state) => state.userData.user)
     const dispatch = useDispatch();
 
     const [sendHome, setSendHome] = useState(null)
@@ -27,7 +27,7 @@ const UserConnected = () => {
     }
     return (
         <div className='d-flex align-items-center justify-content-start gap-3'>
-            <Link to={username !== "Guest" ? "profile" : "login"} style={style}><span style={{fontSize: "30px"}}><PersonCircle/></span> {username !== "Guest" ? username : "Log in"}</Link>
+            <Link to="profile" style={style}><span style={{fontSize: "30px"}}><PersonCircle/></span> {user.isLogged ? user.username : "Log in"}</Link>
             <button className="btn btn-outline-danger btn-sm d-flex justify-content-center align-items-center" onClick={closeSession}><BoxArrowLeft/></button>
             {sendHome && <Navigate to="/" replace={true}/>}
         </div>

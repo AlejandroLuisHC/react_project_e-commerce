@@ -1,9 +1,8 @@
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 import fetchDeleteUser from '../../../api/fetchDeleteUser'
 
-const DisplayUserData = () => {
+const DisplayUserData = ({ user }) => {
     const container = {
         width: "100%",
         color: "#eee",
@@ -20,7 +19,6 @@ const DisplayUserData = () => {
         fontWeight: "bold",
         fontSize: "1.2em" 
     }
-    const user = useSelector((state) => state.userData.user)
 
     // Delete user logic 
     const [confirmPwd, setConfirmPwd] = useState("")

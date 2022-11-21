@@ -4,6 +4,7 @@ import Layout from './Layout';
 import { Provider } from 'react-redux';
 import { store } from '../redux/store';
 import Spinner from '../components/spinner/Spinner';
+import PrivateRoutes from './PrivateRoutes';
 
 const Albums = lazy(() => import('../pages/Albums'));
 const Bands = lazy(() => import('../pages/Bands'));
@@ -24,9 +25,9 @@ const router = () => {
                             <Route index element={<Landing />} />
                             <Route path="/bands" element={<Bands />} />
                             <Route path="/:bandName" element={<Albums />} />
-                            <Route path="/profile" element={<Profile />} />
+                            <Route path="/profile" element={<PrivateRoutes><Profile /></PrivateRoutes>} />
                             <Route path="/login" element={<Login />} />
-                            <Route path="/checkout" element={<Checkout />} />
+                            <Route path="/checkout" element={<PrivateRoutes><Checkout /></PrivateRoutes>} />
                             <Route path="/register" element={<Register />} />
                             <Route path="/search" element={<Search />} />
                             <Route path="/*" element={<Navigate replace to="/" />} />
