@@ -9,7 +9,7 @@ const Checkout = () => {
         marginTop: "30px",
         gridColumn: "2",
     }
-    const cart = useSelector((state) => state.userData.cart )
+    const cart = useSelector((state) => state.cartData.cart )
     const [emptyCart, setEmptyCart] = useState(false)
     useEffect(() => {
         cart.length > 0 ?

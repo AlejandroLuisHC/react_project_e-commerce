@@ -8,18 +8,19 @@ import { useEffect } from 'react';
 import fetchPromotions from '../../../../api/fetchPromotions';
 
 const DisplayCart = () => {
-    const items = useSelector((state) => state.userData.cart)
+    const items = useSelector((state) => state.cartData.cart)
 
     const title = {
         color: "#eee",
         textShadow: "1px 1px 5px rgba(0, 0, 0, .6)",
     }
     const sectionStyle = {
-        border: "2px solid rgb(26, 27, 35)",
-        borderRadius: "8px",
-        padding: "10px",
+        border: "3px solid rgb(255, 67, 75, .4)",
+        borderRadius: "10px",
+        padding: "20px",
         width: "100%",
-        color: "#eee"
+        color: "#eee",
+        boxShadow: "0 0 10px #00000088"
     }
 
     const [shipping, setShipping] = useState({

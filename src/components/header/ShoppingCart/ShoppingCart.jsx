@@ -4,7 +4,7 @@ import { Cart } from 'react-bootstrap-icons';
 import { Navigate } from 'react-router-dom';
 import getTotal from '../../../helper/utils/getTotal';
 import { useDispatch, useSelector } from 'react-redux';
-import { emptyCart } from '../../../redux/features/userData/userSlice';
+import { emptyCart } from '../../../redux/features/cartData/cartSlice';
 import { useState } from 'react';
 
 const ShoppingCart = () => {
@@ -13,7 +13,7 @@ const ShoppingCart = () => {
         border: "none",
     }
 
-    const items = useSelector((state) => state.userData.cart)
+    const items = useSelector((state) => state.cartData.cart)
     const dispatch = useDispatch();
 
     let total = 0;

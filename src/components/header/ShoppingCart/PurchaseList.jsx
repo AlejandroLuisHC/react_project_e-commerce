@@ -1,6 +1,6 @@
 import accounting from 'accounting';
 import { useDispatch } from 'react-redux';
-import { addToQuantity, subtractFromQuantity } from '../../../redux/features/userData/userSlice';
+import { addToQuantity, subtractFromQuantity } from '../../../redux/features/cartData/cartSlice';
 
 const PurchaseList = ({ quantity, id, name, price, items }) => {
     const style = {
