@@ -3,7 +3,7 @@ import { v4 } from 'uuid';
 async function fetchCreateUser (user) {
     user.id = v4();
     try {
-        const res = await fetch('http://localhost:3000/users', {
+        const res = await fetch('http://localhost:4000/users', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"

@@ -1,6 +1,6 @@
 async function fetchUpdateUser (user, id) {
     try {
-        const res = await fetch(`http://localhost:3000/users/${id}`, {
+        const res = await fetch(`http://localhost:4000/users/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

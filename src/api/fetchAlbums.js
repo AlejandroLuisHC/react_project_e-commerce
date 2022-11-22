@@ -1,6 +1,6 @@
 async function fetchAlbums (band) {
     try {
-        const res = await fetch(`http://localhost:3000/${band}`)
+        const res = await fetch(`http://localhost:4000/${band}`)
         return await res.json()
 
     } catch(e) {

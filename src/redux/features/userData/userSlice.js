@@ -16,7 +16,10 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         logInUser: (state, action) => {
-            sessionStorage.setItem('user', JSON.stringify(action.payload));
+            sessionStorage.setItem('user', JSON.stringify({
+                ...action.payload,
+                isLogged: true
+            }));
             state.user = {
                 ...action.payload,
                 isLogged: true
