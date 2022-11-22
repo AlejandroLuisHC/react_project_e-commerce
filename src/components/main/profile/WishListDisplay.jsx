@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import AlbumCard from '../album_cards/AlbumCard';
 
 const WishListDisplay = () => {
-    const wish  = useSelector((state) => state.userData.wish)
+    const wish  = useSelector((state) => state.wishData.wish)
 
     const [closed, setClosed] = useState(wish.length > 0 ? true : false)
     let wishStyle = closed ? "d-flex mt-5 mb-5 flex-wrap gap-5" : "d-none";

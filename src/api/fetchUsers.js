@@ -1,6 +1,6 @@
 async function fetchUsers () {
     try {
-        const res = await fetch('http://localhost:3000/users')
+        const res = await fetch('http://localhost:4000/users')
         return await res.json()
 
     } catch(e) {

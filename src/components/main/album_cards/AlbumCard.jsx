@@ -2,7 +2,8 @@ import { memo } from "react";
 import { Cart, Heart } from "react-bootstrap-icons";
 import ModalAlbumDescription from "./ModalAlbumDescription";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, setWish } from '../../../redux/features/userData/userSlice.js'
+import { addToCart } from '../../../redux/features/cartData/cartSlice.js'
+import { setWish } from '../../../redux/features/wishData/wishSlice.js'
 import toast from "react-hot-toast";
 
 const AlbumCard = ({ size = 250, id, name, img, price, release, desc}) => {
@@ -56,7 +57,7 @@ const AlbumCard = ({ size = 250, id, name, img, price, release, desc}) => {
         left: "65%",
         top: "-7%",
     }
-    const wish = useSelector((state) => state.userData.wish)
+    const wish = useSelector((state) => state.wishData.wish)
     const dispatch = useDispatch();
 
     const setClassWish = () => {

@@ -1,7 +1,7 @@
 import accounting from "accounting";
 import { TrashFill } from "react-bootstrap-icons";
 import { useDispatch } from 'react-redux';
-import { addToQuantity, subtractFromQuantity, eraseFromCart } from '../../../../redux/features/userData/userSlice';
+import { addToQuantity, subtractFromQuantity, eraseFromCart } from '../../../../redux/features/cartData/cartSlice';
 
 const OrderedProduct = ({ id, name, price, img, subTotal, quantity }) => {
     const imgStyle = {

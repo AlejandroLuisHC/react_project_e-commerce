@@ -1,6 +1,6 @@
 async function fetchDeleteUser(id) {
     try {
-        await fetch(`http://localhost:3000/users/${id}`, {
+        await fetch(`http://localhost:4000/users/${id}`, {
             method: 'DELETE',
         }) 
         console.log('Deleted successfully');

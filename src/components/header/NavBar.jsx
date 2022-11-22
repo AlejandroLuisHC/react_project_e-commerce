@@ -2,7 +2,7 @@ import { memo } from 'react';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
 import SearchBar from './SearchBar';
 import logo from '../../assets/img/logo.svg';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import UserConnected from './UserConnected';
 
 const NavBar = ({ setItems, deleteFunc, items }) => {
@@ -17,7 +17,7 @@ const NavBar = ({ setItems, deleteFunc, items }) => {
     return (
         <nav className="navbar navbar-dark bg-dark">
             <div className="container-fluid" style={navGrid}>
-                <NavLink className="navbar-brand" to="/"><img src={logo} alt="logo" /></NavLink>
+                <Link className="navbar-brand" to="/"><img src={logo} alt="logo" /></Link>
                 <SearchBar />
                 <UserConnected />
                 <ShoppingCart 

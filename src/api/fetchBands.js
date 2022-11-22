@@ -1,6 +1,6 @@
 async function fetchBands () {
     try {
-        const res = await fetch('http://localhost:3000/bandsData')
+        const res = await fetch('http://localhost:4000/bandsData')
         return await res.json()
 
     } catch(e) {

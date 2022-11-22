@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { addToCart } from '../../../redux/features/userData/userSlice'
+import { addToCart } from '../../../redux/features/cartData/cartSlice'
 
 const ModalAlbumDescription = ({ id, name, release, img, desc, price }) => {
     const modalImg = {

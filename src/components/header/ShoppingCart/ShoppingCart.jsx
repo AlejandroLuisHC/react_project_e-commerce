@@ -1,11 +1,11 @@
 import PurchaseList from './PurchaseList';
 import accounting from 'accounting';
 import { Cart } from 'react-bootstrap-icons';
-import { Link } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import getTotal from '../../../helper/utils/getTotal';
 import { useDispatch, useSelector } from 'react-redux';
-import { emptyCart } from '../../../redux/features/userData/userSlice';
-import toast from 'react-hot-toast';
+import { emptyCart } from '../../../redux/features/cartData/cartSlice';
+import { useState } from 'react';
 
 const ShoppingCart = () => {
     const style = {
@@ -13,7 +13,7 @@ const ShoppingCart = () => {
         border: "none",
     }
 
-    const items = useSelector((state) => state.userData.cart)
+    const items = useSelector((state) => state.cartData.cart)
     const dispatch = useDispatch();
 
     let total = 0;
@@ -24,6 +24,15 @@ const ShoppingCart = () => {
     
     const handleEmpty = () => {
         dispatch(emptyCart());
+    }
+    const [cartTrue, setCartTrue] = useState(false);
+    const moveCheckout = () => {
+        if(items.length > 0 ){
+            setCartTrue(prev => prev = true)
+        }
+        setTimeout(() => {
+            setCartTrue(prev => prev = false)  
+        }, 1);
     }
     return (
         <div className="dropstart">
@@ -43,12 +52,11 @@ const ShoppingCart = () => {
                 <li className='d-flex justify-content-end pe-3'><b>Sub total: {accounting.formatMoney(totalPrice, {symbol:"€", format:"%v %s"})}</b></li>
                 <li><hr className="dropdown-divider"/></li>
                 <li className="d-flex flex-column ps-2 pe-2 align-items-center justify-content-between gap-1">
-                    <Link to="checkout">
-                        <button className='btn btn-success btn-lg' disabled={disableBtn}>Buy now!</button>
-                    </Link> 
+                    <button className='btn btn-success btn-lg' onClick={moveCheckout} disabled={disableBtn}>Buy now!</button>
                     <button className='btn btn-outline-danger btn-sm' onClick={handleEmpty}>Empty cart</button>
                 </li>
             </ul>
+            {cartTrue && <Navigate to="checkout"/>}
         </div>
     )
 }

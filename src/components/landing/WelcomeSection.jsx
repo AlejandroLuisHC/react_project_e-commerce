@@ -6,7 +6,8 @@ const WelcomeSection = () => {
         gridColumn: "2",
         display: "flex",
         justifyContent: "space-evenly",
-        gap: "2vw"
+        gap: "2vw",
+        marginBottom: "20px"
     }
 
     return (
