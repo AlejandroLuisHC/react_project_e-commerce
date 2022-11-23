@@ -6,23 +6,16 @@ import { useState } from 'react';
 import arrivalTime from '../../../../helper/utils/arrivalTime';
 import { useEffect } from 'react';
 import fetchPromotions from '../../../../api/fetchPromotions';
+import { H2 } from '../../../style/H2'
+import { SectionOrder } from '../../../style/checkoutStyle';
+import changeShipping from '../../../../helper/utils/changeShipping';
+
 
 const DisplayCart = () => {
     const items = useSelector((state) => state.cartData.cart)
-
-    const title = {
-        color: "#eee",
-        textShadow: "1px 1px 5px rgba(0, 0, 0, .6)",
-    }
-    const sectionStyle = {
-        border: "3px solid rgb(255, 67, 75, .4)",
-        borderRadius: "10px",
-        padding: "20px",
-        width: "100%",
-        color: "#eee",
-        boxShadow: "0 0 10px #00000088"
-    }
-
+    
+    const totalPrice = getTotal(items);
+    const fees = 1.99;
     const [shipping, setShipping] = useState({
         price: 0, 
         time: 3, 
@@ -30,46 +23,6 @@ const DisplayCart = () => {
         standard: "",
         premium: "" 
     })
-    const changeShipping = ({target}) => {
-        if (target.checked){
-            switch(target.id) {
-                case "free": 
-                    target.checked = true;
-                    setShipping(prev => prev = {
-                        price: 0, 
-                        time: 3, 
-                        free: "checked",
-                        standard: "",
-                        premium: ""
-                    })
-                    break
-                case "standard":
-                    target.checked = true;
-                    setShipping(prev => prev = {
-                        price: 1.99, 
-                        time: 2, 
-                        free: "",
-                        standard: "checked",
-                        premium: ""
-                    })
-                    break
-                case "premium": 
-                    target.checked = true;
-                    setShipping(prev => prev = {
-                        price: 3.99, 
-                        time: 1, 
-                        free: "",
-                        standard: "",
-                        premium: "checked"
-                    })
-                    break
-                default:
-                    break;
-            };
-        }
-    }
-    const totalPrice = getTotal(items);
-    const fees = 1.99;
     const taxes21 = (fees + totalPrice + shipping.price) * 0.21;
 
     // Promotional code 
@@ -88,7 +41,8 @@ const DisplayCart = () => {
     const existPromotion = promotionsAvailable.find(p => p.code === promotion)
     const checkPromotion = existPromotion ? "form-control is-valid" : "form-control"
 
-    const total = () => {
+    // Get total
+    const totalSum = () => {
         if (!existPromotion){
             return accounting.formatMoney(totalPrice + fees + shipping.price + taxes21, {symbol:"€", format:"%v %s"});
         } else {
@@ -105,23 +59,24 @@ const DisplayCart = () => {
             }
         }
     }
+
     return (
-        <section style={sectionStyle}>
-            <h2 style={title}>Your order</h2>
+        <SectionOrder>
+            <H2>Your order</H2>
             <div>
                 <fieldset>
                     <legend>Select your shipping method:</legend>
                     <form action="">
                         <div className='form-group d-flex gap-2'>
-                            <input id="free" type="radio" name="shipping" onChange={changeShipping} checked={shipping.free}/>
+                            <input id="free" type="radio" name="shipping" onChange={e => changeShipping(e, setShipping)} checked={shipping.free}/>
                             <label htmlFor="free">Free shipping (72h)</label>
                         </div>
                         <div className='form-group d-flex gap-2'>
-                            <input id="standard" type="radio" name="shipping" onChange={changeShipping} checked={shipping.standard}/>
+                            <input id="standard" type="radio" name="shipping" onChange={e => changeShipping(e, setShipping)} checked={shipping.standard}/>
                             <label htmlFor="standard">Standard shipping (48h) +1.99€</label>    
                         </div>
                         <div className='form-group d-flex gap-2'>
-                            <input id="premium" type="radio" name="shipping" onChange={changeShipping} checked={shipping.premium}/>
+                            <input id="premium" type="radio" name="shipping" onChange={e => changeShipping(e, setShipping)} checked={shipping.premium}/>
                             <label htmlFor="premium">Premium shipping (24h) +3.99€</label>
                         </div>
                     </form>
@@ -149,12 +104,12 @@ const DisplayCart = () => {
                             <input className={checkPromotion} type="text" onChange={changeCode} value={promotion} />
                             <p className='valid-feedback'>{existPromotion ? `Promo: ${existPromotion.promo}` : ""}</p>
                         </label>
-                        <p className='fs-1'><b>Total: {total()}</b></p>
+                        <p className='fs-1'><b>Total: {totalSum()}</b></p>
                     </div>
                 </div>
                 <p>Estimated arrival date: <b>{arrivalTime(shipping.time)}</b></p>
             </div>
-        </section>
+        </SectionOrder>
     )
 }
 

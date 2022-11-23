@@ -13,11 +13,11 @@ const Spinner = () => {
     }
 
     return (
-        <main style={styleMain}>
+        <div style={styleMain}>
             <div  style={spinnerStyle}>
                 <ScaleLoader color="#ee4343" height={140} margin={5} width={8} />
             </div>
-        </main>
+        </div>
     )
 }
 

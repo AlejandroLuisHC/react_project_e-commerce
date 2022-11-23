@@ -72,38 +72,38 @@ const LoginForm = () => {
     }
 
     return (
-        <>
-        <fieldset>
-            <form style={styleForm}
-                onSubmit={submitUser} 
-            >
-                <div className='mb-3 form-group'>
-                    <label className='label col-12'>
-                        Username or Email: 
-                        <input className={usernameState} onChange={changeValue} value={form.username} autoComplete="off" type="text" name="username" autoFocus required/>
-                        <div className={invalidMsgUsername}>
-                            Not a valid username
-                        </div>
-                    </label>
-                </div>
-                <div className='mb-3 form-group'>
-                    <label className='label col-12'>
-                        Password:
-                        <input className={pwdState} onChange={changeValue} value={form.password} type="password" name="password" required/>
-                        <div className={invalidMsgPwd}>
-                            Not a valid password
-                        </div>
-                    </label>
-                </div>
-                <div className='mb-3 form-group d-flex justify-content-center'>
-                    <input className={btnState} disabled={enableSubmit} type="submit" value="Log in" />
-                </div>
-                <div className='mb-3 form-group d-flex justify-content-center'>
-                    <Link to="../register" className="btn btn-secondary col-8">Sign up</Link>
-                </div>
-            </form>
-        </fieldset>
-        {sendProfile && <Navigate to="/profile" replace={true} />}
+        <> 
+            <fieldset>
+                <form style={styleForm}
+                    onSubmit={submitUser} 
+                >
+                    <div className='mb-3 form-group'>
+                        <label className='label col-12'>
+                            Username or Email: 
+                            <input className={usernameState} onChange={changeValue} value={form.username} autoComplete="off" type="text" name="username" autoFocus required/>
+                            <div className={invalidMsgUsername}>
+                                Not a valid username
+                            </div>
+                        </label>
+                    </div>
+                    <div className='mb-3 form-group'>
+                        <label className='label col-12'>
+                            Password:
+                            <input className={pwdState} onChange={changeValue} value={form.password} type="password" name="password" required/>
+                            <div className={invalidMsgPwd}>
+                                Not a valid password
+                            </div>
+                        </label>
+                    </div>
+                    <div className='mb-3 form-group d-flex justify-content-center'>
+                        <input className={btnState} disabled={enableSubmit} type="submit" value="Log in" />
+                    </div>
+                    <div className='mb-3 form-group d-flex justify-content-center'>
+                        <Link to="../register" className="btn btn-secondary col-8">Sign up</Link>
+                    </div>
+                </form>
+            </fieldset>
+            {sendProfile && <Navigate to="/profile" replace={true} />}
         </>
     )
 }

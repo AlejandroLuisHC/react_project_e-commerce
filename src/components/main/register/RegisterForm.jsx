@@ -3,20 +3,11 @@ import { Navigate } from "react-router-dom"
 import fetchCreateUser from "../../../api/fetchCreateUser"
 import fetchUsers from "../../../api/fetchUsers"
 import useFormController from "../../../hooks/useFormController"
+import { PConfirm } from "../../style/PConfirm"
+import { H2 } from '../../style/H2'
+import { FormRegister } from "../../style/registerStyle"
 
 const ResgisterForm = () => {
-    const styleForm = {
-        color: "#eee",
-        width: "38vw",
-    }
-    const styleText = {
-        color: "#eee",
-    }
-    const confirmStyle = {
-        color: "#5d5",
-        fontSize: "1.8em"
-    }
-
     // Gathering the existing users in the system
     const [existingUsers, setExistingUsers] = useState([])
     
@@ -65,7 +56,7 @@ const ResgisterForm = () => {
         return ok;
     };
 
-    const btnState           = inputCheck(validUsername, validEmail, validPwd, validPwdCheck, validCountry, validAddress, validPostalCode, validFullName, validPhone) ? "btn btn-outline-success" : "btn btn-outline-warning";
+    const btnState           = inputCheck(validUsername, validEmail, validPwd, validPwdCheck, validCountry, validAddress, validPostalCode, validFullName, validPhone) ? "btn btn-outline-success btn-lg" : "btn btn-outline-warning btn-lg";
     const enableSubmit       = inputCheck(validUsername, validEmail, validPwd, validPwdCheck, validCountry, validAddress, validPostalCode, validFullName, validPhone) ? "" : "disabled";
     const usernameState      = validUsername ? "form-control is-valid" : "form-control is-invalid"
     const emailState         = validEmail ? "form-control is-valid" : "form-control is-invalid"
@@ -116,11 +107,11 @@ const ResgisterForm = () => {
     return (
         <>
         <div className="col-6">
-            <h2 style={styleText}>Sign up form</h2>
-            <p style={styleText}>Please, complete the following information to successfully register your account.</p>
+            <H2>Sign up form</H2>
+            <p style={{color: "#eee"}}>Please, complete the following information to successfully register your account.</p>
         </div>
         <fieldset>
-            <form style={styleForm}
+            <FormRegister
                 onSubmit={(e) => {
                     e.preventDefault();
                     createUser(form);
@@ -211,9 +202,9 @@ const ResgisterForm = () => {
                     <input className={btnState} disabled={enableSubmit} type="submit" value="Submit" />
                 </div>
                 <div id="confirm" className="d-none">
-                    <p style={confirmStyle}>Account created successfully!</p>
+                    <PConfirm>Account created successfully!</PConfirm>
                 </div>
-            </form>
+            </FormRegister>
         </fieldset>
         {sendLogin && <Navigate to="/login" />}
         </>

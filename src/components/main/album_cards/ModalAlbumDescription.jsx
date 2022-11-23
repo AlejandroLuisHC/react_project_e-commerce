@@ -1,28 +1,11 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../../../redux/features/cartData/cartSlice'
+import { DivModalBody, ImgModalAlbum, PModalContent } from '../../style/bandsAlbumStyle'
 
 const ModalAlbumDescription = ({ id, name, release, img, desc, price }) => {
-    const modalImg = {
-        borderRadius: "10px",
-        marginBottom: "15px",
-        opacity: ".3"
-    }
-    const modalStyle = {
-        textAlign: "justify",
-        textJustify: "inter-word"
-    }
-    const modalContent = {
-        position: "absolute",
-        paddingLeft: "15px",
-        paddingRight: "40px",
-        fontSize: "1.1em",
-        whiteSpace: "pre-line",
-        lineHeight: "1.6",
-        top: "5%"
-    }
     const dispatch = useDispatch();
-
+    
     return (
         <div className="modal fade" id={`description${id}`} tabIndex="-1" aria-labelledby={`description${id}Label`} aria-hidden="true">
             <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
@@ -31,10 +14,10 @@ const ModalAlbumDescription = ({ id, name, release, img, desc, price }) => {
                         <h1 className="modal-title fs-2" id={`description${id}Label`}>{`${name} (${release})`}</h1>
                         <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div className="modal-body p-4" style={modalStyle}>
-                        <img src={img} alt={name} style={modalImg} width="100%"/>
-                        <p style={modalContent}>{desc}</p>
-                    </div>
+                    <DivModalBody className="modal-body p-4">
+                        <ImgModalAlbum src={img} alt={name} width="100%"/>
+                        <PModalContent>{desc}</PModalContent>
+                    </DivModalBody>
                     <div className="modal-footer">
                         <button type="button" onClick={() => dispatch(addToCart({id, name, price, img}))} className="btn btn-primary btn-lg d-flex align-items-center rounded-5 text-white">Add to cart!</button>
                     </div>

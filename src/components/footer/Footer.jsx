@@ -1,20 +1,12 @@
 import { memo } from 'react'
+import { FooterContainer } from '../style/footerStyle'
 
 const Footer = () => {
-    const style = {
-        gridColumn: "1 / span 3",
-        gridRow: "3",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        color: "white",
-        marginTop: "15px"
-    }
 
   return (
-    <footer className="bg-dark" style={style}>
+    <FooterContainer className="bg-dark">
         <small>Alejandro L. Herrero © - alejandrolhc@gmail.com</small>
-    </footer>
+    </FooterContainer>
   )
 }
 

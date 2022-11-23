@@ -1,12 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import LoginForm from '../../main/login/LoginForm'
-const LandingLogin = () => {
-    const styleH2 = {
-        color: "#eee",
-        textShadow: "1px 1px 5px black"
-    }
+import { H2 } from '../../style/H2'
 
+const LandingLogin = () => {
     const username = useSelector((state) => state.userData.user.username)
 
     return (
@@ -18,7 +15,7 @@ const LandingLogin = () => {
                 </div> : 
                 <div className="d-flex flex-column align-items-center mt-4" style={{minWidth: "300px"}}>
                     <img className="ps-5" src="img/catapproved.gif" alt="cat approves" height="300px"  style={{objectFit: "cover"}} />
-                    <h1 style={styleH2}>Welcome, {username}!</h1>
+                    <H2>Welcome, {username}!</H2>
                 </div>
             }
         </div>

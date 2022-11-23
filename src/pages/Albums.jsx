@@ -1,51 +1,29 @@
-import { useState, useEffect } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 import AlbumCard from '../components/main/album_cards/AlbumCard'
 import fetchAlbums from '../api/fetchAlbums';
 import GoHome from '../components/main/return_home/GoHome';
 import { Filter } from 'react-bootstrap-icons';
+import { useQuery } from '@tanstack/react-query';
+import Spinner from '../components/spinner/Spinner';
+import Error from './Error';
+import { DivUtilities, MainBanAlbu, SectionBandsAlbums } from '../components/style/bandsAlbumStyle';
 
 const Albums = () => {  
-    const mainStyle = {
-        marginTop: "15px",
-        gridColumn: "2",
-        display: "grid",
-        gridTemplate: "50px 1fr / 1fr"
-    }
-    const sectionStyle = {
-        marginTop: "35px",
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "space-evenly",
-        alignItems: "start",
-        gap: "40px",
-    }
-    const topStyle = {
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr 1fr"
-    }
-
-    const { bandName } = useParams();
+    const { bandName } = useParams(); 
     const albumsKey = bandName; 
 
-    const [albums, setAlbums] = useState([]);
-    useEffect( () => {
-        const retrieveAlbums = async () => {
-            const albumsData = await fetchAlbums(albumsKey);
-            setAlbums(albumsData);
-        }
-        retrieveAlbums();
-    }, [albumsKey])
-
+    
     const [search, setSearch] = useSearchParams()
     const query = search.get("query") ?? "";
     const setFilter = e => {
         setSearch({query: e.target.value})
     }
 
+    const { data : albums, status } = useQuery({ queryKey: ['albums'], queryFn: () => fetchAlbums(albumsKey) });
+    
     return (
-        <main style={mainStyle}>
-            <div style={topStyle}>
+        <MainBanAlbu>
+            <DivUtilities>
                 <div style={{gridColumn: "2"}}>
                     <GoHome />
                 </div>
@@ -55,23 +33,28 @@ const Albums = () => {
                         <input className="form-control" value={query} onChange={setFilter} type="search" placeholder="Filter bands..." aria-label="Search" />
                     </label>
                 </form>
-            </div>
-            <section style={sectionStyle}>
-                {albums?.map(a => {
-                    if (a.name.toLowerCase().includes(query.toLowerCase())) {
-                        return (<AlbumCard key = {a.id}
-                            id       = {a.id}
-                            name     = {a.name}
-                            img      = {a.img}
-                            price    = {a.price}
-                            release  = {a.release}
-                            desc     = {a.description}
-                        />)
-                    }
-                    return null;
-                })}
-            </section>
-        </main>
+            </DivUtilities>
+            <SectionBandsAlbums>
+                {status === 'loading' 
+                    ? <Spinner />
+                    : status === 'error'
+                    ? <Error />
+                    : 
+                    albums?.map(a => {
+                        if (a.name.toLowerCase().includes(query.toLowerCase())) {
+                            return (<AlbumCard key = {a.id}
+                                id       = {a.id}
+                                name     = {a.name}
+                                img      = {a.img}
+                                price    = {a.price}
+                                release  = {a.release}
+                                desc     = {a.description}
+                            />)
+                        }
+                        return null;
+                    })}
+            </SectionBandsAlbums>
+        </MainBanAlbu>
     )
 }
 

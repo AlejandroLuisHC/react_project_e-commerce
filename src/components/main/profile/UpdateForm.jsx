@@ -4,22 +4,11 @@ import fetchUpdateUser from "../../../api/fetchUpdateUser"
 import fetchUsers from "../../../api/fetchUsers"
 import useFormController from "../../../hooks/useFormController"
 import { logInUser } from "../../../redux/features/userData/userSlice"
+import { H2 } from "../../style/H2"
+import { PConfirm } from "../../style/PConfirm"
+import { DivUserData, FormUpdate } from "../../style/profileStyle"
 
 const UpdateForm = ({ user }) => {
-    const styleForm = {
-        color: "#eee",
-        width: "100%",
-    }
-    const styleText = {
-        color: "#eee",
-        marginBottom: "30px",
-        textShadow: "1px 1px 5px #00000088"
-    }
-    const confirmStyle = {
-        color: "#5d5",
-        fontSize: "1.8em"
-    }
-
     // Gathering the existing users in the system
     const [existingUsers, setExistingUsers] = useState([])
     
@@ -105,10 +94,10 @@ const UpdateForm = ({ user }) => {
     }
 
     return (
-        <div>
-            <h2 style={styleText}>Update your information:</h2>
+        <DivUserData>
+            <H2>Update your information:</H2>
             <fieldset>
-                <form style={styleForm}
+                <FormUpdate
                     onSubmit={(e) => {
                         e.preventDefault();
                     }}
@@ -181,9 +170,9 @@ const UpdateForm = ({ user }) => {
                         <input className={btnState} data-bs-toggle="modal" data-bs-target="#confirmUpdateModal" disabled={enableSubmit} type="submit" value="Submit" />
                     </div>
                     <div id="confirm" className="d-none">
-                        <p style={confirmStyle}>User updated successfully!</p>
+                        <PConfirm>User updated successfully!</PConfirm>
                     </div>
-                </form>
+                </FormUpdate>
             </fieldset>
 
             <div className="modal fade" id="confirmUpdateModal" tabIndex="-1" aria-labelledby="confirmUpdateModalLabel" aria-hidden="true">
@@ -207,7 +196,7 @@ const UpdateForm = ({ user }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </DivUserData>
     )
 }
 

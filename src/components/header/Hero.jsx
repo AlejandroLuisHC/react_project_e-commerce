@@ -1,41 +1,20 @@
 import { memo } from 'react';
 import photo from '../../assets/img/carousel_2.jpg';
+import { DivCarousel, H1Hero, ImgHero, PHero } from '../style/headerStyle';
 
 const Hero = () => {
-    const style = {
-        maxHeight: "210px"
-    }
-    const photoStyle  = {
-        maxHeight: "210px",
-        objectFit: "cover",
-        objectPosition: "50% 64%"
-    }
-    const label = {
-        fontSize: "3.2vw",
-        fontWeight: "bold",
-        color: "white",
-        textShadow: "1px 1px 8px rgba(0, 0, 0, 1)"
-    }
-    const subLabel = {
-        fontSize: "1.2em",
-        fontWeight: "regular",
-        fontStyle: "italic",
-        color: "white",
-        textShadow: "1px 1px 8px rgba(0, 0, 0, 1)"
-    }
-
     return (
-        <div id="hero" className="carousel slide carousel-fade" data-bs-ride="carousel" style={style}>
+        <DivCarousel id="hero" className="carousel slide carousel-fade" data-bs-ride="carousel">
             <div className="carousel-inner">
                 <div className="carousel-item active" data-bs-interval="10000">
-                    <img style={photoStyle}  src={photo} className="d-block w-100" alt="Concert party"/>
+                    <ImgHero src={photo} className="d-block w-100" alt="Concert party"/>
                     <div className="carousel-caption d-block">
-                        <h3 style={label}>All your bands gathered in one place</h3>
-                        <p style={subLabel}>Find the merch of your favorite bands</p>
+                        <H1Hero>All your bands gathered in one place</H1Hero>
+                        <PHero>Find the merch of your favorite bands</PHero>
                     </div>
                 </div>
             </div>
-        </div>
+        </DivCarousel>
     )
 }
 
