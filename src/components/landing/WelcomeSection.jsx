@@ -1,20 +1,12 @@
 import LandingLogin from './welcomeSection/LandingLogin';
 import WebWelcome from './welcomeSection/WebWelcome';
-
+import { SectionWelcome } from '../style/landingStyle'
 const WelcomeSection = () => {
-    const styleWelcomeSection = {
-        gridColumn: "2",
-        display: "flex",
-        justifyContent: "space-evenly",
-        gap: "2vw",
-        marginBottom: "20px"
-    }
-
     return (
-        <section style={styleWelcomeSection}> 
+        <SectionWelcome> 
             <WebWelcome />
             <LandingLogin />
-        </section>
+        </SectionWelcome>
     )
 }
 

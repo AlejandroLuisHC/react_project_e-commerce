@@ -1,21 +1,11 @@
 import ResgisterForm from "../components/main/register/RegisterForm";
+import { MainLogReg } from "../components/style/MainLogReg";
 
 const Register = () => {
-  const styleMain = {
-        marginTop: "30px",
-        gridColumn: "2",
-        display: "flex",
-        flexDirection: "column",
-        flexWrap: "wrap",
-        justifyContent: "start",
-        alignItems: "center",
-        gap: "40px",
-    };
-
     return (
-        <main style={styleMain}>
+        <MainLogReg>
             <ResgisterForm />
-        </main>
+        </MainLogReg>
     )
 };
 

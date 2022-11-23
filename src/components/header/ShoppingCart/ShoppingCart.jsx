@@ -6,13 +6,9 @@ import getTotal from '../../../helper/utils/getTotal';
 import { useDispatch, useSelector } from 'react-redux';
 import { emptyCart } from '../../../redux/features/cartData/cartSlice';
 import { useState } from 'react';
+import { ButtonCart } from '../../style/headerStyle';
 
 const ShoppingCart = () => {
-    const style = {
-        boxShadow: "inset 5px 5px 10px rgba(0, 0, 0, .4)",
-        border: "none",
-    }
-
     const items = useSelector((state) => state.cartData.cart)
     const dispatch = useDispatch();
 
@@ -36,10 +32,10 @@ const ShoppingCart = () => {
     }
     return (
         <div className="dropstart">
-            <button className="btn btn-secondary dropdown-toggle" style={style} type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
+            <ButtonCart className="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
                 <Cart /> <span id="productsInCart">{total === 0 ? "" : total}</span>
-            </button>
-            <ul id="purchaseList" className="dropdown-menu dropdown-menu-dark col-10">
+            </ButtonCart>
+            <ul id="purchaseList" className="dropdown-menu dropdown-menu-dark">
                 {items.map(i => 
                     <PurchaseList key = {i.id}
                         quantity  = {i.quantity}

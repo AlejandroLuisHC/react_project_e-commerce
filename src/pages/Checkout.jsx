@@ -3,12 +3,9 @@ import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import CheckoutSection from '../components/main/checkout/CheckoutSection';
 import GoHome from '../components/main/return_home/GoHome';
+import { MainCheckout } from '../components/style/checkoutStyle';
 
 const Checkout = () => {
-    const mainStyle = {
-        marginTop: "30px",
-        gridColumn: "2",
-    }
     const cart = useSelector((state) => state.cartData.cart )
     const [emptyCart, setEmptyCart] = useState(false)
     useEffect(() => {
@@ -17,11 +14,11 @@ const Checkout = () => {
             setEmptyCart(prev => prev = true)
     }, [cart])
     return (
-        <main style={mainStyle}>
+        <MainCheckout>
             <GoHome />
             <CheckoutSection />
             {emptyCart && <Navigate to="/" />}
-        </main>
+        </MainCheckout>
     )
 }
 

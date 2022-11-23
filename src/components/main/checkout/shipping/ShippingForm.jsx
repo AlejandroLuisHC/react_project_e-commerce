@@ -1,17 +1,9 @@
 import { memo } from 'react'
 import { useSelector } from 'react-redux'
 import useFormController from '../../../../hooks/useFormController'
-
+import { H2 } from '../../../style/H2.js'
+import { FormShipping } from '../../../style/checkoutStyle'
 const ShippingForm = () => {
-    const title = {
-        color: "#eee",
-        textShadow: "1px 1px 5px rgba(0, 0, 0, .6)",
-    }
-    const styleForm = {
-        color: "#eee",
-        width: "25vw",
-    }
-    
     // Upload default form values depending on the user
     const user = useSelector((state) => state.userData.user)
 
@@ -55,9 +47,9 @@ const ShippingForm = () => {
 
     return (
         <div>
-            <h2 style={title}>Shipping address</h2>
+            <H2>Shipping address</H2>
             <fieldset>
-                <form style={styleForm}
+                <FormShipping
                     onSubmit={submitAddress} 
                 >
                     <div className='mb-3 form-group'>
@@ -117,7 +109,7 @@ const ShippingForm = () => {
                     <div className='form-group'>
                         <input className={btnState} disabled={enableSubmit} type="submit" value="Submit" />
                     </div>
-                </form>
+                </FormShipping>
             </fieldset>
         </div>
     )
