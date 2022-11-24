@@ -4,11 +4,10 @@ import ModalAlbumDescription from "./ModalAlbumDescription";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from '../../../redux/features/cartData/cartSlice.js'
 import { setWish } from '../../../redux/features/wishData/wishSlice.js'
-import toast from "react-hot-toast";
 import { H2 } from '../../style/H2.js'
 import { DivAlbum, ImgAlbum, SpanPriceTag, ButtonBuy } from '../../style/bandsAlbumStyle' 
 
-const AlbumCard = ({ size = 250, id, name, img, price, release, desc, video}) => {
+const AlbumCard = ({ size = 250, id, name, img, price, release, desc, video, stock }) => {
     const albumCard = {
         height: `${size}px`,
         width: `${size}px`,
@@ -41,7 +40,6 @@ const AlbumCard = ({ size = 250, id, name, img, price, release, desc, video}) =>
     }
     const wish = useSelector((state) => state.wishData.wish)
     const dispatch = useDispatch();
-
     const setClassWish = () => {
         setTimeout(() => {
             const wishStatus = document.getElementById(`wishStatus${id}`)
@@ -55,14 +53,7 @@ const AlbumCard = ({ size = 250, id, name, img, price, release, desc, video}) =>
     }
 
     const handleBuy = () => {
-        dispatch(addToCart({id, name, price, img, release, desc}));
-        toast.success(`Added "${name}" to cart`, {
-            style: {
-                borderRadius: '10px',
-                background: 'rgb(56, 57, 65)',
-                color: '#eee',
-            }
-        }) 
+        dispatch(addToCart({id, name, price, img, release, desc, stock}));
     }
     const handleWish = () => {
         dispatch(setWish({id, name, price, img, release, desc}));

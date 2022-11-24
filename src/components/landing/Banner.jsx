@@ -59,6 +59,7 @@ const Banner = () => {
                                     release  = {albums[b.id - 1]?.release}
                                     desc     = {albums[b.id - 1]?.description}
                                     video    = {albums[b.id - 1]?.video}
+                                    stock    = {albums[b.id - 1]?.stock}
                                 />
                             </div>
                         </div>)
