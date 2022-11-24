@@ -113,4 +113,9 @@ export const PModalContent = styled.p`
     line-height: 1.6;
     top: 5%;
 `
+export const IFrameVideoclip = styled.iframe`
+    border-radius: 10px;
+    width: 100%;
+    height: 412px;
+`
 

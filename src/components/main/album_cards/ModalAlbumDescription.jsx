@@ -1,9 +1,9 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../../../redux/features/cartData/cartSlice'
-import { DivModalBody, ImgModalAlbum, PModalContent } from '../../style/bandsAlbumStyle'
+import { DivModalBody, IFrameVideoclip, ImgModalAlbum, PModalContent } from '../../style/bandsAlbumStyle'
 
-const ModalAlbumDescription = ({ id, name, release, img, desc, price }) => {
+const ModalAlbumDescription = ({ id, name, release, img, desc, price, video }) => {
     const dispatch = useDispatch();
     
     return (
@@ -17,6 +17,7 @@ const ModalAlbumDescription = ({ id, name, release, img, desc, price }) => {
                     <DivModalBody className="modal-body p-4">
                         <ImgModalAlbum src={img} alt={name} width="100%"/>
                         <PModalContent>{desc}</PModalContent>
+                        {video && <IFrameVideoclip src={video} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></IFrameVideoclip>}
                     </DivModalBody>
                     <div className="modal-footer">
                         <button type="button" onClick={() => dispatch(addToCart({id, name, price, img}))} className="btn btn-primary btn-lg d-flex align-items-center rounded-5 text-white">Add to cart!</button>
