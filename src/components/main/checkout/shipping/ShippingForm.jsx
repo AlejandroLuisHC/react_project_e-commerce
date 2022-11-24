@@ -43,7 +43,6 @@ const ShippingForm = () => {
     
     // Manage payment form 
     const { paymentForm, changePaymentValues } = useFormPayment(user)
-    console.log(paymentForm)
     
     // Manage payment validation state
     const inputPayCheck = (a, b, c, d, e) => {

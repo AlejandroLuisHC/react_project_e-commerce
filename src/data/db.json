@@ -9,6 +9,7 @@
       "name": "RockaRolla",
       "img": "img/judas/rockarolla.jpg",
       "price": 5,
+      "stock": 10,
       "release": 1974
     },
     {
@@ -16,6 +17,7 @@
       "name": "Sad wings of destiny",
       "img": "img/judas/sadwingsofdestiny.jpg",
       "price": 10,
+      "stock": 10,
       "release": 1976,
       "description": "Sad Wings of Destiny is the second studio album by English heavy metal band Judas Priest, released on 23 March 1976 by Gull Records. It is considered the album on which Judas Priest consolidated their sound and image, and songs from it such as 'Victim of Changes' and 'The Ripper' have since become live standards. It was the band's only album to feature drummer Alan Moore. \n \n Noted for its riff-driven sound and the wide range of Rob Halford's lead vocals, the album displays a wide variety of styles, moods and textures, inspired by an array of groups such as Queen, Led Zeppelin, Deep Purple and Black Sabbath. The centrepiece 'Victim of Changes' is a nearly eight-minute track featuring heavy riffing trading off with high-pitched vocals, extended guitar leads, and a slow, moody breakdown toward the end. 'Tyrant' and 'The Ripper' are short, dense, high-powered rockers with many parts and changes. Riffs and solos dominate 'Genocide', 'Island of Domination', and 'Deceiver', and the band finds more laid-back moments in the crooning piano-backed 'Epitaph' and the moody 'Dreamer Deceiver'."
     },
@@ -24,6 +26,7 @@
       "name": "Sin after sin",
       "img": "img/judas/sinaftersin.jpg",
       "price": 7,
+      "stock": 10,
       "release": 1977
     },
     {
@@ -31,6 +34,7 @@
       "name": "Killing machine",
       "img": "img/judas/killingmachine.jpg",
       "price": 7,
+      "stock": 10,
       "release": 1978
     },
     {
@@ -38,6 +42,7 @@
       "name": "Stained class",
       "img": "img/judas/stainedclass.jpg",
       "price": 8,
+      "stock": 10,
       "release": 1978
     },
     {
@@ -45,6 +50,7 @@
       "name": "British steel",
       "img": "img/judas/britishsteel.jpg",
       "price": 10,
+      "stock": 10,
       "release": 1980
     },
     {
@@ -52,6 +58,7 @@
       "name": "Point of entry",
       "img": "img/judas/pointofentry.jpg",
       "price": 9,
+      "stock": 10,
       "release": 1981
     },
     {
@@ -59,6 +66,7 @@
       "name": "Screaming for vengeance",
       "img": "img/judas/screamingforvengeance.jpg",
       "price": 8,
+      "stock": 10,
       "release": 1982
     },
     {
@@ -66,6 +74,7 @@
       "name": "Defenders of the faith",
       "img": "img/judas/defendersofthefaith.jpg",
       "price": 10,
+      "stock": 10,
       "release": 1984
     },
     {
@@ -73,6 +82,7 @@
       "name": "Turbo",
       "img": "img/judas/turbo.jpg",
       "price": 8,
+      "stock": 10,
       "release": 1986
     },
     {
@@ -80,6 +90,7 @@
       "name": "Ram it down",
       "img": "img/judas/ramitdown.jpg",
       "price": 6,
+      "stock": 10,
       "release": 1988
     },
     {
@@ -87,6 +98,7 @@
       "name": "PainKiller",
       "img": "img/judas/painkiller.jpg",
       "price": 10,
+      "stock": 10,
       "release": 1990
     },
     {
@@ -94,6 +106,7 @@
       "name": "Jugulator",
       "img": "img/judas/jugulator.jpg",
       "price": 5,
+      "stock": 10,
       "release": 1997
     },
     {
@@ -101,6 +114,7 @@
       "name": "Demolition",
       "img": "img/judas/demolition.jpg",
       "price": 5,
+      "stock": 10,
       "release": 2001
     },
     {
@@ -108,6 +122,7 @@
       "name": "Angel of Retribution",
       "img": "img/judas/angelofretribution.jpg",
       "price": 9,
+      "stock": 10,
       "release": 2005,
       "description": "Angel of Retribution is the fifteenth studio album by English heavy metal band Judas Priest, released in 2005. It is the band's first album since 1990's Painkiller to feature Rob Halford. The album debuted at No. 13 on the US Billboard 200 chart, which makes it the fourth highest charting Judas Priest album in the US. The album was produced by Roy Z, who co-wrote the song 'Deal with the Devil'. It won a 2005 Metal Hammer award for Best Album. In the 2005 Burrn! magazine Readers' Pop Poll, it was voted Best Album of the Year and Best Album Cover."
     },
@@ -116,6 +131,7 @@
       "name": "Nostradamus",
       "img": "img/judas/nostradamus.jpg",
       "price": 6,
+      "stock": 10,
       "release": 2008
     },
     {
@@ -123,6 +139,7 @@
       "name": "Redeemer of souls",
       "img": "img/judas/redeemerofsouls.jpg",
       "price": 10,
+      "stock": 10,
       "release": 2014
     },
     {
@@ -130,6 +147,7 @@
       "name": "Firepower",
       "img": "img/judas/firepower.jpg",
       "price": 12,
+      "stock": 10,
       "release": 2018,
       "description": "Firepower is the eighteenth studio album by English heavy metal band Judas Priest. Released in 2018, it is the band's first studio album since 1988's 'Ram It Down' to be produced by Tom Allom and the first one with Andy Sneap as co-producer. The album sold around 49,000 copies in the United States within its first week of release, debuting at No. 5 on the 'Billboard 200' chart, making it the band's highest-charting album in the US. The album also reached No. 5 in the UK, making it their first top-ten album in the UK since British Steel. Music videos were made for 'Lightning Strike', 'Spectre' and 'No Surrender'.",
       "video": "https://www.youtube.com/embed/6QtjdDiMLVg"
@@ -142,6 +160,7 @@
       "name": "Färd",
       "img": "img/grimner/fard.jpg",
       "price": 6,
+      "stock": 10,
       "release": 2012
     },
     {
@@ -149,6 +168,7 @@
       "name": "Blodshymner",
       "img": "img/grimner/blodshymner.jpg",
       "price": 7,
+      "stock": 10,
       "release": 2014
     },
     {
@@ -156,6 +176,7 @@
       "name": "Frost Mot Eld",
       "img": "img/grimner/frostmoteld.jpg",
       "price": 8,
+      "stock": 10,
       "release": 1016
     },
     {
@@ -163,6 +184,7 @@
       "name": "Vanadrottning",
       "img": "img/grimner/vanadrottning.jpg",
       "price": 8,
+      "stock": 10,
       "release": 2018
     },
     {
@@ -170,6 +192,7 @@
       "name": "Urfader",
       "img": "img/grimner/urfader.jpg",
       "price": 9,
+      "stock": 10,
       "release": 2022,
       "description": "Fourth album of the Swedish folk metallers from GRIMNER. \n\nWeaving their roots and influences from Swedish death metal and their love for heavy and power metal with enchanting folk melodies and pagan choirs, they once again create their unique sound - sung, as always, in their native language, Swedish. The crisp and fresh new sound of this album makes you realize what Grimner is all about. Thrashy guitar riffs, a mix of powerful clean and harsh vocals, pounding drums mixed with beautiful and distinct flutes and other folk instruments create an atmosphere that fits the stories of the old Norse gods and folklore alike.",
       "video": "https://www.youtube.com/embed/cn_07WoujNQ"
@@ -181,6 +204,7 @@
       "name": "Midnattens Widunder",
       "img": "img/finntroll/midnattens_widunder.jpg",
       "price": 5,
+      "stock": 10,
       "release": 1999
     },
     {
@@ -188,6 +212,7 @@
       "name": "Jaktens Tid",
       "img": "img/finntroll/jaktens_tid.jpg",
       "price": 6,
+      "stock": 10,
       "release": 2001
     },
     {
@@ -195,6 +220,7 @@
       "name": "Nattfödd",
       "img": "img/finntroll/nattfodd.jpg",
       "price": 7,
+      "stock": 10,
       "release": 2004
     },
     {
@@ -202,6 +228,7 @@
       "name": "Visor Om Slutet",
       "img": "img/finntroll/visor_om_slutet.jpg",
       "price": 6,
+      "stock": 10,
       "release": 2006
     },
     {
@@ -209,6 +236,7 @@
       "name": "Ur Jordens Djup",
       "img": "img/finntroll/ur_jordens_djup.jpg",
       "price": 7,
+      "stock": 10,
       "release": 2006
     },
     {
@@ -216,6 +244,7 @@
       "name": "Nifelvind",
       "img": "img/finntroll/nifelvind.jpg",
       "price": 9,
+      "stock": 10,
       "release": 2010
     },
     {
@@ -223,6 +252,7 @@
       "name": "Blodsvept",
       "img": "img/finntroll/blodsvept.png",
       "price": 9,
+      "stock": 10,
       "release": 2013
     },
     {
@@ -230,6 +260,7 @@
       "name": "Vredesvävd",
       "img": "img/finntroll/vredesvavd.jpg",
       "price": 12,
+      "stock": 10,
       "release": 2020,
       "description": "Finnish folk metal heroes Finntroll return after 7 long years with their latest album “Vredesvävd” which translated to English means “Wrath-woven,” which captures the spirit of the band within the 10 tracks on offer. The band says, “After seven years of hiding, ‘Ormfolk’ slithers its way to bring the human race a prelude of the forthcoming chaos which even global pandemics are unable to prevent. Catchy melodies, furious speed and the rabid black humppa will ensure that your ears will be hissing for a long time!” We sink our teeth into some new Finntroll.",
       "video": "https://www.youtube.com/embed/3clNSvQW72Q"
@@ -241,6 +272,7 @@
       "name": "Once Sent from the Golden Hall",
       "img": "img/amon/onceSentFromTheGoldenHall.jpg",
       "price": 5,
+      "stock": 10,
       "release": 1998
     },
     {
@@ -248,6 +280,7 @@
       "name": "The Avenger",
       "img": "img/amon/theAvenger.jpg",
       "price": 5,
+      "stock": 10,
       "release": 1999
     },
     {
@@ -255,6 +288,7 @@
       "name": "The Crusher",
       "img": "img/amon/theCrusher.jpg",
       "price": 5,
+      "stock": 10,
       "release": 2001
     },
     {
@@ -262,6 +296,7 @@
       "name": "Versus the World",
       "img": "img/amon/versusTheWorld.jpg",
       "price": 7,
+      "stock": 10,
       "release": 2002
     },
     {
@@ -269,6 +304,7 @@
       "name": "Fate of Norns",
       "img": "img/amon/fateOfTheNorns.jpg",
       "price": 7,
+      "stock": 10,
       "release": 2004
     },
     {
@@ -276,6 +312,7 @@
       "name": "With Oden on Our Side",
       "img": "img/amon/withOdenOnOurSide.jpg",
       "price": 8,
+      "stock": 10,
       "release": 2006
     },
     {
@@ -283,6 +320,7 @@
       "name": "Twilight of the Thunder God",
       "img": "img/amon/twilightOfTheThunderGod.jpg",
       "price": 11,
+      "stock": 10,
       "release": 2008
     },
     {
@@ -290,6 +328,7 @@
       "name": "Surtur Rising",
       "img": "img/amon/surturRising.jpg",
       "price": 9,
+      "stock": 10,
       "release": 2011
     },
     {
@@ -297,6 +336,7 @@
       "name": "Deceiver of the Gods",
       "img": "img/amon/deceiverOfTheGods.jpg",
       "price": 10,
+      "stock": 10,
       "release": 2013
     },
     {
@@ -304,6 +344,7 @@
       "name": "Jomsviking",
       "img": "img/amon/jomsviking.jpg",
       "price": 12,
+      "stock": 10,
       "release": 2016
     },
     {
@@ -311,6 +352,7 @@
       "name": "Berserker",
       "img": "img/amon/berserker.jpg",
       "price": 13,
+      "stock": 10,
       "release": 2019
     },
     {
@@ -318,6 +360,7 @@
       "name": "The Great Heathen Army",
       "img": "img/amon/theGreatHeathenArmy.jpg",
       "price": 15,
+      "stock": 10,
       "release": 2022,
       "description": "Armed with their 12th and arguably finest album to date, Amon Amarth are poised to return to full action with a bloody, broadsword-wielding vengeance. The release of The Great Heathen Army will kick-start another relentless global campaign, commencing with a co-headlining tour of Europe alongside Machine Head and fellow countrymen The Halo Effect. Still ruthlessly devoted to the ways of the warrior, Amon Amarth have Odin's wind in their sails like never before. From their underground smash debut Once Sent From The Golden Hall (1998) onwards, Amon Amarth have been an unstoppable creative force. With a unique and unmistakable sound that combines the best of several epic strains of metal, the quintet have become renowned for their ageless anthems and explosive, theatrical live shows. Albums like 2008's widely acclaimed Twilight Of The Thunder God and 2016's conceptual triumph Jomsviking, the Swedes have been consistent standard bearers for heavy metal as a life-affirming and communal experience, armed with a seemingly endless stream of instant classic songs. Now reaping the rewards of all those years of hard work, Amon Amarth are now regarded as one of the metal world's most vital and imperious live acts. From headlining festivals across Europe to claiming a place on Slayer's final tour of the US in 2019, they have honoured the adventurous ethos of their Viking forebears by taking their music anywhere and everywhere.",
       "video": "https://www.youtube.com/embed/QNrDGG87xho"

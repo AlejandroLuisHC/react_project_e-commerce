@@ -50,6 +50,7 @@ const Albums = () => {
                                 release  = {a.release}
                                 desc     = {a.description}
                                 video    = {a.video}
+                                stock    = {a.stock}
                             />)
                         }
                         return null;
