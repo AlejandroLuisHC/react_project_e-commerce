@@ -42,7 +42,7 @@ const Banner = () => {
                     : status === 'error'
                     ? <Error />
                     :
-                    bands.map( b => {
+                    bands?.map( b => {
                         return (<div className="carousel-item active" data-bs-interval="10000" key={b.id}>
                             <ImgCarousel src={b.img} className="d-block w-100" alt={b.name}/>
                             <div className="carousel-caption d-none d-lg-block">
@@ -58,6 +58,7 @@ const Banner = () => {
                                     price    = {albums[b.id - 1]?.price}
                                     release  = {albums[b.id - 1]?.release}
                                     desc     = {albums[b.id - 1]?.description}
+                                    video    = {albums[b.id - 1]?.video}
                                 />
                             </div>
                         </div>)

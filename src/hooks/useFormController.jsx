@@ -17,9 +17,10 @@ function useFormController(state = initialForm) {
     const [form, setForm] = useState(state);
 
     const changeValue = ({ target }) => {
-        const updatedForm = { ...form };
-        updatedForm[target.name] = target.value;
-        setForm(updatedForm);
+        setForm({
+            ...form,
+            [target.name]: target.value
+        });
     } 
     return {
         form,

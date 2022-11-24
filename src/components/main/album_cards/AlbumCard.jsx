@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import { H2 } from '../../style/H2.js'
 import { DivAlbum, ImgAlbum, SpanPriceTag, ButtonBuy } from '../../style/bandsAlbumStyle' 
 
-const AlbumCard = ({ size = 250, id, name, img, price, release, desc}) => {
+const AlbumCard = ({ size = 250, id, name, img, price, release, desc, video}) => {
     const albumCard = {
         height: `${size}px`,
         width: `${size}px`,
@@ -92,6 +92,7 @@ const AlbumCard = ({ size = 250, id, name, img, price, release, desc}) => {
             img      = {img}
             desc     = {desc}
             price    = {price}
+            video    = {video}
         />
         </>
     )

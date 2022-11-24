@@ -49,6 +49,7 @@ const Albums = () => {
                                 price    = {a.price}
                                 release  = {a.release}
                                 desc     = {a.description}
+                                video    = {a.video}
                             />)
                         }
                         return null;

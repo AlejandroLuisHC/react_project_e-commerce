@@ -44,18 +44,25 @@ const DisplayCart = () => {
     // Get total
     const totalSum = () => {
         if (!existPromotion){
-            return accounting.formatMoney(totalPrice + fees + shipping.price + taxes21, {symbol:"€", format:"%v %s"});
+            const tot = totalPrice + fees + shipping.price + taxes21;
+            localStorage.setItem('total', JSON.stringify(tot))
+            return accounting.formatMoney(tot, {symbol:"€", format:"%v %s"});
         } else {
             switch (existPromotion.promo) {
                 case '5% less':
                     const totDisc = (totalPrice + fees + shipping.price + taxes21) * .05
-                    const tot = (totalPrice + fees + shipping.price + taxes21) - totDisc
-                    return accounting.formatMoney(tot, {symbol:"€", format:"%v %s"});
+                    const tot5 = (totalPrice + fees + shipping.price + taxes21) - totDisc
+                    localStorage.setItem('total', JSON.stringify(tot5))
+                    return accounting.formatMoney(tot5, {symbol:"€", format:"%v %s"});
                 case 'free shipping':
                     const taxes = (fees + totalPrice) * 0.21
-                    return accounting.formatMoney(totalPrice + fees + taxes, {symbol:"€", format:"%v %s"});
+                    const totShip = totalPrice + fees + taxes;
+                    localStorage.setItem('total', JSON.stringify(totShip))
+                    return accounting.formatMoney(totShip, {symbol:"€", format:"%v %s"});
                 default:
-                    return accounting.formatMoney(totalPrice + fees + shipping.price + taxes21, {symbol:"€", format:"%v %s"});
+                    const totDef = totalPrice + fees + shipping.price + taxes21;
+                    localStorage.setItem('total', JSON.stringify(totDef))
+                    return accounting.formatMoney(totDef, {symbol:"€", format:"%v %s"});
             }
         }
     }
