@@ -6,16 +6,16 @@ import { store } from '../redux/store';
 import Spinner from '../components/spinner/Spinner';
 import PrivateRoutes from './PrivateRoutes';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
-const Albums = lazy(() => import('../pages/Albums'));
-const Bands = lazy(() => import('../pages/Bands'));
-const Checkout = lazy(() => import('../pages/Checkout'));
-const Profile = lazy(() => import('../pages/Profile'));
-const Login = lazy(() => import('../pages/Login'));
-const Register = lazy(() => import('../pages/Register'));
-const Search = lazy(() => import('../pages/Search'));
-const Landing = lazy(() => import('../pages/Landing'));
 const queryClient = new QueryClient();
+const Albums         = lazy(() => import('../pages/Albums'));
+const Bands          = lazy(() => import('../pages/Bands'));
+const Checkout       = lazy(() => import('../pages/Checkout'));
+const ConfirmPayment = lazy(() => import('../pages/ConfirmPayment'));
+const Profile        = lazy(() => import('../pages/Profile'));
+const Login          = lazy(() => import('../pages/Login'));
+const Register       = lazy(() => import('../pages/Register'));
+const Search         = lazy(() => import('../pages/Search'));
+const Landing        = lazy(() => import('../pages/Landing'));
 
 const router = () => {
     return (
@@ -33,6 +33,7 @@ const router = () => {
                             <Route path="/:bandName" element={<Albums />} />
                             <Route path="/search" element={<Search />} />
                             <Route path="/checkout" element={<PrivateRoutes><Checkout /></PrivateRoutes>} />
+                            <Route path="/confirmPayment" element={<PrivateRoutes><ConfirmPayment /></PrivateRoutes>} />
                             <Route path="/*" element={<Navigate to="/" />} />
                         </Route>
                     </Routes>
