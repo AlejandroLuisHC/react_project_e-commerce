@@ -165,7 +165,7 @@ const ResgisterForm = () => {
                 <div className='mb-3 form-group'>
                     <label className='label col-12'>
                         Country: 
-                        <input className={countryState} autoComplete="off" name="address" value={form.country} onChange={changeValue} type="text" required/>
+                        <input className={countryState} autoComplete="off" name="country" value={form.country} onChange={changeValue} type="text" required/>
                         <div className={invalidMsgCountry}>
                             Not a valid country
                         </div>
