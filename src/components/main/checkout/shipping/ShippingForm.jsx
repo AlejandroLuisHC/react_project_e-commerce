@@ -71,7 +71,9 @@ const ShippingForm = () => {
 
     const submitAddress = e => {
         e.preventDefault();
-        setShippingReady(prev => prev = true)
+        if(inputCheck(validCountry, validAddress, validPostalCode, validfullName, validEmail, validPhone)){
+            setShippingReady(prev => prev = true)
+        }
     }
     const submitPayment = e => {
         e.preventDefault();
@@ -84,7 +86,6 @@ const ShippingForm = () => {
             }))
             setPaymentReady(prev => prev = true)
         }
-        console.log('Error at payment submit');
     }
 
     return (
