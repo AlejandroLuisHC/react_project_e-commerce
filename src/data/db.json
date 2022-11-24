@@ -1,7 +1,13 @@
 {
   "promotions": [
-    { "code": "DISC5PER", "promo": "5% less" },
-    { "code": "FREESHIP", "promo": "Free shipping" }
+    {
+      "code": "DISC5PER",
+      "promo": "5% less"
+    },
+    {
+      "code": "FREESHIP",
+      "promo": "Free shipping"
+    }
   ],
   "judasAlbums": [
     {
@@ -152,7 +158,6 @@
       "description": "Firepower is the eighteenth studio album by English heavy metal band Judas Priest. Released in 2018, it is the band's first studio album since 1988's 'Ram It Down' to be produced by Tom Allom and the first one with Andy Sneap as co-producer. The album sold around 49,000 copies in the United States within its first week of release, debuting at No. 5 on the 'Billboard 200' chart, making it the band's highest-charting album in the US. The album also reached No. 5 in the UK, making it their first top-ten album in the UK since British Steel. Music videos were made for 'Lightning Strike', 'Spectre' and 'No Surrender'.",
       "video": "https://www.youtube.com/embed/6QtjdDiMLVg"
     }
-
   ],
   "grimnerAlbums": [
     {
@@ -421,7 +426,8 @@
       "postalCode": "11111",
       "phone": "699123456",
       "id": 1,
-      "newsletter": false
+      "newsletter": false,
+      "isLogged": true
     }
   ]
 }
