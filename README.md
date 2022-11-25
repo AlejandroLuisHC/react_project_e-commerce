@@ -43,7 +43,6 @@ npm start
 
 ## Built with 🛠️
 
-- [NodeJS](https://nodejs.org/es/)
 - [ReactJS](https://es.reactjs.org/)
 - [Redux-toolkit](https://redux-toolkit.js.org/)
 
