@@ -10,6 +10,7 @@ const changeShipping = ({target}, set) => {
                     standard: "",
                     premium: ""
                 })
+                localStorage.setItem('shipMethod', 'Free Shipping')
                 break
             case "standard":
                 target.checked = true;
@@ -20,6 +21,7 @@ const changeShipping = ({target}, set) => {
                     standard: "checked",
                     premium: ""
                 })
+                localStorage.setItem('shipMethod', 'Standard Shipping')
                 break
             case "premium": 
                 target.checked = true;
@@ -30,6 +32,7 @@ const changeShipping = ({target}, set) => {
                     standard: "",
                     premium: "checked"
                 })
+                localStorage.setItem('shipMethod', 'Premium Shipping')
                 break
             default:
                 break;

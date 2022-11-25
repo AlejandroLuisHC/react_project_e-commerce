@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { DivConfirmation, MainConfirm, PConfirmation, SectionConfirm, UlConfirm } from '../components/style/confirmPayStyle';
 import { H2 } from '../components/style/H2';
 import { emptyCart } from '../redux/features/cartData/cartSlice';
+import { addOrder } from '../redux/features/ordersData/ordersSlice';
 
 const ConfirmPayment = () => {
     const {total, shipping, payment, cart} = JSON.parse(localStorage.getItem('orderInfo'))
@@ -12,12 +13,29 @@ const ConfirmPayment = () => {
     const dispatch = useDispatch()
     const user = useSelector((state) => state.userData.user)
     const [confirmed, setConfirmed] = useState(false)
-
+    
     const cancelPayment = () => {
         localStorage.clear();
         navigate('/checkout');
     }
+    const date = new Date();
+    const order = {
+        id: "",
+        date: `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} - ${date.getHours()}h ${date.getMinutes()}min ${date.getSeconds()}s`, 
+        fullname: shipping.fullName,
+        email: shipping.email,
+        phone: shipping.phone,
+        country: shipping.country,
+        address: shipping.address,
+        postalCode: shipping.postalCode,
+        shippingMethod: shipping.method, 
+        cardNum: payment.cardNum,
+        products: cart, 
+        total: total,
+    }
+
     const confirmPayment = () => {
+        dispatch(addOrder(order));
         setConfirmed(prev => prev = true)
         setTimeout(() => {
             localStorage.clear();
@@ -25,6 +43,7 @@ const ConfirmPayment = () => {
             navigate('/');
         }, 15000);
     }
+
     return (
         <MainConfirm>
             <SectionConfirm>
@@ -38,6 +57,7 @@ const ConfirmPayment = () => {
                             <li>{shipping.country}</li>
                             <li>{shipping.email}</li>
                             <li>{shipping.phone}</li>
+                            <li>{shipping.method}</li>
                         </UlConfirm>
                     </div>
                     <div>

@@ -76,3 +76,11 @@ export const ButtonQuantity = styled.button`
     background-color: rgb(136, 137, 145);
     cursor: pointer;
 `
+export const LinkManager = styled(Link)`
+    color: #eee;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+`

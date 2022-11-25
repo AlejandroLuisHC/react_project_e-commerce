@@ -13,7 +13,7 @@ const ShippingForm = () => {
 
     // Manage of values by "useFormController()" <-- custom hook
     const { form, changeValue } = useFormController(user)
-
+    localStorage.setItem('shipMethod', 'Free Shipping')
     // Manage inputs validation state
     const inputCheck = (a, b, c, d, e, f) => {
         return (a && b && c && d && e && f) ? true : false;
@@ -79,7 +79,7 @@ const ShippingForm = () => {
         if (inputPayCheck(validHolder, validCardNum, validCVC, validExpMonth, validExpYear)) {
             localStorage.setItem('orderInfo', JSON.stringify({
                 total: JSON.parse(localStorage.getItem('total')),
-                shipping: form,
+                shipping: { ...form, method: localStorage.getItem('shipMethod')},
                 payment: paymentForm,
                 cart: cart
             }))

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { Navigate } from "react-router-dom"
-import fetchCreateUser from "../../../api/fetchCreateUser"
-import fetchUsers from "../../../api/fetchUsers"
+import fetchCreateUser from "../../../api/user/fetchCreateUser"
+import fetchUsers from "../../../api/user/fetchUsers"
 import useFormController from "../../../hooks/useFormController"
 import { PConfirm } from "../../style/PConfirm"
 import { H2 } from '../../style/H2'

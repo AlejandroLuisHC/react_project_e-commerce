@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
-import fetchUsers from '../../../api/fetchUsers'
+import fetchUsers from '../../../api/user/fetchUsers'
 import useFormController from '../../../hooks/useFormController'
 import { logInUser } from '../../../redux/features/userData/userSlice'
 

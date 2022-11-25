@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
-import { PersonCircle } from 'react-bootstrap-icons';
-import { BoxArrowLeft } from 'react-bootstrap-icons';
+import { PersonCircle, BoxArrowLeft, } from 'react-bootstrap-icons';
 import { useSelector, useDispatch } from 'react-redux';
 import { logOutUser } from '../../redux/features/userData/userSlice';
 import { LinkProfile, SpanProfile } from '../style/headerStyle';
