@@ -18,7 +18,7 @@ const OrderInfo = ({ selectedOrder }) => {
                 <hr />
             </DivTitleOrder>
             <div className='d-flex flex-column'>
-                <h3>Products info:</h3>
+                <h3>Order info:</h3>
                 {selectedOrder.products?.map(e => <span>{e.quantity} x {e.name} - {e.price} €/ud</span>)}
                 {selectedOrder.total && 
                     <h5 className='mt-3'>Total: {selectedOrder.total && accounting.formatMoney(selectedOrder.total, {symbol:"€", format:"%v %s"})}</h5>
