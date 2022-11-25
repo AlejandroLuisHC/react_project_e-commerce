@@ -1,7 +1,6 @@
 # React and Redux initiation
 This is a minor front-end project to get grips on [ReactJS](https://reactjs.org/) and [Redux-toolkit](https://redux-toolkit.js.org/).
 
-> You can see deployed our application here [link](https://musikverein.netlify.app/)
 ## Start 🚀
 
 Get a clone of the project in local. You need to have installed nodejs in your computer to develop the proyect.
