@@ -26,7 +26,7 @@ _Then run 'npm install' in the base folder_
 npm install
 ```
 
-Once all the dependencies have been installed you will need to use json-server to create a local server to fetch data.
+Once all the dependencies have been installed you will need to use [json-server](https://github.com/typicode/json-server) to create a local server to fetch data.
 
 _To do so, run 'npm run data' in the base folder_ 
 
