@@ -49,3 +49,14 @@ export const DivBtnState = styled.div`
     gap: 20px;
     grid-template-columns: 1fr 1fr;
 `
+export const SectionProducts = styled.section`
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+    max-height: 100%;
+    overflow-y: auto;
+`
+export const TableProductsInfo = styled.table`
+    grid-column: 1 / span 2;
+    grid-row: 2;
+
+`
