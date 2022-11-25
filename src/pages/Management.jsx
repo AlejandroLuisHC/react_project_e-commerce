@@ -1,13 +1,14 @@
-import { useQuery } from '@tanstack/react-query'
-import React from 'react'
 import { useState } from 'react'
-import { DivManagerWindow, MainManagement } from '../components/style/managementStyle'
-import fetchOrders from '../api/orders/fetchOrders'
-import { H2 } from '../components/style/H2'
+import { useQuery } from '@tanstack/react-query'
 import Spinner from '../components/spinner/Spinner'
 import OrderInfo from '../components/manager/OrderInfo'
 import Orders from '../components/manager/Orders'
 import FilterOrders from '../components/manager/FilterOrders'
+import fetchOrders from '../api/orders/fetchOrders'
+import TableProducts from '../components/manager/TableProducts'
+import { H2 } from '../components/style/H2'
+import { DivManagerWindow, MainManagement } from '../components/style/managementStyle'
+
 const Management = () => {
     const [filterOrders, setFilterOrders] = useState('all')
     const [selectedOrder, setSelectedOrder] = useState({
@@ -28,13 +29,13 @@ const Management = () => {
             products: false,
         })
     }
-    const activeRestock = () => {
-        setWindow(prev => prev = {
-            orders: false,
-            restock: true,
-            products: false,
-        })
-    }
+    // const activeRestock = () => {
+    //     setWindow(prev => prev = {
+    //         orders: false,
+    //         restock: true,
+    //         products: false,
+    //     })
+    // }
     const activeProducts = () => {
         setWindow(prev => prev = {
             orders: false,
@@ -42,13 +43,14 @@ const Management = () => {
             products: true,
         })
     }
+    // Store all orders
     const { data : orders, status : ordersStatus } = useQuery({ queryKey: ['orders'], queryFn: fetchOrders });
-
+    
     return (
         <MainManagement>
             <div className='d-flex flex-column gap-5'>
                 <button className='btn btn-secondary btn-lg' onClick={activeOrders}>Orders</button>
-                <button className='btn btn-secondary btn-lg' onClick={activeRestock}>Restock</button>
+                {/* <button className='btn btn-secondary btn-lg' onClick={activeRestock}>Restock</button> */}
                 <button className='btn btn-secondary btn-lg' onClick={activeProducts}>Products List</button>
             </div>
             <DivManagerWindow>
@@ -71,10 +73,9 @@ const Management = () => {
                                 selectedOrder = {selectedOrder}
                             />
                         </>
-                    : window.restock
-                    ? 
-                    <p>RESTOCK</p>
-                    : window.products && <p>PRODUCTS</p>
+                    : window.products
+                    && 
+                    <TableProducts />
                 }
                 
             </DivManagerWindow>       
