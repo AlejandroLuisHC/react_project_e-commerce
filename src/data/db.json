@@ -413,7 +413,9 @@
       "postalCode": "12345",
       "phone": "666123456",
       "id": 0,
-      "newsletter": false
+      "newsletter": false,
+      "isLogged": true,
+      "isAdmin": true
     },
     {
       "username": "user1",
@@ -428,6 +430,80 @@
       "id": 1,
       "newsletter": false,
       "isLogged": true
+    }
+  ],
+  "orders": [
+    {
+      "id": "d27e6297-d9dd-4ebf-94cd-28a9857a3c46",
+      "date": "25/11/2022 - 14h 25min 45s",
+      "fullname": "Alejandro L. Herrero",
+      "email": "admin@admin.com",
+      "phone": "666123456",
+      "country": "Spain",
+      "address": "Fake Street 123",
+      "postalCode": "12345",
+      "shippingMethod": "Free Shipping",
+      "cardNum": "1234567891234567",
+      "products": [
+        {
+          "id": "aa12",
+          "name": "The Great Heathen Army",
+          "price": 15,
+          "img": "img/amon/theGreatHeathenArmy.jpg",
+          "release": 2022,
+          "desc": "Armed with their 12th and arguably finest album to date, Amon Amarth are poised to return to full action with a bloody, broadsword-wielding vengeance. The release of The Great Heathen Army will kick-start another relentless global campaign, commencing with a co-headlining tour of Europe alongside Machine Head and fellow countrymen The Halo Effect. Still ruthlessly devoted to the ways of the warrior, Amon Amarth have Odin's wind in their sails like never before. From their underground smash debut Once Sent From The Golden Hall (1998) onwards, Amon Amarth have been an unstoppable creative force. With a unique and unmistakable sound that combines the best of several epic strains of metal, the quintet have become renowned for their ageless anthems and explosive, theatrical live shows. Albums like 2008's widely acclaimed Twilight Of The Thunder God and 2016's conceptual triumph Jomsviking, the Swedes have been consistent standard bearers for heavy metal as a life-affirming and communal experience, armed with a seemingly endless stream of instant classic songs. Now reaping the rewards of all those years of hard work, Amon Amarth are now regarded as one of the metal world's most vital and imperious live acts. From headlining festivals across Europe to claiming a place on Slayer's final tour of the US in 2019, they have honoured the adventurous ethos of their Viking forebears by taking their music anywhere and everywhere.",
+          "stock": 10,
+          "quantity": 2
+        }
+      ],
+      "total": 38.707899999999995,
+      "state": "Pending..."
+    },
+    {
+      "id": "716cf6f3-3ee2-45aa-85ba-5fc9f08e7e54",
+      "date": "25/11/2022 - 14h 56min 53s",
+      "fullname": "John Doe",
+      "email": "user1@user.com",
+      "phone": "699123456",
+      "country": "United States",
+      "address": "Street userstreet 1",
+      "postalCode": "11111",
+      "shippingMethod": "Free Shipping",
+      "cardNum": "1234567891234567",
+      "products": [
+        {
+          "id": "aa12",
+          "name": "The Great Heathen Army",
+          "price": 15,
+          "img": "img/amon/theGreatHeathenArmy.jpg",
+          "release": 2022,
+          "desc": "Armed with their 12th and arguably finest album to date, Amon Amarth are poised to return to full action with a bloody, broadsword-wielding vengeance. The release of The Great Heathen Army will kick-start another relentless global campaign, commencing with a co-headlining tour of Europe alongside Machine Head and fellow countrymen The Halo Effect. Still ruthlessly devoted to the ways of the warrior, Amon Amarth have Odin's wind in their sails like never before. From their underground smash debut Once Sent From The Golden Hall (1998) onwards, Amon Amarth have been an unstoppable creative force. With a unique and unmistakable sound that combines the best of several epic strains of metal, the quintet have become renowned for their ageless anthems and explosive, theatrical live shows. Albums like 2008's widely acclaimed Twilight Of The Thunder God and 2016's conceptual triumph Jomsviking, the Swedes have been consistent standard bearers for heavy metal as a life-affirming and communal experience, armed with a seemingly endless stream of instant classic songs. Now reaping the rewards of all those years of hard work, Amon Amarth are now regarded as one of the metal world's most vital and imperious live acts. From headlining festivals across Europe to claiming a place on Slayer's final tour of the US in 2019, they have honoured the adventurous ethos of their Viking forebears by taking their music anywhere and everywhere.",
+          "stock": 10,
+          "quantity": 2
+        },
+        {
+          "id": "j5",
+          "name": "Firepower",
+          "price": 12,
+          "img": "img/judas/firepower.jpg",
+          "release": 2018,
+          "desc": "Firepower is the eighteenth studio album by English heavy metal band Judas Priest. Released in 2018, it is the band's first studio album since 1988's 'Ram It Down' to be produced by Tom Allom and the first one with Andy Sneap as co-producer. The album sold around 49,000 copies in the United States within its first week of release, debuting at No. 5 on the 'Billboard 200' chart, making it the band's highest-charting album in the US. The album also reached No. 5 in the UK, making it their first top-ten album in the UK since British Steel. Music videos were made for 'Lightning Strike', 'Spectre' and 'No Surrender'.",
+          "stock": 10,
+          "quantity": 1
+        },
+        {
+          "id": "g5",
+          "name": "Urfader",
+          "price": 9,
+          "img": "img/grimner/urfader.jpg",
+          "release": 2022,
+          "desc": "Fourth album of the Swedish folk metallers from GRIMNER. \n\nWeaving their roots and influences from Swedish death metal and their love for heavy and power metal with enchanting folk melodies and pagan choirs, they once again create their unique sound - sung, as always, in their native language, Swedish. The crisp and fresh new sound of this album makes you realize what Grimner is all about. Thrashy guitar riffs, a mix of powerful clean and harsh vocals, pounding drums mixed with beautiful and distinct flutes and other folk instruments create an atmosphere that fits the stories of the old Norse gods and folklore alike.",
+          "stock": 10,
+          "quantity": 2
+        }
+      ],
+      "total": 75.84401000000001,
+      "state": "Shipped"
     }
   ]
 }

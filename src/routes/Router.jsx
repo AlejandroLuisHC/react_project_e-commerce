@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { store } from '../redux/store';
 import Spinner from '../components/spinner/Spinner';
 import PrivateRoutes from './PrivateRoutes';
+import AdminRoutes from './AdminRoutes';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 const queryClient = new QueryClient();
 const Albums         = lazy(() => import('../pages/Albums'));
@@ -16,6 +17,7 @@ const Login          = lazy(() => import('../pages/Login'));
 const Register       = lazy(() => import('../pages/Register'));
 const Search         = lazy(() => import('../pages/Search'));
 const Landing        = lazy(() => import('../pages/Landing'));
+const Management     = lazy(() => import('../pages/Management'));
 
 const router = () => {
     return (
@@ -34,6 +36,7 @@ const router = () => {
                             <Route path="/search" element={<Search />} />
                             <Route path="/checkout" element={<PrivateRoutes><Checkout /></PrivateRoutes>} />
                             <Route path="/confirmPayment" element={<PrivateRoutes><ConfirmPayment /></PrivateRoutes>} />
+                            <Route path="/management" element={<AdminRoutes><Management /></AdminRoutes>} />
                             <Route path="/*" element={<Navigate to="/" />} />
                         </Route>
                     </Routes>

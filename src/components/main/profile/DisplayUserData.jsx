@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import fetchDeleteUser from '../../../api/fetchDeleteUser'
+import fetchDeleteUser from '../../../api/user/fetchDeleteUser'
 import { logOutUser } from '../../../redux/features/userData/userSlice'
 import { H2 } from '../../style/H2'
 import { DivUserData, SpanData } from '../../style/profileStyle'

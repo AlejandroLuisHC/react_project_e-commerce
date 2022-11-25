@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 const initialState = {
     user: JSON.parse(sessionStorage.getItem('user')) ?? {
         isLogged: false,
+        isAdmin: false,
         username: "Guest"
     }
 }
@@ -13,13 +14,26 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         logInUser: (state, action) => {
-            sessionStorage.setItem('user', JSON.stringify({
-                ...action.payload,
-                isLogged: true
-            }));
-            state.user = {
-                ...action.payload,
-                isLogged: true
+            if (action.payload.username === 'admin') {
+                sessionStorage.setItem('user', JSON.stringify({
+                    ...action.payload,
+                    isLogged: true,
+                    isAdmin: true
+                }));
+                state.user = {
+                    ...action.payload,
+                    isLogged: true,
+                    isAdmin: true
+                }
+            } else {
+                sessionStorage.setItem('user', JSON.stringify({
+                    ...action.payload,
+                    isLogged: true
+                }));
+                state.user = {
+                    ...action.payload,
+                    isLogged: true
+                }
             }
             toast(`Welcome, ${action.payload.username}`, {
                 icon: '🤟',
