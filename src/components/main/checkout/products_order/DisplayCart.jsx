@@ -54,7 +54,7 @@ const DisplayCart = () => {
                     const tot5 = (totalPrice + fees + shipping.price + taxes21) - totDisc
                     localStorage.setItem('total', JSON.stringify(tot5))
                     return accounting.formatMoney(tot5, {symbol:"€", format:"%v %s"});
-                case 'free shipping':
+                case 'Free shipping':
                     const taxes = (fees + totalPrice) * 0.21
                     const totShip = totalPrice + fees + taxes;
                     localStorage.setItem('total', JSON.stringify(totShip))

@@ -41,7 +41,7 @@ const ConfirmPayment = () => {
             localStorage.clear();
             dispatch(emptyCart());
             navigate('/');
-        }, 15000);
+        }, 12000);
     }
 
     return (
@@ -80,7 +80,7 @@ const ConfirmPayment = () => {
                         <DivConfirmation>
                             <PConfirmation>Congratulations! Your ordered has been proceeded!</PConfirmation>
                             <p>A copy of the order process and the receipt will be send to your email: <b>{user.email}</b></p>
-                            <p>You will be redirected home now.</p>
+                            <p>Please, wait. You will be redirected home now.</p>
                         </DivConfirmation>
                     }
                 </div>
