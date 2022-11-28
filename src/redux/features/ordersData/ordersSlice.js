@@ -2,10 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import fetchCreateOrder from "../../../api/orders/fetchCreateOrder";
 
 const initialState = {
-    user: JSON.parse(sessionStorage.getItem('user')) ?? {
-        isLogged: false,
-        isAdmin: false,
-        username: "Guest"
+    order: JSON.parse(sessionStorage.getItem('user')) ?? {
     }
 }
 
