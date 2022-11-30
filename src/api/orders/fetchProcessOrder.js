@@ -1,4 +1,4 @@
-async function fetchProcessOrder (order, id) {
+async function fetchPROCESS_ORDER (order, id) {
     try {
         const res = await fetch(`http://localhost:4000/orders/${id}`, {
             method: 'PUT',
@@ -18,4 +18,4 @@ async function fetchProcessOrder (order, id) {
     }
 }
 
-export default fetchProcessOrder;
+export default fetchPROCESS_ORDER;

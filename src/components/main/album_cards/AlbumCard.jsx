@@ -2,8 +2,8 @@ import { memo } from "react";
 import { Cart, Heart } from "react-bootstrap-icons";
 import ModalAlbumDescription from "./ModalAlbumDescription";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from '../../../redux/features/cartData/cartSlice.js'
-import { setWish } from '../../../redux/features/wishData/wishSlice.js'
+import { ADD_TO_CART } from '../../../redux/features/cartData/cartSlice.js'
+import { SET_WISH } from '../../../redux/features/wishData/wishSlice.js'
 import { H2 } from '../../style/H2.js'
 import { DivAlbum, ImgAlbum, SpanPriceTag, ButtonBuy } from '../../style/bandsAlbumStyle' 
 
@@ -53,10 +53,10 @@ const AlbumCard = ({ size = 250, id, name, img, price, release, desc, video, sto
     }
 
     const handleBuy = () => {
-        dispatch(addToCart({id, name, price, img, release, desc, stock}));
+        dispatch(ADD_TO_CART({id, name, price, img, release, desc, stock}));
     }
     const handleWish = () => {
-        dispatch(setWish({id, name, price, img, release, desc}));
+        dispatch(SET_WISH({id, name, price, img, release, desc}));
     }
     return (
         <>

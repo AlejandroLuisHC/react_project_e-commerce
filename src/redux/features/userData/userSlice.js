@@ -13,7 +13,7 @@ export const userSlice = createSlice({
     name: "userData",
     initialState,
     reducers: {
-        logInUser: (state, action) => {
+        LOG_IN_USER: (state, action) => {
             if (action.payload.username === 'admin') {
                 sessionStorage.setItem('user', JSON.stringify({
                     ...action.payload,
@@ -44,7 +44,7 @@ export const userSlice = createSlice({
                 }
             })
         },
-        logOutUser: (state) => {
+        LOG_OUT_USER: (state) => {
             sessionStorage.removeItem('user');
             state.user = {
                 isLogged: false,
@@ -55,8 +55,8 @@ export const userSlice = createSlice({
 })
 
 export const {
-    logInUser, 
-    logOutUser
+    LOG_IN_USER, 
+    LOG_OUT_USER
 } = userSlice.actions;
 
 export default userSlice.reducer;

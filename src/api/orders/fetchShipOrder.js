@@ -1,4 +1,4 @@
-async function fetchShipOrder (order, id) {
+async function fetchSHIP_ORDER (order, id) {
     try {
         const res = await fetch(`http://localhost:4000/orders/${id}`, {
             method: 'PUT',
@@ -18,4 +18,4 @@ async function fetchShipOrder (order, id) {
     }
 }
 
-export default fetchShipOrder;
+export default fetchSHIP_ORDER;

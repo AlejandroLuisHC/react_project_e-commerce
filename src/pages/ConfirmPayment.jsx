@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { DivConfirmation, MainConfirm, PConfirmation, SectionConfirm, UlConfirm } from '../components/style/confirmPayStyle';
 import { H2 } from '../components/style/H2';
-import { emptyCart } from '../redux/features/cartData/cartSlice';
-import { addOrder } from '../redux/features/ordersData/ordersSlice';
+import { EMPTY_CART } from '../redux/features/cartData/cartSlice';
+import { ADD_ORDER } from '../redux/features/ordersData/ordersSlice';
 
 const ConfirmPayment = () => {
     const {total, shipping, payment, cart} = JSON.parse(localStorage.getItem('orderInfo'))
@@ -35,11 +35,11 @@ const ConfirmPayment = () => {
     }
 
     const confirmPayment = () => {
-        dispatch(addOrder(order));
+        dispatch(ADD_ORDER(order));
         setConfirmed(prev => prev = true)
         setTimeout(() => {
             localStorage.clear();
-            dispatch(emptyCart());
+            dispatch(EMPTY_CART());
             navigate('/');
         }, 12000);
     }

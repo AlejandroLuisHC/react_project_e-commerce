@@ -10,7 +10,7 @@ export const ordersSlice = createSlice({
     name: "ordersData",
     initialState,
     reducers: {
-        addOrder: (state, action) => {
+        ADD_ORDER: (state, action) => {
             const order = {
                 ...action.payload,
                 state: 'Pending...'
@@ -20,23 +20,23 @@ export const ordersSlice = createSlice({
             }
             sendOrder()
         },
-        processOrder: (state, action) => {
+        PROCESS_ORDER: (state, action) => {
 
         },
-        shipOrder: (state, action) => {
+        SHIP_ORDER: (state, action) => {
 
         },
-        closeOrder: (state, action) => {
+        CLOSE_ORDER: (state, action) => {
 
         }
     }
 })
 
 export const {
-    addOrder, 
-    processOrder,
-    shipOrder,
-    closeOrder
+    ADD_ORDER, 
+    PROCESS_ORDER,
+    SHIP_ORDER,
+    CLOSE_ORDER
 } = ordersSlice.actions;
 
 export default ordersSlice.reducer;

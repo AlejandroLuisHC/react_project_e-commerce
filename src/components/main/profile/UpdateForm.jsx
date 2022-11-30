@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 import fetchUpdateUser from "../../../api/user/fetchUpdateUser"
 import fetchUsers from "../../../api/user/fetchUsers"
 import useFormController from "../../../hooks/useFormController"
-import { logInUser } from "../../../redux/features/userData/userSlice"
+import { LOG_IN_USER } from "../../../redux/features/userData/userSlice"
 import { H2 } from "../../style/H2"
 import { PConfirm } from "../../style/PConfirm"
 import { DivUserData, FormUpdate } from "../../style/profileStyle"
@@ -189,7 +189,7 @@ const UpdateForm = ({ user }) => {
                             <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
                             <button data-bs-dismiss="modal" onClick={() => {
                                 updateUser(form, user.id);
-                                dispatch(logInUser(form));
+                                dispatch(LOG_IN_USER(form));
                                 confirmChanges();
                             }} type="button" className="btn btn-outline-success">Save changes</button>
                         </div>

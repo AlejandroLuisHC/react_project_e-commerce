@@ -1,4 +1,4 @@
-async function fetchCloseOrder (order, id) {
+async function fetchCLOSE_ORDER (order, id) {
     const newOrder = { ...order }
     newOrder.state = 'Closed'
     console.log(newOrder);
@@ -18,4 +18,4 @@ async function fetchCloseOrder (order, id) {
     }
 }
 
-export default fetchCloseOrder;
+export default fetchCLOSE_ORDER;

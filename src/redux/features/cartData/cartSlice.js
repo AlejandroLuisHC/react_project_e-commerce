@@ -10,7 +10,7 @@ export const cartSlice = createSlice({
     name: "cartData",
     initialState,
     reducers: {
-        addToCart: (state, action) => { // payload === {id, name, img, ...rest}
+        ADD_TO_CART: (state, action) => { // payload === {id, name, img, ...rest}
             const item = {
                 ...action.payload, 
                 quantity: 1
@@ -62,7 +62,7 @@ export const cartSlice = createSlice({
             }
             sessionStorage.setItem('cart', JSON.stringify(state.cart));
         },
-        addToQuantity: (state, action) => { // payload === id
+        ADD_TO_QUANTITY: (state, action) => { // payload === id
             state.cart.map(e => {
                 if (e.id === action.payload) {
                     return e.quantity += 1;
@@ -71,7 +71,7 @@ export const cartSlice = createSlice({
             })
             sessionStorage.setItem('cart', JSON.stringify(state.cart));
         },
-        subtractFromQuantity: (state, action) => { // payload === id
+        SUBTRACT_FROM_QUANTITY: (state, action) => { // payload === id
             state.cart.map(e => {
                 if (e.id === action.payload) {
                     if (e.quantity > 1) {
@@ -92,7 +92,7 @@ export const cartSlice = createSlice({
             })
             sessionStorage.setItem('cart', JSON.stringify(state.cart));
         },
-        eraseFromCart: (state, action) => { // payload === id 
+        ERASE_FROM_CART: (state, action) => { // payload === id 
             state.cart.map(e => {
                 if (e.id === action.payload)  {
                     const pos = state.cart.indexOf(e);
@@ -108,7 +108,7 @@ export const cartSlice = createSlice({
                 }
             })
         },
-        emptyCart: (state) => {
+        EMPTY_CART: (state) => {
             sessionStorage.removeItem('cart');
             state.cart = [];
             toast.success('Your cart is empty', {
@@ -123,11 +123,11 @@ export const cartSlice = createSlice({
 })
 
 export const { 
-    addToCart,
-    addToQuantity,
-    subtractFromQuantity, 
-    eraseFromCart,
-    emptyCart, 
+    ADD_TO_CART,
+    ADD_TO_QUANTITY,
+    SUBTRACT_FROM_QUANTITY, 
+    ERASE_FROM_CART,
+    EMPTY_CART, 
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

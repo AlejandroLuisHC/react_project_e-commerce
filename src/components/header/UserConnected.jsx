@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import { PersonCircle, BoxArrowLeft, } from 'react-bootstrap-icons';
 import { useSelector, useDispatch } from 'react-redux';
-import { logOutUser } from '../../redux/features/userData/userSlice';
+import { LOG_OUT_USER } from '../../redux/features/userData/userSlice';
 import { LinkProfile, SpanProfile } from '../style/headerStyle';
 
 const UserConnected = () => {
@@ -14,7 +14,7 @@ const UserConnected = () => {
         setSendHome(prev => prev = null)
     }, [sendHome])
     const closeSession = () => {
-        dispatch(logOutUser());
+        dispatch(LOG_OUT_USER());
         setSendHome(prev => prev = true)
     }
     return (

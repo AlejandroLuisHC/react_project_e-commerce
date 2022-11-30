@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 import fetchUsers from '../../../api/user/fetchUsers'
 import useFormController from '../../../hooks/useFormController'
-import { logInUser } from '../../../redux/features/userData/userSlice'
+import { LOG_IN_USER } from '../../../redux/features/userData/userSlice'
 
 const LoginForm = () => {
     const styleForm = {
@@ -64,7 +64,7 @@ const LoginForm = () => {
     const submitUser = e => {
         e.preventDefault();
         if (validUser(form.username, form.password).length) {
-            dispatch(logInUser(payload));
+            dispatch(LOG_IN_USER(payload));
             setSendProfile(prev => prev = true)
         } else {
             alert("Dónde va', pisha?");

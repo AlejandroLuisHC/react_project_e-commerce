@@ -4,7 +4,7 @@ import { Cart } from 'react-bootstrap-icons';
 import { Navigate } from 'react-router-dom';
 import getTotal from '../../../helper/utils/getTotal';
 import { useDispatch, useSelector } from 'react-redux';
-import { emptyCart } from '../../../redux/features/cartData/cartSlice';
+import { EMPTY_CART } from '../../../redux/features/cartData/cartSlice';
 import { useState } from 'react';
 import { ButtonCart } from '../../style/headerStyle';
 
@@ -19,7 +19,7 @@ const ShoppingCart = () => {
     const disableBtn = items.length === 0 ? "disabled" : "";
     
     const handleEmpty = () => {
-        dispatch(emptyCart());
+        dispatch(EMPTY_CART());
     }
     const [cartTrue, setCartTrue] = useState(false);
     const moveCheckout = () => {

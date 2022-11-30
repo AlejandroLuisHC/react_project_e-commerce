@@ -1,10 +1,10 @@
 import { useQueryClient } from '@tanstack/react-query';
 import accounting from 'accounting';
 import React from 'react'
-import fetchCloseOrder from '../../api/orders/fetchCloseOrder';
+import fetchCLOSE_ORDER from '../../api/orders/fetchCloseOrder';
 import fetchPendingOrder from '../../api/orders/fetchPendingOrder';
-import fetchProcessOrder from '../../api/orders/fetchProcessOrder';
-import fetchShipOrder from '../../api/orders/fetchShipOrder';
+import fetchPROCESS_ORDER from '../../api/orders/fetchProcessOrder';
+import fetchSHIP_ORDER from '../../api/orders/fetchShipOrder';
 import { H2 } from '../style/H2';
 import { DivBtnState, DivTitleOrder, SectionOrderInfo } from '../style/managementStyle';
 
@@ -39,9 +39,9 @@ const OrderInfo = ({ selectedOrder }) => {
         
             <DivBtnState>
                 <button className='btn btn-danger btn-lg' onClick={async () => {await fetchPendingOrder(selectedOrder, selectedOrder.id); queryClient.invalidateQueries({ queryKey: ["orders"] });}}>Pending...</button>
-                <button className='btn btn-warning btn-lg' onClick={async () => {await fetchProcessOrder(selectedOrder, selectedOrder.id); queryClient.invalidateQueries({ queryKey: ["orders"] })}}>Processing...</button>
-                <button className='btn btn-primary btn-lg' onClick={async () => {await fetchShipOrder(selectedOrder, selectedOrder.id); queryClient.invalidateQueries({ queryKey: ["orders"] })}}>Shipped</button>
-                <button className='btn btn-success btn-lg' onClick={async () => {await fetchCloseOrder(selectedOrder, selectedOrder.id); queryClient.invalidateQueries({ queryKey: ["orders"] })}}>Closed</button>
+                <button className='btn btn-warning btn-lg' onClick={async () => {await fetchPROCESS_ORDER(selectedOrder, selectedOrder.id); queryClient.invalidateQueries({ queryKey: ["orders"] })}}>Processing...</button>
+                <button className='btn btn-primary btn-lg' onClick={async () => {await fetchSHIP_ORDER(selectedOrder, selectedOrder.id); queryClient.invalidateQueries({ queryKey: ["orders"] })}}>Shipped</button>
+                <button className='btn btn-success btn-lg' onClick={async () => {await fetchCLOSE_ORDER(selectedOrder, selectedOrder.id); queryClient.invalidateQueries({ queryKey: ["orders"] })}}>Closed</button>
             </DivBtnState>
 
         </SectionOrderInfo>

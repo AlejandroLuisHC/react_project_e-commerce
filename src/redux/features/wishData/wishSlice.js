@@ -10,7 +10,7 @@ export const wishSlice = createSlice({
     name: "wishData",
     initialState,
     reducers: {
-        setWish: (state, action) => {
+        SET_WISH: (state, action) => {
             if (state.wish.length > 0) {
                 if (existId(action.payload.id, state.wish)) {
                     state.wish.map(e => {
@@ -52,7 +52,7 @@ export const wishSlice = createSlice({
             }
             sessionStorage.setItem('wish', JSON.stringify(state.wish));
         },
-        emptyWish: (state) => {
+        EMPTY_WISH: (state) => {
             sessionStorage.removeItem('wish');
             state.wish = [];
         }
@@ -60,8 +60,8 @@ export const wishSlice = createSlice({
 })
 
 export const {
-    setWish,
-    emptyWish
+    SET_WISH,
+    EMPTY_WISH
 } = wishSlice.actions;
 
 export default wishSlice.reducer;

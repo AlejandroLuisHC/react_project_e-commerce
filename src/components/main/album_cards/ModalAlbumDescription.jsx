@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { addToCart } from '../../../redux/features/cartData/cartSlice'
+import { ADD_TO_CART } from '../../../redux/features/cartData/cartSlice'
 import { DivModalBody, IFrameVideoclip, ImgModalAlbum, PModalContent } from '../../style/bandsAlbumStyle'
 
 const ModalAlbumDescription = ({ id, name, release, img, desc, price, video }) => {
@@ -20,7 +20,7 @@ const ModalAlbumDescription = ({ id, name, release, img, desc, price, video }) =
                         {video && <IFrameVideoclip src={video} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></IFrameVideoclip>}
                     </DivModalBody>
                     <div className="modal-footer">
-                        <button type="button" onClick={() => dispatch(addToCart({id, name, price, img}))} className="btn btn-primary btn-lg d-flex align-items-center rounded-5 text-white">Add to cart!</button>
+                        <button type="button" onClick={() => dispatch(ADD_TO_CART({id, name, price, img}))} className="btn btn-primary btn-lg d-flex align-items-center rounded-5 text-white">Add to cart!</button>
                     </div>
                 </div>
             </div>

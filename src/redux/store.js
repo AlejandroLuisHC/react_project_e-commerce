@@ -10,6 +10,5 @@ export const store = configureStore({
         cartData: cartReducer,
         wishData: wishReducer,
         // ordersData: ordersReducer,
-    },
-    devTools: process.env.NODE_ENV !== 'production',
+    }
 })

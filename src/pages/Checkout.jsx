@@ -7,17 +7,17 @@ import { MainCheckout } from '../components/style/checkoutStyle';
 
 const Checkout = () => {
     const cart = useSelector((state) => state.cartData.cart )
-    const [emptyCart, setEmptyCart] = useState(false)
+    const [EMPTY_CART, setEMPTY_CART] = useState(false)
     useEffect(() => {
         cart.length > 0 ?
-            setEmptyCart(prev => prev = false) :
-            setEmptyCart(prev => prev = true)
+            setEMPTY_CART(prev => prev = false) :
+            setEMPTY_CART(prev => prev = true)
     }, [cart])
     return (
         <MainCheckout>
             <GoHome />
             <CheckoutSection />
-            {emptyCart && <Navigate to="/" />}
+            {EMPTY_CART && <Navigate to="/" />}
         </MainCheckout>
     )
 }

@@ -1,7 +1,7 @@
 import accounting from "accounting";
 import { TrashFill } from "react-bootstrap-icons";
 import { useDispatch } from 'react-redux';
-import { addToQuantity, subtractFromQuantity, eraseFromCart } from '../../../../redux/features/cartData/cartSlice';
+import { ADD_TO_QUANTITY, SUBTRACT_FROM_QUANTITY, ERASE_FROM_CART } from '../../../../redux/features/cartData/cartSlice';
 
 const OrderedProduct = ({ id, name, price, img, subTotal, quantity }) => {
     const imgStyle = {
@@ -26,8 +26,8 @@ const OrderedProduct = ({ id, name, price, img, subTotal, quantity }) => {
         <div>
             <div className="d-flex mb-2 align-items-center justify-content-between">
                 <div className="text-white">
-                    <button className="btn btn-outline-danger btn-sm me-4" onClick={() => dispatch(eraseFromCart(id))}><TrashFill /></button>
-                    <button style={btnStyle} onClick={() => dispatch(subtractFromQuantity(id))}>-</button>  {quantity} x <button onClick={() => dispatch(addToQuantity(id))} style={btnStyle}>+</button> {name} - <b>{accounting.formatMoney(subTotal, {symbol:"€", format:"%v %s"})}</b> 
+                    <button className="btn btn-outline-danger btn-sm me-4" onClick={() => dispatch(ERASE_FROM_CART(id))}><TrashFill /></button>
+                    <button style={btnStyle} onClick={() => dispatch(SUBTRACT_FROM_QUANTITY(id))}>-</button>  {quantity} x <button onClick={() => dispatch(ADD_TO_QUANTITY(id))} style={btnStyle}>+</button> {name} - <b>{accounting.formatMoney(subTotal, {symbol:"€", format:"%v %s"})}</b> 
                     <small>{
                     quantity > 1 ? ` (${accounting.formatMoney(price, {symbol:"€", format:"%v %s"})}/u)` : null
                     }</small>
