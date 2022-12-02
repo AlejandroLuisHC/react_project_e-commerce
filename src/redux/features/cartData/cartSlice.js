@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import toast from "react-hot-toast";
-import existId from "../../../helper/utils/existId";
+import { addToCart, addToQuantity, emptyCart, eraseFromCart, subtractFromQuantity } from "./reducers";
 
 const initialState = {
     cart: JSON.parse(sessionStorage.getItem('cart')) ?? [],
@@ -10,115 +9,11 @@ export const cartSlice = createSlice({
     name: "cartData",
     initialState,
     reducers: {
-        ADD_TO_CART: (state, action) => { // payload === {id, name, img, ...rest}
-            const item = {
-                ...action.payload, 
-                quantity: 1
-            }
-            if (state.cart.length > 0) {
-                if (existId(item.id, state.cart)) {
-                    state.cart.map(e => {
-                        if (e.id === item.id) {
-                            if (e.quantity < item.stock) {
-                                toast.success(`Added ${item.name} to cart`, {
-                                    style: {
-                                        borderRadius: '10px',
-                                        background: 'rgb(56, 57, 65)',
-                                        color: '#eee',
-                                    }
-                                }) 
-                                return e.quantity += 1;
-                            } else {
-                                return toast.error(`No stock to satisfy the petition`, {
-                                    style: {
-                                        borderRadius: '10px',
-                                        background: 'rgb(56, 57, 65)',
-                                        color: '#eee',
-                                    }
-                                })
-                            }
-                        }
-                        return null
-                    }) 
-                } else {
-                    state.cart.push(item)
-                    toast.success(`Added ${item.name} to cart`, {
-                        style: {
-                            borderRadius: '10px',
-                            background: 'rgb(56, 57, 65)',
-                            color: '#eee',
-                        }
-                    }) 
-                }
-            } else {
-                state.cart.push(item);
-                toast.success(`Added ${item.name} to cart`, {
-                    style: {
-                        borderRadius: '10px',
-                        background: 'rgb(56, 57, 65)',
-                        color: '#eee',
-                    }
-                }) 
-            }
-            sessionStorage.setItem('cart', JSON.stringify(state.cart));
-        },
-        ADD_TO_QUANTITY: (state, action) => { // payload === id
-            state.cart.map(e => {
-                if (e.id === action.payload) {
-                    return e.quantity += 1;
-                }
-                return null;
-            })
-            sessionStorage.setItem('cart', JSON.stringify(state.cart));
-        },
-        SUBTRACT_FROM_QUANTITY: (state, action) => { // payload === id
-            state.cart.map(e => {
-                if (e.id === action.payload) {
-                    if (e.quantity > 1) {
-                        return e.quantity -= 1
-                    } else {
-                        const pos = state.cart.indexOf(e);
-                        toast.success(`The item's been removed`, {
-                            style: {
-                                borderRadius: '10px',
-                                background: 'rgb(56, 57, 65)',
-                                color: '#eee',
-                            }
-                        })
-                        return state.cart.splice(pos, 1);
-                    }
-                }
-                return null;
-            })
-            sessionStorage.setItem('cart', JSON.stringify(state.cart));
-        },
-        ERASE_FROM_CART: (state, action) => { // payload === id 
-            state.cart.map(e => {
-                if (e.id === action.payload)  {
-                    const pos = state.cart.indexOf(e);
-                    return state.cart.splice(pos, 1);
-                } else return null;
-            })
-            sessionStorage.setItem('cart', JSON.stringify(state.cart));
-            toast.success(`The item's been removed`, {
-                style: {
-                    borderRadius: '10px',
-                    background: 'rgb(56, 57, 65)',
-                    color: '#eee',
-                }
-            })
-        },
-        EMPTY_CART: (state) => {
-            sessionStorage.removeItem('cart');
-            state.cart = [];
-            toast.success('Your cart is empty', {
-                style: {
-                    borderRadius: '10px',
-                    background: 'rgb(56, 57, 65)',
-                    color: '#eee',
-                }
-            })
-        }
+        ADD_TO_CART: addToCart,
+        ADD_TO_QUANTITY: addToQuantity,
+        SUBTRACT_FROM_QUANTITY: subtractFromQuantity,
+        ERASE_FROM_CART: eraseFromCart,
+        EMPTY_CART: emptyCart
     }
 })
 
